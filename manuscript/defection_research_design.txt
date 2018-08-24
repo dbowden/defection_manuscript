@@ -1,0 +1,5 @@
+# Research Design
+
+## Control Variables
+
+As coups have been shown to be most prevalent in relatively poor states [@Londregan1990], I include the per capita gross domestic product using data from @Gleditsch2002a (version 6.0 beta) for the period 1950-2011.

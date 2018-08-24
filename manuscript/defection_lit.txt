@@ -1,0 +1,3 @@
+# Prior Work on Regime Fragmentation
+
+While some forms of political violence are often considered jointly, such as protests and civil war or civil and international war, coups d'etat are typically treated as distinct phenomenon, and are not considered jointly with other forms of violence.^[One notable exception is @Roessler2011.] Given examples such as the Free Syrian Army, however, I argue that there is considerable overlap between coups and civil wars. Thus, I analyze coups and rebellions that originate from the regime jointly under the umbrella term "regime fragmentation."

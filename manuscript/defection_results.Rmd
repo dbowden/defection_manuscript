@@ -1,0 +1,57 @@
+# Results
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = F, message=F)
+```
+
+```{r}
+library(Statamarkdown)
+stataexe <- "/Applications/Stata/StataSE.app/Contents/MacOS/StataSE"
+```
+
+```{stata, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+xtlogit F.thyne_attempt latentmean autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m1, title(Model 1)
+
+xtlogit F.thyne_attempt severe_repress autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m2, title(Model 2)
+
+xtlogit F.thyne_attempt navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m3, title(Model 3)
+
+xtlogit F.thyne_attempt navco_events autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m4, title(Model 4)
+
+label variable latentmean "Latent Protection Score"
+label variable severe_repress "Low Protection Score"
+label variable navco_nonviolent_repression "NAVCO Repression"
+label variable navco_events "NAVCO Campaigns"
+
+label variable high_DISAP "High Disappearances"
+label variable high_KILL "High Extrajudicial Killing"
+label variable high_POLPRIS "High Political Prisoners"
+label variable high_TORT "High Torture"
+label variable genocide "Genocide"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+
+esttab m1 m2 m3 m4 using "/Users/david/Dropbox/defection_manuscript/manuscript/table1.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean severe_repress navco_repression navco_events high_DISAP high_KILL high_POLPRIS high_TORT genocide autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Model 1" "Model 2") label title(\label{tab1} Fixed-Effects Logit Models of Coups) replace
+```
+
+\singlespacing
+
+\input{table1.tex}
+
+\doublespacing

@@ -1,0 +1,340 @@
+\documentclass[12pt,]{article}
+\usepackage[]{tgpagella}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Repression as a Cause of Coups},
+            pdfauthor={David Bowden},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Repression as a Cause of Coups}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{David Bowden}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{August 24, 2018}
+
+\usepackage{setspace}
+\usepackage{longtable}
+
+\usepackage{float}
+\let\origtable\table
+\let\endorigtable\endtable
+\renewenvironment{table}[1][2] {
+    \singlespacing
+    \expandafter\origtable\expandafter[H]
+} {
+    \endorigtable
+}
+
+\raggedbottom
+
+% \setlength{\parskip}{1cm plus4mm minus3mm}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+\begin{abstract}
+Previous work has shown that the possibility of defection from regime
+security forces may deter the use of repression. Yet, such defection
+nevertheless occurs in cases such as Syria (The Free Syrian Army),
+Libya, and the Democratic Republic of the Congo (M23).
+\end{abstract}
+
+\doublespacing
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+When the Arab Spring protests spread to Syria in March of 2011, the
+regime of President Bashar al-Assad quickly responded with forceful
+repression, including the torture and killing of a 13-year-old boy
+(Macleod and Flamand \protect\hyperlink{ref-Macleod2011}{2011}). While
+this brutality was presumably intended to deter threats to the regime,
+it arguably backfired by provoking the defection of a substantial
+portion of the regime military including Colonel Hussein Harmoush, who
+expressed a feeling of complicity in the government actions, saying that
+``I defected from the Syrian Arab army and took responsibility for
+protecting civilians\ldots{} I feel like I am responsible for the deaths
+of every single martyr in Syria,'' (Abouzeid
+\protect\hyperlink{ref-Abouzeid2011}{2011}). Riyad al-Assad, who
+defected from the Syrian Air to form the Free Syrian Army rebel group,
+similarly declared his intent to protect protestors and resist the
+regime military (Lister \protect\hyperlink{ref-Lister2016}{2016}).
+Several other contemporary rebel groups have similar origins, including
+M23 in the Democratic Republic of the Congo, and the National Liberation
+Army in Libya, suggesting that the phenomenon could be widespread. This
+paper thus seeks to answer two question. First, does the use of
+repression place regimes at greater risk of desertion and coups? Second,
+under what conditions is repression most likely to produce such
+outcomes?
+
+The fragmentation of the regime military is a key dynamic in many
+conflicts, and potentially explains why the Arab Spring led to civil war
+Syria and Libya, but not in other countries. Similar processes have
+occurred in numerous other cases, as more than 15\% of rebel groups
+since World War II have traced their origins to the regime military, and
+an additional 9\% were founded by civilian regime officials (Bowden
+\protect\hyperlink{ref-Bowden2017}{2017}). These rebellions have
+received little attention from scholars, and while some existing
+theories of civil war onset such as greed theory (Collier and Hoeffler
+\protect\hyperlink{ref-Collier2004}{2004}) could potentially account for
+them, many, including theories focusing on ethnic discrimination (e.g.
+Cederman, Wimmer, and Min \protect\hyperlink{ref-Cederman2010}{2010})
+and protest escalation (e.g. Pierskalla
+\protect\hyperlink{ref-Pierskalla2010}{2010}), assume that rebellions
+originate outside the government. Studying these cases thus offers the
+possibility of enhancing our understanding of civil war onset.
+
+Another prominent form of regime fragmentation --- coups d'etat --- has
+been the subject of much scholarship. While most of the existing
+literature focuses on broader structural conditions affecting coup risk,
+some identify a connection between protests and coup occurrence (Casper
+and Tyson \protect\hyperlink{ref-Casper2014}{2014}; Johnson and Thyne
+\protect\hyperlink{ref-Johnson2018}{2018}). Hendrix and Salehyan
+(\protect\hyperlink{ref-Hendrix2017}{2017}) consider the government's
+response to protests, finding that the possibility of regime
+fragmentation often deters the use of repression. Yet, fragmentation
+does occur, suggesting the need for further research analyzing
+fragmentation as a dependent variable. Additionally, deterrence effects
+create the possibility of endogeneity, but existing studies have not
+fully corrected for this concern. This study advances the literature on
+coups and repression by making coups a dependent variable, by accounting
+for the possibility of endogeneity through the use of an instrumental
+variable, and by examining a wider set of cases than previous studies.
+
+This research also contributes to the literature on human rights.
+Understandably, most work in this area has focused on the causes of
+human rights violations. Several scholars, however, have turned their
+attention to the consequences of human rights violations for outcomes
+such as foreign direct investment (Blanton and Blanton
+\protect\hyperlink{ref-Blanton2007}{2007}) and foreign aid (Lebovic and
+Voeten \protect\hyperlink{ref-Lebovic2009}{2009}), and others have
+suggested that repression could provoke infighting amongst regime
+factions (Hendrix and Salehyan
+\protect\hyperlink{ref-Hendrix2017}{2017}). These consequences of human
+rights violations could offer insight to preventing abuses in the
+future. For example, if regime fragmentation has the potential to
+constrain abusive behavior (Hendrix and Salehyan
+\protect\hyperlink{ref-Hendrix2017}{2017}), disrupting the flow of
+private benefits to soldiers might undermine solidarity and strengthen
+this effect. By comparing specific mechanisms linking repression to
+regime fragmentation, this study offers the prospect of such policy
+recommendations.
+
+I proceed with a review of the literature on regime fragmentation,
+including coups, rebellions, and desertion. Next, I articulate three
+theoretical processes that could link repression to regime
+fragmentation. I then specify a research design to test these
+propositions, and present results from fixed-effects and instrumental
+variables regression models. I conclude by situating the results in the
+broader literature, and by offering suggestions for future research.
+
+\hypertarget{prior-work-on-regime-fragmentation}{%
+\section{Prior Work on Regime
+Fragmentation}\label{prior-work-on-regime-fragmentation}}
+
+While some forms of political violence are often considered jointly,
+such as protests and civil war or civil and international war, coups
+d'etat are typically treated as distinct phenomenon, and are not
+considered jointly with other forms of violence.\footnote{One notable
+  exception is Roessler (\protect\hyperlink{ref-Roessler2011}{2011})}
+
+\hypertarget{research-design}{%
+\section{Research Design}\label{research-design}}
+
+\hypertarget{control-variables}{%
+\subsection{Control Variables}\label{control-variables}}
+
+As coups have been shown to be most prevalent in relatively poor states
+(Londregan and Poole \protect\hyperlink{ref-Londregan1990}{1990}), I
+include the per capita gross domestic product using data from Gleditsch
+(\protect\hyperlink{ref-Gleditsch2002a}{2002}) (version 6.0 beta) for
+the period 1950-2011.
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\singlespacing
+
+\input{table1.tex}
+
+\doublespacing
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\markboth{REFERENCES}{}
+
+\indent
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Abouzeid2011}{}%
+Abouzeid, Rania. 2011. ``The Soldier Who Gave up on Assad to Protect
+Syria's People.'' \emph{Time}.
+https://content.time.com/time/world/article/0,8599,2077348,00.html.
+
+\leavevmode\hypertarget{ref-Blanton2007}{}%
+Blanton, Shannon Lindsey, and Robert G. Blanton. 2007. ``What Attracts
+Foreign Investors? An Examination of Human Rights and Foreign Direct
+Investment.'' \emph{The Journal of Politics} 69 (1): 143--55.
+\url{https://doi.org/10.1111/j.1468-2508.2007.00500.x}.
+
+\leavevmode\hypertarget{ref-Bowden2017}{}%
+Bowden, David F. 2017. ``Politics Among Rebels: The Causes of Division
+Between Dissidents.'' Ph.D. Diss., University of Illinois,
+Urbana-Champaign.
+
+\leavevmode\hypertarget{ref-Casper2014}{}%
+Casper, Brett Allen, and Scott A. Tyson. 2014. ``Popular Protest and
+Elite Coordination in a Coup d'état.'' \emph{Journal of Politics} 76
+(2): 548--64.
+
+\leavevmode\hypertarget{ref-Cederman2010}{}%
+Cederman, Lars-Erik, Andreas Wimmer, and Brian Min. 2010. ``Why Do
+Ethnic Groups Rebel?: New Data and Analysis.'' \emph{World Politics} 62
+(1): 87--98.
+
+\leavevmode\hypertarget{ref-Collier2004}{}%
+Collier, Paul, and Anke Hoeffler. 2004. ``Greed and Grievance in Civil
+War.'' \emph{Oxford Economic Papers} 56 (4): 563--95.
+
+\leavevmode\hypertarget{ref-Gleditsch2002a}{}%
+Gleditsch, Kristian Skrede. 2002. ``Expanded Trade and GDP Data.''
+\emph{Journal of Conflict Resolution} 46 (5): 712--24.
+
+\leavevmode\hypertarget{ref-Hendrix2017}{}%
+Hendrix, Cullen S., and Idean Salehyan. 2017. ``A House Divided: Threat
+Perception, Military Factionalism, and Repression in Africa.''
+\emph{Journal of Conflict Resolution} 61 (8): 1653--81.
+\url{https://doi.org/10.1177/0022002715620473}.
+
+\leavevmode\hypertarget{ref-Johnson2018}{}%
+Johnson, Jaclyn, and Clayton L. Thyne. 2018. ``Squeaky Wheels and Troop
+Loyalty: How Domestic Protests Influence Coups d'état, 19512005.''
+\emph{Journal of Conflict Resolution} 62 (3): 597--625.
+\url{https://doi.org/10.1177/0022002716654742}.
+
+\leavevmode\hypertarget{ref-Lebovic2009}{}%
+Lebovic, James H., and Erik Voeten. 2009. ``The Cost of Shame:
+International Organizations and Foreign Aid in the Punishing of Human
+Rights Violators.'' \emph{Journal of Peace Research} 46 (1): 79--97.
+\url{https://doi.org/10.1177/0022343308098405}.
+
+\leavevmode\hypertarget{ref-Lister2016}{}%
+Lister, Charles. 2016. ``The Free Syrian Army: A Decentralized Insurgent
+Brand.'' \emph{Brookings Project on U.S. Relations with the Islamic
+World}, no. 26.
+
+\leavevmode\hypertarget{ref-Londregan1990}{}%
+Londregan, John B., and Keith T. Poole. 1990. ``Poverty, the Coup Trap,
+and the Seizure of Executive Power.'' \emph{World Politics} 42 (2):
+151--83.
+
+\leavevmode\hypertarget{ref-Macleod2011}{}%
+Macleod, Hugh, and Annasofie Flamand. 2011. ``Tortured and Killed: Hamza
+Al-Khateeb, Age 13.'' \emph{Al Jazeera}.
+https://www.aljazeera.com/indepth/features/2011/05/201153185927813389.html.
+
+\leavevmode\hypertarget{ref-Pierskalla2010}{}%
+Pierskalla, Jan Henryk. 2010. ``Protest, Deterrence, and Escalation: The
+Strategic Calculus of Government Repression.'' \emph{Journal of Conflict
+Resolution} 54 (1): 117--45.
+
+\leavevmode\hypertarget{ref-Roessler2011}{}%
+Roessler, Philip. 2011. ``The Enemy Within: Personal Rule, Coups, and
+Civil War in Africa.'' \emph{World Politics} 63 (2): 300--346.
+
+
+\end{document}
