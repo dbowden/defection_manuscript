@@ -1,0 +1,36 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\label{tab1} Fixed-Effects Logit Models of Coups}
+\begin{tabular}{l*{2}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         \\
+                    &        Coup         &        Coup         \\
+\hline
+Latent Protection Score&       -0.60\sym{*}  &       -0.17         \\
+                    &      (0.29)         &      (0.36)         \\
+Latent Protection Score&        0.00         &                     \\
+                    &         (.)         &                     \\
+% Officers Discriminated&       -0.01         &       -0.04\sym{*}  \\
+                    &      (0.01)         &      (0.02)         \\
+% Officers Discriminated&        0.00         &                     \\
+                    &         (.)         &                     \\
+Autocracy           &       -0.47         &       -0.58         \\
+                    &      (0.39)         &      (0.40)         \\
+Democracy           &       -0.23         &       -0.27         \\
+                    &      (0.62)         &      (0.61)         \\
+Military Regime     &       -0.75         &       -0.79         \\
+                    &      (0.57)         &      (0.57)         \\
+log GDPpc           &       -0.09         &       -0.01         \\
+                    &      (0.39)         &      (0.40)         \\
+log Population      &       -1.69\sym{***}&       -1.78\sym{***}\\
+                    &      (0.43)         &      (0.46)         \\
+Civil Conflict      &       -0.11         &       -0.27         \\
+                    &      (0.43)         &      (0.44)         \\
+Latent Protection Score $\times$ % Officers Discriminated&                     &       -0.02         \\
+                    &                     &      (0.01)         \\
+\hline
+N                   &         778         &         778         \\
+\hline\hline
+\multicolumn{3}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}

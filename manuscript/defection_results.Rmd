@@ -7,9 +7,10 @@ knitr::opts_chunk$set(echo = F, message=F)
 ```{r}
 library(Statamarkdown)
 stataexe <- "/Applications/Stata/StataSE.app/Contents/MacOS/StataSE"
+knitr::opts_chunk$set(engine.path=stataexe)
 ```
 
-```{stata, results='hide', engine.path=stataexe}
+```{stata table1, collectcode=TRUE, results='hide', engine.path=stataexe}
 use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
 
 xtset ccode year, yearly
@@ -18,7 +19,7 @@ xtlogit F.thyne_attempt latentmean autoc democ gwf_military log_rgdppc log_pop c
 
 estimates store m1, title(Model 1)
 
-xtlogit F.thyne_attempt severe_repress autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+xtlogit F.nsa_milrebel latentmean autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
 
 estimates store m2, title(Model 2)
 
@@ -26,13 +27,13 @@ xtlogit F.thyne_attempt navco_repression autoc democ gwf_military log_rgdppc log
 
 estimates store m3, title(Model 3)
 
-xtlogit F.thyne_attempt navco_events autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+xtlogit F.nsa_milrebel navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
 
 estimates store m4, title(Model 4)
 
 label variable latentmean "Latent Protection Score"
 label variable severe_repress "Low Protection Score"
-label variable navco_nonviolent_repression "NAVCO Repression"
+label variable navco_repression "NAVCO Repression"
 label variable navco_events "NAVCO Campaigns"
 
 label variable high_DISAP "High Disappearances"
@@ -47,11 +48,42 @@ label variable log_rgdppc "log GDPpc"
 label variable log_pop "log Population"
 label variable civil_conflict "Civil Conflict"
 
-esttab m1 m2 m3 m4 using "/Users/david/Dropbox/defection_manuscript/manuscript/table1.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean severe_repress navco_repression navco_events high_DISAP high_KILL high_POLPRIS high_TORT genocide autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Model 1" "Model 2") label title(\label{tab1} Fixed-Effects Logit Models of Coups) replace
+esttab m1 m2 m3 m4 using "/Users/david/Dropbox/defection_manuscript/manuscript/table1.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Coup" "Regime Rebellion" "Coup" "Regime Rebellion") label title(\label{tab1} Fixed-Effects Logit Models of Coups) replace
 ```
 
 \singlespacing
 
 \input{table1.tex}
+
+\doublespacing
+
+```{stata table2, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+xtlogit F.thyne_attempt latentmean officer_pc_discriminated latentmean officer_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m5, title(Model 5)
+
+xtlogit F.thyne_attempt c.latentmean#c.officer_pc_discriminated latentmean officer_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m6, title(Model 6)
+
+label variable officer_pc_discriminated "% Officers Discriminated"
+label variable latentmean "Latent Protection Score"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+
+esttab m5 m6 using "/Users/david/Dropbox/defection_manuscript/manuscript/table2.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean officer_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Coup" "Coup") label title(\label{tab1} Fixed-Effects Logit Models of Coups) replace
+```
+
+\singlespacing
+
+\input{table2.tex}
 
 \doublespacing

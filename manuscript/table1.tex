@@ -1,0 +1,30 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\label{tab1} Fixed-Effects Logit Models of Coups}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+                    &        Coup         &Regime Rebellion         &        Coup         &Regime Rebellion         \\
+\hline
+Latent Protection Score&       -0.50\sym{***}&       -0.94\sym{***}&                     &                     \\
+                    &      (0.11)         &      (0.23)         &                     &                     \\
+NAVCO Repression    &                     &                     &        0.16\sym{*}  &        0.25         \\
+                    &                     &                     &      (0.07)         &      (0.14)         \\
+Autocracy           &       -0.65\sym{***}&       -0.85\sym{**} &       -0.52\sym{***}&       -0.58         \\
+                    &      (0.15)         &      (0.33)         &      (0.15)         &      (0.32)         \\
+Democracy           &       -0.24         &       -0.19         &       -0.31         &       -0.37         \\
+                    &      (0.20)         &      (0.48)         &      (0.20)         &      (0.48)         \\
+Military Regime     &        0.33         &        0.17         &        0.37\sym{*}  &        0.34         \\
+                    &      (0.18)         &      (0.46)         &      (0.18)         &      (0.45)         \\
+log GDPpc           &       -0.24         &        0.08         &       -0.30         &       -0.05         \\
+                    &      (0.17)         &      (0.40)         &      (0.17)         &      (0.38)         \\
+log Population      &       -1.54\sym{***}&       -1.01\sym{*}  &       -1.35\sym{***}&       -0.58         \\
+                    &      (0.18)         &      (0.40)         &      (0.17)         &      (0.36)         \\
+Civil Conflict      &        0.22         &       -0.98\sym{*}  &        0.32         &       -0.67         \\
+                    &      (0.19)         &      (0.42)         &      (0.20)         &      (0.45)         \\
+\hline
+N                   &        4340         &        2210         &        4340         &        2210         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}

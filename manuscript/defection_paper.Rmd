@@ -1,12 +1,12 @@
 ---
-title: "Repression as a Cause of Coups"
+title: "I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces"
 author: "David Bowden"
 date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
 output:
      bookdown::pdf_book:
          keep_tex: yes
          includes:
-             in_header: /Users/david/Dropbox/Dissertation/Document/preamble.tex
+             in_header: preamble.tex
 bibliography: /Users/david/Dropbox/zotero_library.bib
 biblio-sytle: apsr
 documentclass: article
@@ -26,10 +26,15 @@ options(xtable.comment = FALSE)
 
 \doublespacing
 
+\setlength{\parindent}{1cm}
+
 ```{r child='defection_intro.txt'}
 ```
 
 ```{r child='defection_lit.txt'}
+```
+
+```{r child='defection_theory.txt'}
 ```
 
 ```{r child='defection_research_design.txt'}

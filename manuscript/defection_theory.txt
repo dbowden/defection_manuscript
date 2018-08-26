@@ -1,0 +1,9 @@
+# Theorizing Regime Fragmentation
+
+*H1a: Repression increases the probability of coups*
+*H1b: Repression increases the probability of regime rebellion*
+
+
+*H2: There is a positive interaction between the level of repression and the share of the military with ethnic ties to the repressed*
+
+*H3: There is a positive interaction between the level of repression and the level of infighting amongst military factions* 
