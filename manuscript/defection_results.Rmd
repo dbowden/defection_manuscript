@@ -10,6 +10,10 @@ stataexe <- "/Applications/Stata/StataSE.app/Contents/MacOS/StataSE"
 knitr::opts_chunk$set(engine.path=stataexe)
 ```
 
+Results for *Hypotheses 1a* and *1b* are presented in Table 1. Consistent with my predictions, repression generally predicts the onset of coups and regime-based rebellions. Model 1 uses the *Latent Human Protection Score* to measure repression, with coup attempt as the dependent variable. Higher values of the protection score signify *greater* levels of respect for human rights; I thus expect a negative relationship between this variable and coups. Indeed, the measure has a negative relationship with coup probability that is statistically significant at the 99.9% level. The effect is substantively large, as a one-unit decrease in the *Latent Protection Score* (for reference, this was roughly the difference between Israel and the Democratic Republic of the Congo in 2013) increases the probability of a coup by 64.8%. Model 2 shows the relationship between *Latent Protection Score* and the onset of regime-based rebellion. Once again consistent with my prediction, the relationship is negative and statistically significant. The substantive effect is even larger, with a one-unit decrease in the protection score increasing the probability of rebellion by 156%. The number of observations decreases by more than half for the regime rebellion dependent variable, as many countries never experience the phenomenon and fixed-effects estimation requires variation on the dependent variable.
+
+The effects of the *NAVCO Repression* variable are reported in Models 3 and 4. In this cases higher values are associated with greater levels of repression, meaning that I would expect as positive coefficient. The result for coup attempts is consistent with my prediction, as *NAVCO Repression* has a positive coefficient that is statistically significant at the 95% level. The effect size is modest in comparison to that of *Latent Protection Score*, as a one-unit increase in repression (for example, movement from "moderate" to "extreme" repression) increases the probability of a coup by 17.4%. *NAVCO Repression* is not significantly related to regime-based rebellion. On the whole, these results suggest strong support for Hypotheses 1a and 1b --- repression is a strong predictor of regime fragmentation, manifest in both coup attempts and rebellions originating from the regime.
+
 ```{stata table1, collectcode=TRUE, results='hide', engine.path=stataexe}
 use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
 
@@ -48,7 +52,7 @@ label variable log_rgdppc "log GDPpc"
 label variable log_pop "log Population"
 label variable civil_conflict "Civil Conflict"
 
-esttab m1 m2 m3 m4 using "/Users/david/Dropbox/defection_manuscript/manuscript/table1.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Coup" "Regime Rebellion" "Coup" "Regime Rebellion") label title(\label{tab1} Fixed-Effects Logit Models of Coups) replace
+esttab m1 m2 m3 m4 using "/Users/david/Dropbox/defection_manuscript/manuscript/table1.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Coup" "Regime Rebellion" "Coup" "Regime Rebellion") label title(\label{tab1} Panel Logit Models of the Effect of Repression on Regime Fragmentation) replace
 ```
 
 \singlespacing
@@ -57,20 +61,41 @@ esttab m1 m2 m3 m4 using "/Users/david/Dropbox/defection_manuscript/manuscript/t
 
 \doublespacing
 
+Results for *H2* are presented in Table 2. The first column reveals an statistically significant interaction between *Latent Protection Score* and *% Military Discriminated*. The marginal effects plotted in Figure 1 reveal how the variables affect each other. *Latent Protection Score* is virtually unaffected by the level of *% Military Discriminated*, having a consistent, slightly positive effect on coup probability. This pattern contradicts my expectations (recall that higher levels of the measure equate to *less* repression). The effect of *% Military Discriminated*, however, is highly conditional on the level of *Latent Protection Score*. At the most repressive end of the scale, the share of the military that belongs to a marginalized ethnic group is positively related to the probability of a coup. At the least repressive end of the spectrum, however, discrimination of ethnic groups well-represented in the military is *negatively* related to the probability of coups. One interpretation of these result is that the violent repression of co-ethnics induces soldiers to turn against the regime, while non-violent forms of discrimination do not. It may also be the case that the different repressive strategies (violent vs. non-violent) correlate with a confounding factor such as coup-proofing efforts. The former explanation would be consistent with my theoretical framework, while the latter likely would not be. The *% Military Discriminated* measure is not statistically significant in a simple additive model, and neither the interactive nor the additive effect is significantly related to regime-based rebellion.
+
+
 ```{stata table2, results='hide', engine.path=stataexe}
 use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
 
 xtset ccode year, yearly
 
-xtlogit F.thyne_attempt latentmean officer_pc_discriminated latentmean officer_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+xtlogit F.thyne_attempt latentmean rank_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe
 
 estimates store m5, title(Model 5)
 
-xtlogit F.thyne_attempt c.latentmean#c.officer_pc_discriminated latentmean officer_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+xtlogit F.thyne_attempt c.latentmean#c.rank_pc_discriminated latentmean rank_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
 
 estimates store m6, title(Model 6)
 
-label variable officer_pc_discriminated "% Officers Discriminated"
+/* margins, dydx(latentmean) at(rank_pc_discriminated=(0(.1)1)) predict(xb)
+marginsplot, ylin(0)
+graph save Graph "/Users/david/Dropbox/defection_manuscript/data/interaction1.gph"
+margins, dydx(rank_pc_discriminated) at(latentmean=(-3(.5)2)) predict(xb)
+marginsplot, ylin(0)
+graph save Graph "/Users/david/Dropbox/defection_manuscript/data/interaction2.gph"
+graph combine "/Users/david/Dropbox/defection_manuscript/data/interaction1.gph" "/Users/david/Dropbox/defection_manuscript/data/interaction2.gph" */
+
+
+
+xtlogit F.nsa_milrebel latentmean rank_pc_discriminated autoc gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m7, title(Model 7)
+
+xtlogit F.nsa_milrebel c.latentmean#c.rank_pc_discriminated latentmean rank_pc_discriminated autoc gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m8, title(Model 8)
+
+label variable rank_pc_discriminated "\% Military Discriminated"
 label variable latentmean "Latent Protection Score"
 label variable autoc "Autocracy"
 label variable democ "Democracy"
@@ -79,11 +104,58 @@ label variable log_rgdppc "log GDPpc"
 label variable log_pop "log Population"
 label variable civil_conflict "Civil Conflict"
 
-esttab m5 m6 using "/Users/david/Dropbox/defection_manuscript/manuscript/table2.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean officer_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Coup" "Coup") label title(\label{tab1} Fixed-Effects Logit Models of Coups) replace
+esttab m6 m5 m8 m7 using  "/Users/david/Dropbox/defection_manuscript/manuscript/table2.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean rank_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) wrap collabels(none) eqlabels(none) mlabels("Coup" "Coup" "Regime Rebellion" "Regime Rebellion") label title(\label{tab2} The Effect of Military Ethnic Ties and Repression on Regime Fragmentation) replace
+
+margins, dydx(latentmean) at(rank_pc_discriminated=(0(.1)1)) predict(xb)
+marginsplot, ylin(0)
 ```
 
 \singlespacing
 
 \input{table2.tex}
+
+\doublespacing
+
+
+![Marginal Effects of Repression x Military Discrimination Interaction](/Users/david/Dropbox/defection_manuscript/data/interaction1_2_combined.pdf)
+
+The results for *H3* are presented in Table 3. The interaction of *Military Infighting* and *Latent Protection Score* is significant for neither coup attempts nor regime-based rebellions. The infighting measure is also not significant in the additive models. In fact, the only noteworthy result in Table 3 is that the effect of *Latent Protection Score* is robust to the inclusion of the *Military Infighting* measure.
+
+```{stata table3, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+xtlogit F.thyne_attempt latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m9, title(Model 9)
+
+xtlogit F.thyne_attempt c.latentmean#c.mil_mil_bin latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m10, title(Model 10)
+
+xtlogit F.nsa_milrebel latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m11, title(Model 11)
+
+xtlogit F.nsa_milrebel c.latentmean#c.mil_mil_bin latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m12, title(Model 12)
+
+label variable mil_mil_bin "Military Infighting"
+label variable latentmean "Latent Protection Score"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+
+esttab m9 m10 m11 m12 using "/Users/david/Dropbox/defection_manuscript/manuscript/table3.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) wrap collabels(none) eqlabels(none) mlabels("Coup" "Coup" "Regime Rebellion" "Regime Rebellion") label title(\label{tab3} The Effect of Military Infighting and Repression on Regime Fragmentation) replace
+```
+
+\singlespacing
+
+\input{table3.tex}
 
 \doublespacing

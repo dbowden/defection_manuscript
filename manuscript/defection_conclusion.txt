@@ -1,3 +1,10 @@
 # Conclusion
 
-- Coup/war outcomes
+Anecdotally, repression seems to engender backlash and increase the risk of regime fragmentation. The evidence presented here suggests that cases like the Free Syrian Army and M23 are not rare. Repression is robustly related to coup attempts, and there is some evidence to suggest that it is an important cause of rebellions originating from the regime. The search for specific mechanisms found limited success, but it does appear that the combination of high levels of repression and ethnic ties between members of the military and the individuals being repressed increases coup risk.
+
+These results have two important implications for the existing literature. First, they lend support to the argument of @Hendrix2017 that regimes face potential internal backlash over the use of repression. However, this study also shows that repression and subsequent fragmentation frequently do occur. Thus, the deterrence effect proposed by @Hendrix2017 is not perfectly effective, leaving a need for further research on the conditions under which repression does and does not provoke a backlash. These findings also have implications for the coup literature. Theories of coups often assume they are opportunistic and motivated by material greed. While there could be a material link between repression and regime fragmentation (see the discussion in the theory section regarding non-tax revenue), the finding that repression strongly predicts coups could also suggest that coups are guided by more ideational and moral concerns than previously recognized. 
+
+
+<!-- - Coup/war outcomes
+
+A more disaggregated quantitative study focusing on precise sequences of events -->

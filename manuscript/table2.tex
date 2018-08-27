@@ -1,36 +1,32 @@
 \begin{table}[htbp]\centering
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\caption{\label{tab1} Fixed-Effects Logit Models of Coups}
-\begin{tabular}{l*{2}{c}}
+\caption{\label{tab2} The Effect of Military Ethnic Ties and Repression on Regime Fragmentation}
+\begin{tabular}{l*{4}{c}}
 \hline\hline
-                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         \\
-                    &        Coup         &        Coup         \\
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+                    &        Coup         &        Coup         &Regime Rebellion         &Regime Rebellion         \\
 \hline
-Latent Protection Score&       -0.60\sym{*}  &       -0.17         \\
-                    &      (0.29)         &      (0.36)         \\
-Latent Protection Score&        0.00         &                     \\
-                    &         (.)         &                     \\
-% Officers Discriminated&       -0.01         &       -0.04\sym{*}  \\
-                    &      (0.01)         &      (0.02)         \\
-% Officers Discriminated&        0.00         &                     \\
-                    &         (.)         &                     \\
-Autocracy           &       -0.47         &       -0.58         \\
-                    &      (0.39)         &      (0.40)         \\
-Democracy           &       -0.23         &       -0.27         \\
-                    &      (0.62)         &      (0.61)         \\
-Military Regime     &       -0.75         &       -0.79         \\
-                    &      (0.57)         &      (0.57)         \\
-log GDPpc           &       -0.09         &       -0.01         \\
-                    &      (0.39)         &      (0.40)         \\
-log Population      &       -1.69\sym{***}&       -1.78\sym{***}\\
-                    &      (0.43)         &      (0.46)         \\
-Civil Conflict      &       -0.11         &       -0.27         \\
-                    &      (0.43)         &      (0.44)         \\
-Latent Protection Score $\times$ % Officers Discriminated&                     &       -0.02         \\
-                    &                     &      (0.01)         \\
+Latent Protection   &        0.06         &       -0.58\sym{*}  &       -1.20         &       -0.88         \\
+Score               &      (0.35)         &      (0.29)         &      (0.68)         &      (0.61)         \\
+\% Military         &       -0.04\sym{**} &       -0.00         &        0.00         &       -0.03         \\
+Discriminated       &      (0.01)         &      (0.01)         &      (0.03)         &      (0.02)         \\
+Autocracy           &       -0.78         &       -0.53         &        1.22         &        0.69         \\
+                    &      (0.41)         &      (0.40)         &      (1.33)         &      (1.10)         \\
+Democracy           &       -0.35         &       -0.21         &                     &                     \\
+                    &      (0.60)         &      (0.62)         &                     &                     \\
+Military Regime     &       -0.79         &       -0.66         &       -0.59         &       -0.42         \\
+                    &      (0.57)         &      (0.57)         &      (1.47)         &      (1.36)         \\
+log GDPpc           &       -0.07         &       -0.06         &        0.67         &        0.40         \\
+                    &      (0.41)         &      (0.39)         &      (1.11)         &      (1.08)         \\
+log Population      &       -1.74\sym{***}&       -1.74\sym{***}&       -0.89         &       -0.53         \\
+                    &      (0.47)         &      (0.44)         &      (1.31)         &      (1.18)         \\
+Civil Conflict      &       -0.34         &       -0.04         &       -1.05         &       -1.20         \\
+                    &      (0.45)         &      (0.43)         &      (0.95)         &      (0.90)         \\
+Latent Protection   &       -0.03\sym{**} &                     &        0.02         &                     \\
+Score $\times$ \% Military Discriminated&      (0.01)         &                     &      (0.02)         &                     \\
 \hline
-N                   &         778         &         778         \\
+N                   &         778         &         778         &         269         &         269         \\
 \hline\hline
-\multicolumn{3}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
 \end{tabular}
 \end{table}

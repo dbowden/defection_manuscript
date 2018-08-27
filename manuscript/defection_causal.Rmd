@@ -1,0 +1,45 @@
+# Causal Inference
+
+The results presented thus far are consistent with *H1a* and *H1b*, but face a notable shortcoming --- a government's decision to repress or not may be endogenous to the potential consequences of repression. Indeed, @Hendrix2017 argue that the risk of internal backlash deters repression. Instrumental variables have been established as an effective means of correcting for such bias [@Ritter2016]. Valid instruments are often difficult to find, as they must be strong predictors of the endogenous variable (repression in this case), but cannot be related to the dependent variable except through the effects of the endogenous variable. One variable that may satisfy both requirements is the "youth bulge" measure originally proposed by @Urdal2006. Youth bulges are a national-level demographic attribute defined as the ratio of 15-24 year-olds relative to the adult population. In a meta analysis @Hill2014 show that the youth bulge is among the strongest predictors of repression in the literature, satisfying the first requirement of an instrument. It is less clear whether youth bulges meet the second require (the exclusion restriction). On one hand @Urdal2006 finds that youth bulges are strongly associated with political violence. On the other hand, the theoretical mechanisms he outlines emphasize challenges that originate outside the state, motivated by resource shortages. We should not necessarily expect, then, that youth bulges would have a direct effect on defection from the regime. I thus proceed to utilize the measure as an instrument in a two-stage probit model.
+
+```{stata causal, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+gen lead_thyne_attempt = F.thyne_attempt
+gen lead_nsa_milreb = F.nsa_milrebel
+
+label variable latentmean "Latent Protection Score"
+label variable navco_repression "NAVCO Repression"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+label variable youth_bulge "Youth Bulge"
+
+ivprobit lead_thyne_attempt autoc democ gwf_military log_rgdppc log_pop civil_conflict (latentmean = youth_bulge), vce(cluster ccode)
+
+estimates store c1
+
+ivprobit lead_thyne_attempt autoc democ gwf_military log_rgdppc log_pop civil_conflict (navco_repression = youth_bulge), vce(cluster ccode)
+
+estimates store c2
+
+ivprobit lead_nsa_milreb autoc democ gwf_military log_rgdppc log_pop civil_conflict (latentmean = youth_bulge), vce(cluster ccode)
+
+estimates store c3
+
+esttab c1 c2 c3  using "/Users/david/Dropbox/defection_manuscript/manuscript/table4.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend drop(athrho: lnsigma: latentmean: navco_repression:) order(latentmean navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) eqlabels(none) collabels(none) mlabels("Coup" "Coup" "Regime Rebellion" "Regime Rebellion") label title(\label{tab4} IV Probit Models of the Effect of Repression on Regime Fragmentation) replace
+
+```
+
+\singlespacing
+
+\input{table4.tex}
+
+\doublespacing
+
+The results of the instrumental variables analysis are presented in Table 4. In the first and third models, the youth bulge measure is used to instrument for *Latent Protection Score*. The statistically significant relationship exhibited by the direct disappears after instrumenting. When instrumenting for the *NAVCO Repression* measure, however, the relationship remains statistically significant and is larger, substantively than in the conventional regression.^[It was not possible to obtain estimates for the regime rebellion dependent variable.] The instrumental variables analysis thus produces ambiguous results. One explanation is that by including a wide variety of data sources, the *Latent Protection Scores* capture information that is endogenous to the dependent variables studied here. It may even be the case that coups are factoring into the scores directly, though it is not clear through which underlying dataset this would occur. The *NAVCO* measure, by contrast, is more narrowly focused on the repression of non-state political movements, and thus less beset by the concerns.

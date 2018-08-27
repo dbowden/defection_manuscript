@@ -86,7 +86,7 @@ ucdp.group$ccode <- as.numeric(as.character(ucdp.group$ccode))
 # condense to yearly summaries
 ucdp.group <- ucdp.group %>% 
   group_by(ccode, year) %>% 
-  summarize(nsa_coup=sum(nsa_coup), nsa_milrebel=sum(nsa_milrebel), nsa_milrebel_nocoup=sum(nsa_milrebel_nocoup))
+  summarize(nsa_coup=sum(nsa_coup), nsa_milrebel=ifelse(sum(nsa_milrebel)>0, 1, 0), nsa_milrebel_nocoup=sum(nsa_milrebel_nocoup))
 
 coups <- left_join(coups, ucdp.group)
 rm(ucdp.group)
@@ -136,49 +136,58 @@ rm(hrps)
 
 
 # PHOENIX Historical Data ----
-# nyt <- read_csv("~/ClineCenterHistoricalPhoenixEventData/PhoenixNYT_1945-2005.csv")
-# swb <- read_csv("~/ClineCenterHistoricalPhoenixEventData/PhoenixSWB_1979-2015.csv")
-# fbis <- read_csv("~/ClineCenterHistoricalPhoenixEventData/PhoenixFBIS_1995-2004.csv")
-# 
-# # combine
-# phoenix <- rbind(nyt, swb, fbis)
-# rm(nyt, swb, fbis)
-# 
-# phoenix$root_code <- as.numeric(phoenix$root_code)
-# 
-# # convert to COW codes and a few
-# phoenix$ccode <- countrycode(phoenix$countryname, "iso3c", "cown")
-# phoenix$ccode[phoenix$countryname=="XKX"] <- 347 #Kosovo
-# phoenix$ccode[phoenix$countryname=="SRB"] <- 345 #COW considers Serbia to have inherited the Yugoslavia code
-# phoenix$ccode[phoenix$countryname=="PSE"] <- 666
-# 
-# # create subset of protests
-# protest <- filter(phoenix, (source_agent=="CVL" | source_agent=="OPP") & (target_agent=="GOV" | target_agent=="SPY" | target_agent=="MIL" | target_agent=="COP" | target_agent=="JUD") & root_code>=10)
-# 
-# # create subset of repression
-# repress <- filter(phoenix, (source_agent=="GOV" | source_agent=="MIL" | source_agent=="COP") & (target_agent=="CVL" | target_agent=="OPP") & root_code>=17)
-# 
-# rm(phoenix)
-# 
-# # create country_year summary
-# protest <- protest %>% 
-#   group_by(ccode, year) %>% 
-#   summarize(phoenix_protests=n(), phoenix_violent_protests=sum(root_code>=17))
-# 
-# repress <- repress %>% 
-#   group_by(ccode, year) %>% 
-#   summarize(phoenix_repress=n(), phoenix_violent_repress=sum(code=="175" | root_code>=18))
-# 
-# # merge
-# coups <- left_join(coups, protest)
-# coups <- left_join(coups, repress)
-# rm(protest, repress)
-# 
-# # convert missing to 0 (assume no repression if not observed)
-# coups$phoenix_protests[is.na(coups$phoenix_protests) & coups$year <= 2015] <- 0
-# coups$phoenix_violent_protests[is.na(coups$phoenix_violent_protests) & coups$year <= 2015] <- 0
-# coups$phoenix_repress[is.na(coups$phoenix_repress) & coups$year <= 2015] <- 0
-# coups$phoenix_violent_repress[is.na(coups$phoenix_violent_repress) & coups$year <= 2015] <- 0
+nyt <- read_csv("~/ClineCenterHistoricalPhoenixEventData/PhoenixNYT_1945-2005.csv")
+swb <- read_csv("~/ClineCenterHistoricalPhoenixEventData/PhoenixSWB_1979-2015.csv")
+fbis <- read_csv("~/ClineCenterHistoricalPhoenixEventData/PhoenixFBIS_1995-2004.csv")
+
+# combine
+phoenix <- rbind(nyt, swb, fbis)
+rm(nyt, swb, fbis)
+
+phoenix$root_code <- as.numeric(phoenix$root_code)
+
+# convert to COW codes and a few
+phoenix$ccode <- countrycode(phoenix$countryname, "iso3c", "cown")
+phoenix$ccode[phoenix$countryname=="XKX"] <- 347 #Kosovo
+phoenix$ccode[phoenix$countryname=="SRB"] <- 345 #COW considers Serbia to have inherited the Yugoslavia code
+phoenix$ccode[phoenix$countryname=="PSE"] <- 666
+
+# create subset of protests
+protest <- filter(phoenix, (source_agent=="CVL" | source_agent=="OPP") & (target_agent=="GOV" | target_agent=="SPY" | target_agent=="MIL" | target_agent=="COP" | target_agent=="JUD") & root_code>=10)
+
+# create subset of repression
+repress <- filter(phoenix, (source_agent=="GOV" | source_agent=="MIL" | source_agent=="COP") & (target_agent=="CVL" | target_agent=="OPP") & root_code>=17)
+
+# create mil-mil subset
+mil <- filter(phoenix, source_agent=="MIL" & target_agent=="MIL" & quad_class==4)
+
+rm(phoenix)
+
+# create country_year summary
+protest <- protest %>%
+  group_by(ccode, year) %>%
+  summarize(phoenix_protests=n(), phoenix_violent_protests=sum(root_code>=17))
+
+repress <- repress %>%
+  group_by(ccode, year) %>%
+  summarize(phoenix_repress=n(), phoenix_violent_repress=sum(code=="175" | root_code>=18))
+
+mil <- mil %>% 
+  group_by(ccode, year) %>% 
+  summarize(mil_mil=n())
+
+# merge
+coups <- left_join(coups, protest)
+coups <- left_join(coups, repress)
+coups <- left_join(coups, mil)
+rm(protest, repress, mil)
+
+# convert missing to 0 (assume no repression if not observed)
+coups$phoenix_protests[is.na(coups$phoenix_protests) & coups$year <= 2015] <- 0
+coups$phoenix_violent_protests[is.na(coups$phoenix_violent_protests) & coups$year <= 2015] <- 0
+coups$phoenix_repress[is.na(coups$phoenix_repress) & coups$year <= 2015] <- 0
+coups$phoenix_violent_repress[is.na(coups$phoenix_violent_repress) & coups$year <= 2015] <- 0
+coups$mil_mil_bin <- ifelse(!is.na(coups$mil_mil), 1, 0)
 
 
 # NAVCO 2.0 ----
@@ -285,6 +294,34 @@ coups$americas <- ifelse(coups$region=="Americas", 1, 0)
 coups$africa <- ifelse(coups$region=="Sub-Saharan Africa", 1, 0)
 coups$mena <- ifelse(coups$region=="MENA", 1, 0)
 coups$asia <- ifelse(coups$region=="Asia", 1, 0)
+
+
+# CINC v5 ----
+cinc <- read_csv("data/NMC_5_0.csv", na = "-9")
+
+cinc$lmilex=log(cinc$milex)
+cinc$lmilper=log(cinc$milper)
+cinc$lmilexpc = log(cinc$milex / cinc$milper)
+
+cinc <- select(cinc, ccode, year, lmilex, lmilper, lmilexpc)
+
+coups <- left_join(coups, cinc)
+rm(cinc)
+
+
+# Youth bulge ----
+youth <- read_csv("data/youth_bulge_updated.csv")
+
+youth <- rename(youth, ccode=GWNoA, year=Year)
+
+#some repeat obs
+youth <- youth %>% 
+  group_by(ccode, year) %>% 
+  summarize(youth_bulge=mean(youth_bulge, na.rm=T))
+
+coups <- left_join(coups, youth)
+rm(youth)
+
 
 # Write to Stata ----
 library(haven)

@@ -1,6 +1,9 @@
 ---
 title: "I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces"
-author: "David Bowden"
+author: |
+    | David Bowden
+    | University of Pennsylvania
+    | davidbow@sas.upenn.edu
 date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
 output:
      bookdown::pdf_book:
@@ -16,7 +19,7 @@ fontfamily: tgpagella
 geometry: margin=1in
 numbersections: false
 toc: false
-abstract: "Previous work has shown that the possibility of defection from regime security forces may deter the use of repression. Yet, such defection nevertheless occurs in cases such as Syria (The Free Syrian Army), Libya, and the Democratic Republic of the Congo (M23)."
+abstract: "Recent high-profile examples such as the Free Syrian Army and M23 suggest that when governments violate human rights, they risk spurring resistance within their own security forces. Does repression generally lead to regime coups and rebellions originating from the regime? Under what conditions are we most likely to observe this process? I argue that when governments engage in repression, they tend to lose legitimacy at both the domestic and international levels, increasing the risk of defections from the regime. This risk should be even greater when significant numbers of soldiers share ethnic ties with the individuals being repressed, and when the military has limited centralized control over its members. Using a global sample spanning the years 1946--2013, I find robust evidence that repression is associated with an increased probability of coup attempts, and limited evidence for a link to rebel groups originating from the regime. The ethnic ties hypothesis finds more support than the military centralization prediction. The results add support to previous arguments that internal backlash provides a disincentive for governments to repress."
 ---
 
 ```{r setup, include=F}
@@ -41,6 +44,12 @@ options(xtable.comment = FALSE)
 ```
 
 ```{r child='defection_results.Rmd'}
+```
+
+```{r child='defection_causal.Rmd'}
+```
+
+```{r child='defection_conclusion.txt'}
 ```
 
 # References {-}
