@@ -1,0 +1,295 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Human Protection Scores
+
+```{r}
+library(texreg)
+
+m1 <- glm(new_mil ~ theta_shock3, data=cyears, family=binomial("logit"))
+
+m2 <- glm(new_mil ~ theta_shock5, data=cyears, family=binomial("logit"))
+
+m3 <- glm(new_mil ~ theta_lag, data=cyears, family=binomial("logit"))
+
+m3b <- glm(new_mil ~ theta_diff_lag, data=cyears, family=binomial("logit"))
+
+screenreg(list(m1,m2,m3,m3b))
+```
+
+```{r}
+m4 <- glm(new_mil ~ theta_shock3 + factor(gwno_loc) - 1, data=cyears, family=binomial("logit"))
+
+m5 <- glm(new_mil ~ theta_shock5 + factor(gwno_loc) - 1, data=cyears, family=binomial("logit"))
+
+m6 <- glm(new_mil ~ theta_lag + factor(gwno_loc) - 1, data=cyears, family=binomial("logit"))
+
+m6b <- glm(new_mil ~ theta_diff_lag + factor(gwno_loc) - 1, data=cyears, family=binomial("logit"))
+
+screenreg(list(m4,m5,m6,m6b), omit.coef = "gwno_loc")
+```
+
+```{r}
+m7 <- glm(new_mil ~ theta_shock3 + factor(civconflict), data=cyears, family=binomial("logit"))
+
+m8 <- glm(new_mil ~ theta_shock5 + factor(civconflict), data=cyears, family=binomial("logit"))
+
+m9 <- glm(new_mil ~ theta_lag + factor(civconflict), data=cyears, family=binomial("logit"))
+
+screenreg(list(m7,m8,m9))
+```
+
+```{r}
+m10 <- glm(forge_mil ~ theta_shock3, data=cyears, family=binomial("logit"))
+
+m11 <- glm(forge_mil ~ theta_shock5, data=cyears, family=binomial("logit"))
+
+m12 <- glm(forge_mil ~ theta_lag, data=cyears, family=binomial("logit"))
+
+screenreg(list(m10,m11,m12))
+```
+
+```{r}
+library(Zelig)
+
+z1 <- zelig(forge_mil ~ theta_shock3 + factor(civconflict), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite = F)
+
+z2 <- zelig(forge_mil ~ theta_shock5 + factor(civconflict), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite=F)
+
+z3 <- zelig(forge_mil ~ theta_mean + factor(civconflict), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite=F)
+
+screenreg(list(z1,z2,z3))
+```
+
+```{r}
+library(pglm)
+
+p1 <- pglm(new_mil ~ lag(theta_shock5), data=cyears, index=c("gwno_loc","year"), family=binomial("logit"), model="pooling")
+
+summary(p1)
+```
+
+```{r}
+c1 <- glm(thyne_attempt ~ theta_shock3 + factor(civconflict), data=cyears, family=binomial("logit"))
+
+c2 <- glm(thyne_attempt ~ theta_shock5 + factor(civconflict), data=cyears, family=binomial("logit"))
+
+c3 <- glm(thyne_attempt ~ theta_mean + factor(civconflict), data=cyears, family=binomial("logit"))
+
+screenreg(list(c1,c2,c3))
+```
+
+# NAVCO
+
+```{r}
+n1 <- glm(new_mil ~ any_repressed, data=cyears, family=binomial("logit"))
+
+n2 <- glm(new_mil ~ any_nonrepressed, data=cyears, family=binomial("logit"))
+
+n3 <- glm(new_mil ~ any_repressed + any_nonrepressed, data=cyears, family=binomial("logit"))
+
+n4 <- glm(new_mil ~ theta_lag*any_repressed, data=cyears, family=binomial("logit"))
+
+screenreg(list(n1,n2,n3,n4))
+```
+
+```{r}
+library(sjPlot)
+
+plot_model(n4, type="int")
+```
+
+# Controls
+
+```{r}
+c1 <- glm(new_mil ~ theta_diff_lag + polity2_lag, data=cyears, family=binomial("logit"))
+
+c2 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + (polity2_lag < -5), data=cyears, family=binomial("logit"))
+
+c3 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + (polity2_lag < -5) + factor(gwf_mil_lag), data=cyears, family=binomial("logit"))
+
+c4 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + (polity2_lag < -5) +  factor(presidential_lag), data=cyears, family=binomial("logit"))
+
+screenreg(list(c1,c2,c3,c4))
+```
+
+```{r}
+c5 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + (polity2_lag < -5) +  gdpgr_lag, data=cyears, family=binomial("logit"))
+
+c6 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + (polity2_lag < -5) +  log(gdppc_lag), data=cyears, family=binomial("logit"))
+
+c7 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + (polity2_lag < -5) + gdpgr_lag + log(gdppc_lag) + log(pop_pwt), data=cyears, family=binomial("logit"))
+
+c8 <- glm(new_mil ~ theta_diff_lag + factor(liberal) + gdpgr_lag + log(gdppc_lag) + log(pop_pwt), data=cyears, family=binomial("logit"))
+
+screenreg(list(c5,c6,c7,c8))
+```
+
+```{r}
+c9 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + log(milex+1), data=cyears, family=binomial("logit"))
+
+c10 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + log(milper+1), data=cyears, family=binomial("logit"))
+
+c11 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + milexps, data=cyears, family=binomial("logit"))
+
+c12 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + log(tpop), data=cyears, family=binomial("logit"))
+
+screenreg(list(c9,c10,c11,c12))
+```
+
+```{r}
+c13 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (year>1989), data=cyears, family=binomial("logit"))
+
+c14 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + non_mil, data=cyears, family=binomial("logit"))
+
+c15 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (non_mil>0), data=cyears, family=binomial("logit"))
+
+c16 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (non_mil_lag>0), data=cyears, family=binomial("logit"))
+
+screenreg(list(c13,c14,c15,c16))
+```
+
+```{r}
+c17 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (mids>0), data=cyears, family=binomial("logit"))
+
+c18 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0), data=cyears, family=binomial("logit"))
+
+c19 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable, data=cyears, family=binomial("logit"))
+
+c20 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + welfg, data=cyears, family=binomial("logit"))
+
+screenreg(list(c17,c18,c19,c20))
+```
+
+```{r}
+c21 <- glm(new_mil ~ theta_diff_lag + total_welfare, data=cyears, family=binomial("logit"))
+
+c22 <- glm(new_mil ~ theta_diff_lag + oilrents, data=cyears, family=binomial("logit"))
+
+c23 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + log(area), data=cyears, family=binomial("logit"))
+
+c24 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + region, data=cyears, family=binomial("logit"))
+
+screenreg(list(c21,c22,c23,c24))
+```
+
+```{r}
+c25 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + effectivenumber, data=cyears, family=binomial("logit"))
+
+c26 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + past_reb, data=cyears, family=binomial("logit"))
+
+c27 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + past_coup, data=cyears, family=binomial("logit"))
+
+c28 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + past_defection, data=cyears, family=binomial("logit"))
+
+screenreg(list(c25,c26,c27,c28))
+```
+
+```{r}
+c29 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+c30 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + recent_reb + nonrecent_reb, data=cyears, family=binomial("logit"))
+
+c31 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + recent_coup, data=cyears, family=binomial("logit"))
+
+c32 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + recent_reb + recent_coup, data=cyears, family=binomial("logit"))
+
+screenreg(list(c29,c30,c31,c32))
+```
+
+```{r}
+c33 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + recent_reb + ethfrac, data=cyears, family=binomial("logit"))
+
+c34 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + recent_reb + mtnest, data=cyears, family=binomial("logit"))
+
+screenreg(list(c33,c34))
+```
+
+
+# Alt DVs
+
+```{r}
+f1 <- glm(new_mil ~ theta_diff_lag +  gdpgr_lag + (navco_campaigns>0) + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+f2 <- glm(forge_mil ~ theta_diff_lag +  gdpgr_lag + (navco_campaigns>0) + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+f3 <- glm(thyne_attempt ~ theta_diff_lag +  gdpgr_lag + (navco_campaigns>0) + durable + recent_coup, data=cyears, family=binomial("logit"))
+
+f4 <- glm(csp_attempt ~ theta_diff_lag +  gdpgr_lag + (navco_campaigns>0) + durable + recent_coup, data=cyears, family=binomial("logit"))
+
+screenreg(list(f1,f2,f3,f4), custom.model.names = c("Me","FORGE","Thyne","CSP"))
+```
+
+```{r}
+f5 <- glm(new_mil ~ theta_shock3 +  gdpgr_lag + (navco_campaigns>0) + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+f6 <- glm(new_mil ~ theta_shock5 +  gdpgr_lag + (navco_campaigns>0) + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+f7 <- glm(new_mil ~ any_repressed + any_nonrepressed + gdpgr_lag + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+screenreg(list(f5,f6,f7))
+```
+
+```{r}
+f9 <- glm(new_mil ~ theta_diff_lag + gdpgr_lag + durable + recent_reb + effectivenumber + (navco_campaigns>0), data=cyears, family=binomial("logit"))
+
+f10 <- glm(new_mil ~ theta_shock3 + gdpgr_lag + durable + recent_reb + effectivenumber + (navco_campaigns>0), data=cyears, family=binomial("logit"))
+
+f11 <- glm(new_mil ~ any_repressed + any_nonrepressed + gdpgr_lag + durable + recent_reb + effectivenumber, data=cyears, family=binomial("logit"))
+
+screenreg(list(f9,f10,f11))
+```
+
+```{r}
+f12 <- glm(thyne_attempt ~ theta_shock3 + gdpgr_lag + durable + recent_coup + effectivenumber + (navco_campaigns>0), data=cyears, family=binomial("logit"))
+
+f13 <- glm(thyne_attempt ~ any_repressed + gdpgr_lag + durable + recent_coup + effectivenumber, data=cyears, family=binomial("logit"))
+
+screenreg(list(f12,f13))
+```
+
+# Interactions
+
+```{r}
+i1 <- glm(new_mil ~ theta_diff_lag*theta_lag +  gdpgr_lag + (navco_campaigns>0) + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+i2 <- glm(new_mil ~ theta_diff_lag*polity2_lag +  gdpgr_lag + factor(any_navco) + durable + recent_reb, data=cyears, family=binomial("logit"))
+i2a <- glm(new_mil ~ polity2_lag*theta_diff_lag +  gdpgr_lag + factor(any_navco) + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+screenreg(list(i1,i2))
+```
+
+```{r}
+library(sjPlot)
+
+plot_model(i2, type="int", mdrt.values = "meansd")
+```
+
+```{r}
+plot_model(i2a, type="int", terms="polity2_lag [all]", mdrt.values = "meansd")
+```
+
+# Fixed Effects
+
+```{r}
+library(survival)
+
+fe1 <- clogit(new_mil ~ theta_diff_lag +  gdpgr_lag + factor(any_navco) + durable + factor(recent_reb) + factor(any_non_mil) + strata(gwno_loc), data=cyears)
+
+fe2 <- clogit(new_mil ~ factor(theta_shock3) +  gdpgr_lag + factor(any_navco) + durable + factor(recent_reb) + factor(any_non_mil) + strata(gwno_loc), data=cyears)
+
+fe3 <- clogit(new_mil ~ factor(any_repressed) +  gdpgr_lag + durable + factor(recent_reb) + factor(any_non_mil) + strata(gwno_loc), data=cyears)
+
+screenreg(list(fe1,fe2,fe3))
+```
+
+```{r}
+library(bife)
+
+fe2 <- bife(new_mil ~ theta_diff_lag +  gdpgr_lag + factor(any_navco) + durable + factor(recent_reb) + factor(any_non_mil) | gwno_loc, data=cyears, model="logit")
+
+summary(fe2)
+```
+
