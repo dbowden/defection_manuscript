@@ -29,7 +29,11 @@
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{longtable,booktabs}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
+% grffile has become a legacy package: https://ctan.org/pkg/grffile
+\IfFileExists{grffile.sty}{%
+\usepackage{grffile}
+}{}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -66,7 +70,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -74,8 +78,7 @@
 
 \setlength{\droptitle}{-2em}
 
-  \title{I Didn't Sign Up for This: Repression and the Fragmentation of Regime
-Forces}
+  \title{I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces}
     \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
     \author{David Bowden\\
@@ -85,7 +88,7 @@ University of Pennsylvania\\
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{August 27, 2018}
+    \date{November 29, 2019}
 
 \usepackage{setspace}
 \usepackage{longtable}
@@ -102,40 +105,10 @@ University of Pennsylvania\\
 
 \raggedbottom
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{corollary}{Corollary}[section]
-\newtheorem{proposition}{Proposition}[section]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[section]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[section]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 \begin{abstract}
-Recent high-profile examples such as the Free Syrian Army and M23
-suggest that when governments violate human rights, they risk spurring
-resistance within their own security forces. Does repression generally
-lead to regime coups and rebellions originating from the regime? Under
-what conditions are we most likely to observe this process? I argue that
-when governments engage in repression, they tend to lose legitimacy at
-both the domestic and international levels, increasing the risk of
-defections from the regime. This risk should be even greater when
-significant numbers of soldiers share ethnic ties with the individuals
-being repressed, and when the military has limited centralized control
-over its members. Using a global sample spanning the years 1946--2013, I
-find robust evidence that repression is associated with an increased
-probability of coup attempts, and limited evidence for a link to rebel
-groups originating from the regime. The ethnic ties hypothesis finds
-more support than the military centralization prediction. The results
-add support to previous arguments that internal backlash provides a
-disincentive for governments to repress.
+Recent high-profile examples such as the Free Syrian Army and M23 suggest that when governments violate human rights, they risk spurring resistance within their own security forces. Does repression generally lead to regime coups and rebellions originating from the regime? Under what conditions are we most likely to observe this process? I argue that when governments engage in repression, they tend to lose legitimacy at both the domestic and international levels, increasing the risk of defections from the regime. This risk should be even greater when significant numbers of soldiers share ethnic ties with the individuals being repressed, and when the military has limited centralized control over its members. Using a global sample spanning the years 1946--2013, I find robust evidence that repression is associated with an increased probability of coup attempts, and limited evidence for a link to rebel groups originating from the regime. The ethnic ties hypothesis finds more support than the military centralization prediction. The results add support to previous arguments that internal backlash provides a disincentive for governments to repress.
 \end{abstract}
 
 \doublespacing
@@ -145,695 +118,192 @@ disincentive for governments to repress.
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-When the Arab Spring protests spread to Syria in March of 2011, the
-regime of President Bashar al-Assad quickly responded with forceful
-repression, including the torture and killing of a 13-year-old boy
-(Macleod and Flamand \protect\hyperlink{ref-Macleod2011}{2011}). While
-this brutality was presumably intended to deter threats to the regime,
-it arguably backfired by provoking the defection of a substantial
-portion of the regime military including Colonel Hussein Harmoush, who
-expressed a feeling of complicity in the government actions, saying that
-``I defected from the Syrian Arab army and took responsibility for
-protecting civilians\ldots{} I feel like I am responsible for the deaths
-of every single martyr in Syria,'' (Abouzeid
-\protect\hyperlink{ref-Abouzeid2011}{2011}). Riyad al-Assad, who
-defected from the Syrian Air to form the Free Syrian Army rebel group,
-similarly declared his intent to protect protestors and resist the
-regime military (Lister \protect\hyperlink{ref-Lister2016}{2016}).
-Several other contemporary rebel groups have similar origins, including
-M23 in the Democratic Republic of the Congo, and the National Liberation
-Army in Libya, suggesting that the phenomenon could be widespread. This
-paper thus seeks to answer two question. First, does the use of
-repression place regimes at greater risk of desertion and coups? Second,
-under what conditions is repression most likely to produce such
-outcomes?
-
-The fragmentation of the regime military is a key dynamic in many
-conflicts and potentially explains why the Arab Spring led to civil war
-in Syria and Libya, but not in other countries. Similar processes have
-occurred in numerous other cases, as original data presented herein
-shows that more than 15\% of rebel groups since World War II have traced
-their origins to the regime military, and an additional 9\% were founded
-by civilian regime officials. These rebellions have received little
-attention from scholars, and while some existing theories of civil war
-onset such as greed theory (Collier and Hoeffler
-\protect\hyperlink{ref-Collier2004}{2004}) could potentially account for
-them, many, including theories focusing on ethnic discrimination (e.g.
-Cederman, Wimmer, and Min \protect\hyperlink{ref-Cederman2010}{2010})
-and protest escalation (e.g. Pierskalla
-\protect\hyperlink{ref-Pierskalla2010}{2010}), assume that rebellions
-originate outside the government. Studying these cases thus offers the
-possibility of enhancing our understanding of civil war onset.
-
-Another prominent form of regime fragmentation --- coups d'etat --- has
-been the subject of much scholarship. While most of the existing
-literature focuses on broader structural conditions affecting coup risk,
-some identify a connection between protests and coup occurrence (Casper
-and Tyson \protect\hyperlink{ref-Casper2014}{2014}; Johnson and Thyne
-\protect\hyperlink{ref-Johnson2018}{2018}). Hendrix and Salehyan
-(\protect\hyperlink{ref-Hendrix2017}{2017}) consider the government's
-response to protests, finding that the possibility of regime
-fragmentation often deters the use of repression. Yet, fragmentation
-does occur, suggesting the need for further research analyzing
-fragmentation as a dependent variable. Additionally, deterrence effects
-create the possibility of endogeneity, but existing studies have not
-fully corrected for this concern. This study advances the literature on
-coups and repression by making coups a dependent variable, by accounting
-for the possibility of endogeneity through the use of an instrumental
-variable, and by examining a wider set of cases than previous studies.
-
-This research also contributes to the literature on human rights.
-Understandably, most work in this area has focused on the causes of
-human rights violations. Several scholars, however, have turned their
-attention to the consequences of human rights violations for outcomes
-such as foreign direct investment (Blanton and Blanton
-\protect\hyperlink{ref-Blanton2007}{2007}) and foreign aid (Lebovic and
-Voeten \protect\hyperlink{ref-Lebovic2009}{2009}), and others have
-suggested that repression could provoke infighting amongst regime
-factions (Hendrix and Salehyan
-\protect\hyperlink{ref-Hendrix2017}{2017}). These consequences of human
-rights violations could offer insight to preventing abuses in the
-future. For example, if regime fragmentation has the potential to
-constrain abusive behavior (Hendrix and Salehyan
-\protect\hyperlink{ref-Hendrix2017}{2017}), disrupting the flow of
-private benefits to soldiers might undermine solidarity and strengthen
-this effect. By comparing specific mechanisms linking repression to
-regime fragmentation, this study offers the prospect of such policy
-recommendations.
-
-I proceed with a review of the literature on regime fragmentation,
-including coups, rebellions, and desertion. Next, I articulate three
-theoretical processes that could link repression to regime
-fragmentation. I then specify a research design to test these
-propositions, and present results from fixed-effects and instrumental
-variables regression models. I conclude by situating the results in the
-broader literature, and by offering suggestions for future research.
-
-\hypertarget{prior-work-on-regime-fragmentation}{%
-\section{Prior Work on Regime
-Fragmentation}\label{prior-work-on-regime-fragmentation}}
-
-While some forms of political violence are often considered jointly,
-such as protests and civil war or civil and international war, coups
-d'etat are typically treated as distinct phenomena and are not
-considered jointly with other forms of violence.\footnote{One notable
-  exception is Roessler (\protect\hyperlink{ref-Roessler2011}{2011}).}
-Given examples such as the Free Syrian Army, however, I argue that there
-is considerable overlap between coups and civil wars. Thus, I analyze
-coups and rebellions that originate from the regime jointly under the
-umbrella term ``regime fragmentation.''
-
-\hypertarget{dissent-repression-and-coups}{%
-\subsection{Dissent, Repression, and
-Coups}\label{dissent-repression-and-coups}}
-
-The literature often conceptualizes coup attempts as coordination
-problems among elites (Weeks \protect\hyperlink{ref-Weeks2008}{2008};
-Powell \protect\hyperlink{ref-Powell2012a}{2012}). Protests can
-potentially solve this coordination problem by revealing the regime's
-ability to deter challenges (Casper and Tyson
-\protect\hyperlink{ref-Casper2014}{2014}; Johnson and Thyne
-\protect\hyperlink{ref-Johnson2018}{2018}). These signals are likely to
-be especially influential when protests are non-violent (Johnson and
-Thyne \protect\hyperlink{ref-Johnson2018}{2018}), occur in or near the
-national capital (Johnson and Thyne
-\protect\hyperlink{ref-Johnson2018}{2018}), and are amplified by a free
-press (Casper and Tyson \protect\hyperlink{ref-Casper2014}{2014}).
-Protests can also serve as a motive for coup attempts by signaling the
-illegitimacy of the regime (Johnson and Thyne
-\protect\hyperlink{ref-Johnson2018}{2018}) and enhance opportunities for
-successful coups by empowering the military (Svolik
-\protect\hyperlink{ref-Svolik2012e}{2012}).
-
-While protests are associated with a statistically-significant increase
-in the probability of coups (Casper and Tyson
-\protect\hyperlink{ref-Casper2014}{2014}; Johnson and Thyne
-\protect\hyperlink{ref-Johnson2018}{2018}), responding to protests with
-force is not necessarily a wise choice for regimes. Hendrix and Salehyan
-(\protect\hyperlink{ref-Hendrix2017}{2017}) argue that the use of
-repression can cause backlash within the military, and show that this
-possibility deters repressive tactics, particularly when coup-risk is
-especially, as is the case for militaries that have previously
-experienced infighting, and for protests which emphasize ethnic or
-religious identities. While this deterrent effect is substantial, a
-great deal of repression occurs nonetheless. Neither Hendrix and
-Salehyan (\protect\hyperlink{ref-Hendrix2017}{2017}) nor any other study
-to my knowledge examines the reverse relationship assessing, in effect,
-whether the assumption that repression leads to regime fragmentation is
-correct. Furthermore, the use of repression is likely endogenous to
-potential reactions to its use (Ritter and Conrad
-\protect\hyperlink{ref-Ritter2016}{2016}). The body of evidence on the
-relationship between repression and regime fragmentation would therefore
-be strengthened by analyses using causal identification techniques such
-as the instrumental variable analysis presented here.
-
-\hypertarget{repression-and-civil-war}{%
-\subsection{Repression and Civil War}\label{repression-and-civil-war}}
-
-Many scholars of political violence and human rights have examined the
-``repression-dissent nexus,'' often focusing on the role of government
-repression in escalating unrest. There is widespread agreement that
-repression can backfire and escalate dissident activities, though the
-conditions under which this occurs are contested. Early work in this
-area disaggregated dissident activity, showing that repression reduces
-non-violent dissent while increasing violent opposition (Lichbach
-\protect\hyperlink{ref-Lichbach1987}{1987}; Moore
-\protect\hyperlink{ref-Moore1998}{1998}). Rasler
-(\protect\hyperlink{ref-Rasler1996}{1996}) emphasizes temporal dynamics,
-providing evidence that repression reduces dissident activity in the
-short-run while increasing it in the long-run. Pierskalla
-(\protect\hyperlink{ref-Pierskalla2010}{2010}) criticizes prior studies
-for their lack of attention to strategic interplay and finds that
-escalation should only occur in the presence of a third-party threat.
-The preceding findings concern primarily the qualitative character of
-dissent, rather than the quantitative volume. The consistency of
-repressive or accommodative policies (Lichbach
-\protect\hyperlink{ref-Lichbach1987}{1987}), the forcefulness of
-repressive tactics (Hegre et al.
-\protect\hyperlink{ref-Hegre2001}{2001}; Pierskalla
-\protect\hyperlink{ref-Pierskalla2010}{2010}), and prior history of
-civil conflict (Bell and Murdie \protect\hyperlink{ref-Bell2018}{2018})
-have been posited as explanations for the aggregate level of dissent.
-
-The preceding studies generally define escalation in relative terms,
-leaving unclear the frequency with which the violence they observe
-aligns with scholarly definitions of civil war.\footnote{Such
-  definitions typically entail a minimum threshold of severity such as
-  25 fatalities per calendar year, a substantial degree of organization
-  on both sides, and some amount of competitiveness between the two
-  sides. For a representative example, see Pettersson and Eck
-  (\protect\hyperlink{ref-Pettersson2018}{2018}).} However, several
-works do focus specifically on civil war as a form of escalation. Some
-scholars conceptualize repression and civil war as distinct equilibria
-(Besley and Persson \protect\hyperlink{ref-Besley2009}{2009}; Choi and
-Kim \protect\hyperlink{ref-Choi2018}{2018}). The probability that
-repression is met by effective resistance (the civil war outcome) rather
-than remaining one-sided is shown to increase with the material value of
-winning control of the government (Besley and Persson
-\protect\hyperlink{ref-Besley2009}{2009}), decrease with the
-inclusiveness of political institutions (Besley and Persson
-\protect\hyperlink{ref-Besley2009}{2009}; Choi and Kim
-\protect\hyperlink{ref-Choi2018}{2018}), and increase with the size of
-the dominant ethnic group relative to the size of the minimum winning
-coalition (Choi and Kim \protect\hyperlink{ref-Choi2018}{2018}). Others
-treat repression and civil war as sequential steps in a process of
-escalation. In this view, repression often proves counterproductive as
-it decreases support for the regime (Young
-\protect\hyperlink{ref-Young2013}{2013}) and increases the probability
-of civil war. Interestingly, this relationship does not appear to be
-conditional on the efficacy of repression, as effective repression
-increases the risk of civil war by further inflaming tensions, while
-ineffective repression does so by emboldening dissidents (Davenport,
-Armstrong II, and Lichbach, \protect\hyperlink{ref-Davenportnd}{n.d.}).
-In addition to being associated with the onset of civil conflict,
-repression predicts increased violence by existing rebel groups
-(Shellman, Levey, and Young \protect\hyperlink{ref-Shellman2013}{2013}).
-
-The studies reviewed here have consistently found a link between
-repression and the onset of civil conflict. However, tests of specific
-theoretical mechanisms have been less conclusive. A potential reason for
-this is that while all of the theories above assume that rebel groups
-emerge from non-state dissident movements, original data presented here
-reveals that a large number of rebellions included in commonly-used
-datasets are launched by members of the regime. Differences in the
-conditions under which repression produces these two types of rebellions
-could account for the inconclusive results on mechanisms observed thus
-far. This analysis could shed light on such a possibility.
-
-\hypertarget{theorizing-regime-fragmentation}{%
-\section{Theorizing Regime
-Fragmentation}\label{theorizing-regime-fragmentation}}
-
-Prior work has demonstrated an empirical link between protests and coup
-onset. Repression plays a crucial, but often untested role in the
-accompanying theoretical models. The government's response to unrest is
-thought to reveal information about its strength, increasing the
-probability that potential coup plotters will be able to coordinate
-their actions (Casper and Tyson
-\protect\hyperlink{ref-Casper2014}{2014}; Johnson and Thyne
-\protect\hyperlink{ref-Johnson2018}{2018}). In this view, all else
-equal, high levels of repression should reduce the probability of coups
-and rebellions by signaling that the government is strong. I argue that
-this approach is overly focused on the informational role of protests
-and coups, and overlooks the possibility that repression could alter
-preferences over challenging the government.
-
-While the use of repression demonstrates a certain degree of military
-strength, backlash to its use can weaken the regime in a variety of
-ways. Belkin and Schofer (\protect\hyperlink{ref-Belkin2003}{2003})
-argue that losing legitimacy in the eyes of the populace is a
-prerequisite for coups. As a government becomes more repressive, it
-should tend to lose legitimacy and support among citizens. It does not
-necessarily follow that regime opponents will experience a concomitant
-gain in legitimacy and popularity, particularly if they played a role in
-applying the repression. Nevertheless, opponents should gain strength
-relative to the regime as pro-government mobilization becomes less
-likely. The regime may also lose international support as it engages in
-repression. Human rights violations are often met with economic
-sanctions, and there is evidence that human rights practices inform
-consumer choices (Cao, Greenhill, and Prakash
-\protect\hyperlink{ref-Cao2013}{2013}). Although sanctions do not seem
-to be effective at deterring human rights abuses (Wood
-\protect\hyperlink{ref-Wood2008a}{2008}), they may have dramatic
-consequences for internal regime politics. Many regimes maintain the
-loyalty of their security force by providing material benefits (Belkin
-and Schofer \protect\hyperlink{ref-Belkin2003}{2003}; Powell
-\protect\hyperlink{ref-Powell2012a}{2012}), often financed through
-non-tax revenue sources such as foreign aid and natural resource rents
-(Morrison \protect\hyperlink{ref-Morrison2009}{2009}). If these revenue
-streams are disrupted in response to repression, the incentives for
-soldiers to continue supporting the regime are reduced.
-
-In short, I expect that repression and the regime's power share a
-paradoxical relationship. While the successful use of repression is
-indicative of a strong regime, it also tends to set regimes on a path
-toward a relative decline in power. Repression should therefore be
-positively related to the incidence of coups and regime-based
-rebellions.
-
-\noindent \textit{H1a: Repression increases the probability of coups}
-\noindent \textit{H1b: Repression increases the probability of regime rebellion}
-
-\hypertarget{ethnic-ties}{%
-\subsection{Ethnic Ties}\label{ethnic-ties}}
-
-Ethnicity and religion are the most influential ordering principles in
-many societies worldwide (Robinson
-\protect\hyperlink{ref-Robinson2014}{2014}), shaping aspects of life
-ranging from fundamental tasks such as local-level collective action
-(Habyarimana et al. \protect\hyperlink{ref-Habyarimana2007}{2007}) to
-broad political patterns such as party preference (Wantchekon
-\protect\hyperlink{ref-Wantchekon2003}{2003}). Identity has often been
-the basis for protests (Jazayeri
-\protect\hyperlink{ref-Jazayeri2016}{2016}; Salehyan and Stewart
-\protect\hyperlink{ref-Salehyan2017}{2017}) and violent conflict between
-societal groups and the state (Cederman, Gleditsch, and Buhaug
-\protect\hyperlink{ref-Cederman2013a}{2013}). This creates many
-opportunities for repression, which might be an especially likely
-response when a state faces multiple potential identity-based challenges
-(Walter \protect\hyperlink{ref-Walter2006a}{2006}).
-
-Soldiers should be especially likely to rebel against the regime when
-asked to repress members of their own ethnic group. Evidence suggests
-that unusually dense network ties between members are a key reason for
-the unique role that ethnic groups often play in politics (Habyarimana
-et al. \protect\hyperlink{ref-Habyarimana2007}{2007}). Thus, soldiers
-may have some degree of social connection to the co-ethnic targets of
-repression, which might reduce their inclination to carry out orders,
-and may lead them to leave their posts to defend their families or
-communities. Even in the absence of direct social ties, orders to target
-co-ethnics may give soldiers pause because ethnic groups are often
-defined in part by a sense of ``linked fate'' (Kuran
-\protect\hyperlink{ref-Kuran1998}{1998}). Soldiers may fear that a
-repressive campaign against dissident members of their ethnic group
-could eventually turn against them. Ethnic identity has been shown to be
-malleable in response to the political climate (Eifert, Miguel, and
-Posner \protect\hyperlink{ref-Eifert2010}{2010}), meaning that even if
-soldiers did not identify strongly with their ethnic group previously,
-they may begin to do so in response to the repression of co-ethnics.
-
-The preceding logic suggests that the risk of coups and rebellions from
-the regime should increase with the proportion of the military that
-shares a common identity with the individuals being targeted with
-repression. I expect this effect to increase with the severity of
-repression. Thus, I hypothesize an interaction effect between the level
-of repression and the extent of ethnic ties between the military and the
-repressed.
-
-\noindent \textit{H2: There is a positive interaction between the level of repression and the share of the military with ethnic ties to the repressed}
-
-\hypertarget{organizational-control}{%
-\subsection{Organizational Control}\label{organizational-control}}
-
-One of the most commonly-cited categories of explanation for coups is
-the degree of organizational control within the military. Unsuccessful
-coup plotters tend to be punished harshly. The probability of coup
-attempts should therefore decrease as the regime's ability to withstand
-challenges and apprehend participants. Militaries with high levels of
-command and control may even be able to prevent coup attempts altogether
-by disrupting the ability of dissatisfied members to coordinate. There
-is some disagreement about the conditions under which militaries achieve
-such control. Belkin and Schofer
-(\protect\hyperlink{ref-Belkin2003}{2003}) view the fragmentation of the
-military into multiple branches or factions as an effective form of
-coup-proofing, as it reduces the likelihood of successful coordination
-amongst a wide swath of the military, while Powell
-(\protect\hyperlink{ref-Powell2012a}{2012}) finds that most measures of
-factionalism are not significant predictors of coups. One reason for
-this discrepancy appears to be that not all intra-military divisions are
-created equal, as Hendrix and Salehyan
-(\protect\hyperlink{ref-Hendrix2017}{2017}) find indirect evidence that
-infighting between military factions increases the risk of coups.
-Building on their work, I expect that manifest disunity within the
-military in the form of infighting should amplify the effect of
-repression. This should be observable as a statistically significant
-interaction effect between repression and the occurrence of conflict
-within the military.
-
-\noindent \textit{H3: There is a positive interaction between the level of repression and the level of infighting amongst military factions}
-
-\hypertarget{research-design}{%
-\section{Research Design}\label{research-design}}
-
-An underlying question in this analysis is whether the regime
-fragmentation observed during the Arab Spring was unique to that
-historical process, or something that has occurred frequently throughout
-time and space. A cross-national quantitative analysis that tests for
-such outcomes in a large sample is therefore a logical choice. While
-highly disaggregated analyses of political violence are increasingly
-common and often facilitate nuanced tests of theoretical mechanisms
-(e.g. Hendrix and Salehyan \protect\hyperlink{ref-Hendrix2017}{2017}),
-the datasets conducive to this sort of research tend to have limited
-spatial and temporal coverage. I thus elect to conduct my analysis at
-the country-year level, with a sample covering the entire world over the
-period 1946-2017. This provides an initial set of 10,713 cases, though
-due to missing data the number used in most analyses is slightly lower.
-
-\hypertarget{dependent-variables}{%
-\subsection{Dependent Variables}\label{dependent-variables}}
-
-\emph{Coup Attempt} One form of regime fragmentation is coups d'etat. As
-I am primarily interested in the conditions under which members of the
-military possess a desire to effect change, I analyze coup attempts
-rather than coup success, which depends on a set of somewhat unrelated
-factors (Powell \protect\hyperlink{ref-Powell2012a}{2012}). The dataset
-comes Powell and Thyne (\protect\hyperlink{ref-Powell2011}{2011}), who
-define a coup as an ``illegal and overt attempts by the military or
-other elites within the state apparatus to unseat the sitting
-executive,'' (Powell and Thyne \protect\hyperlink{ref-Powell2011}{2011},
-252). As coup attempts often cluster in space and time, I convert the
-coup list to a binary indicator that is equal to 1 for country-years in
-which a coup was attempted, and 0 otherwise. This yields 407
-country-years with coup attempts.
-
-\emph{Regime-Based Rebellion} Some instances of regime fragmentation are
-not included in most coup datasets because they do not work through the
-state apparatus. For example, members of the Syrian Air Force turned
-against the Assad regime in 2011, but opted to form a rebel group (the
-Free Syrian Army) rather than operate through their roles within the
-state. I call this phenomenon ``regime-based rebellion,'' and collect
-original data to measure it. I begin with a list of the rebel groups
-which appear in the Uppsala Conflict Data Program's Dyadic Dataset
-(version 18.1) (Pettersson and Eck
-\protect\hyperlink{ref-Pettersson2018}{2018}). Inclusion in the dataset
-requires that a rebel group was involved in fighting that produced at
-least 25 fatalities in at least one calendar year between 1946 and 2017.
-I then code the societal origin of the rebel group using a variety of
-primary and secondary sources. In cases of limited information, coding
-decisions are based on the previous roles of the rebel group's
-leader(s). Many rebel groups draw membership from multiple societal
-groups; in the present analysis I use only the origin that I deem to be
-the largest contributor of personnel. I code a rebel group as
-originating from the regime military if its membership is drawn
-primarily from individuals who were most recently employed by any branch
-of the regime security forces. Rebels who previously held civilian roles
-within the government are not included in the category.\footnote{For
-  complete coding rules, see Bowden
-  (\protect\hyperlink{ref-Bowden2017}{2017}).} From these codings I
-construct a binary indicator for country-years in which a regime-based
-rebel group was formed. This is the case in 71 country-years. As many
-opposition movements employ a diversity of tactics, these overlap
-substantially with the coup variable - 46 of the country-years with a
-regime-based rebellion also have a coup.
-
-\hypertarget{independent-variables}{%
-\subsection{Independent Variables}\label{independent-variables}}
-
-\emph{Latent Protection Score} I use two alternative measures to capture
-the concept of repression. The first is Latent Human Protection scores,
-version 2 (Fariss \protect\hyperlink{ref-Fariss2014}{2014}; Schnakenberg
-and Fariss \protect\hyperlink{ref-Schnakenberg2014}{2014}). Most human
-rights datasets are derived from news coverage, creating the possibility
-for bias as the depth of coverage and standards against which human
-rights practices are evaluated might vary across space and time. To
-solve this, the authors combine thirteen of the most prominent scholarly
-human rights datasets in a Bayesian measurement model. This produces an
-estimate for each country-year based on a mix of the data for that
-particular year and the average score for that country and year. The
-absolute values of the measure are not inherently meaningful, but range
-from roughly -3.1 (most repressive) to 4.7 (most respectful of human
-rights). Examples of cases towards the more repressive end of the
-spectrum include Saddam Hussein's Iraq, which had a score averaging
-around -2.5, and Sudan, which had scores around -3.0 during the genocide
-in Darfur.
-
-\emph{NAVCO Repression} The Latent Protection Scores are a useful
-measure of the general state of human rights in a given country-year,
-but by design smooth over temporary fluctuations in repression levels.
-To compensate for this blind spot, I include a direct measure of the
-repression of specific protests campaigns from the Nonviolent and
-Violent Campaigns and Outcomes (NAVCO) dataset (version 2.0) (Chenoweth
-and Lewis
-\protect\hyperlink{ref-Chenoweth2013b}{2013}\protect\hyperlink{ref-Chenoweth2013b}{a},
-\protect\hyperlink{ref-Chenoweth2013a}{2013}\protect\hyperlink{ref-Chenoweth2013a}{b}).
-The dataset includes all known instances of sustained, purposive
-campaigns against a government or occupying force between 1946 and 2013.
-I utilize the ``repression'' variable, which codes the government
-response to a campaign on a four-point scale ranging from 0 (not
-repressive) to 3 (extreme repression). When multiple campaigns occur
-within a single country-year, I use the most repressive action observed.
-
-\emph{Percentage of Military from Discriminated Ethnic Groups} To test
-\emph{Hypothesis 2} I construct a measure from the Security Forces
-Ethnicity (SFE) Dataset (version 1.0) (Johnson and Thurber
-\protect\hyperlink{ref-Johnson2017}{2017}). The SFE data measures the
-ethnic composition of security forces in the Middle East, 1946--2013,
-providing approximate ethnic breakdowns of both the officer corps and
-rank-and-file. I combine this data with the Ethnic Power Relations (EPR)
-Core Dataset 2018 (Vogt et al. \protect\hyperlink{ref-Vogt2015}{2015}),
-which codes the political status of each ethnic group worldwide,
-1946-2017. I then construct a measure of the percentage of the
-rank-and-file membership that belong to an ethnic group facing
-discrimination (the ``Discriminated'' or ``Powerless'') codings on the
-``status'' variable.
-
-\emph{Military Infighting} To test \emph{Hypothesis 3} I include a
-binary indicator of whether conflict between military factions has
-occurred. The measure is constructed from the Historical Phoenix Event
-Data (version 1.0.0) (Althaus et al.
-\protect\hyperlink{ref-Althaus2017}{2017}). Phoenix compiles political
-events through automated coding of news articles, recording the actors
-involved and classifying the event on the CAMEO events data coding
-scheme. I code the indicator as 1 for country-years in which there was
-at least one violent conflict between two actors associated with the
-government military.
-
-\hypertarget{control-variables}{%
-\subsection{Control Variables}\label{control-variables}}
-
-As coups have been shown to be most prevalent in relatively poor states
-(Londregan and Poole \protect\hyperlink{ref-Londregan1990}{1990}), I
-include the per capita gross domestic product and population using data
-from Gleditsch (\protect\hyperlink{ref-Gleditsch2002a}{2002}) (version
-6.0 beta) for the period 1950-2011. Both measures are logged. Following
-Johnson and Thyne (\protect\hyperlink{ref-Johnson2018}{2018}) I include
-binary indicators for autocratic and democratic regimes (leaving
-anocracy as the residual category) using data from the Polity IV project
-(Marshall, Gurr, and Jaggers
-\protect\hyperlink{ref-Marshall2016}{2016}), and a binary indicator for
-military regimes using from the Autocratic Regime Data (Geddes, Wright,
-and Frantz \protect\hyperlink{ref-Geddes2014a}{2014}). Lastly, I control
-for ongoing civil conflicts, including all conflicts producing at least
-25 fatalities in a calendar year as reported by the Uppsala Conflict
-Data Program Armed Conflict Data (Pettersson and Eck
-\protect\hyperlink{ref-Pettersson2018}{2018}).
-
-\hypertarget{model}{%
-\subsection{Model}\label{model}}
-
-As both dependent variables are binary, I estimate panel logistic
-regression models. Because I am primarily interested in the effect of
-changes within countries, I use a fixed-effects estimator. To help
-ensure that the explanatory variables cause regime fragmentation rather
-than the reverse, all independent variables and controls are lagged by
-one year. For robustness I estimate instrumental variables probit
-models, discussed in detail below.
-
-\hypertarget{results}{%
-\section{Results}\label{results}}
-
-Results for \emph{Hypotheses 1a} and \emph{1b} are presented in Table 1.
-Consistent with my predictions, repression generally predicts the onset
-of coups and regime-based rebellions. Model 1 uses the \emph{Latent
-Human Protection Score} to measure repression, with coup attempt as the
-dependent variable. Higher values of the protection score signify
-\emph{greater} levels of respect for human rights; I thus expect a
-negative relationship between this variable and coups. Indeed, the
-measure has a negative relationship with coup probability that is
-statistically significant at the 99.9\% level. The effect is
-substantively large, as a one-unit decrease in the \emph{Latent
-Protection Score} (for reference, this was roughly the difference
-between Israel and the Democratic Republic of the Congo in 2013)
-increases the probability of a coup by 64.8\%. Model 2 shows the
-relationship between \emph{Latent Protection Score} and the onset of
-regime-based rebellion. Once again consistent with my prediction, the
-relationship is negative and statistically significant. The substantive
-effect is even larger, with a one-unit decrease in the protection score
-increasing the probability of rebellion by 156\%. The number of
-observations decreases by more than half for the regime rebellion
-dependent variable, as many countries never experience the phenomenon
-and fixed-effects estimation requires variation on the dependent
-variable.
-
-The effects of the \emph{NAVCO Repression} variable are reported in
-Models 3 and 4. In this cases higher values are associated with greater
-levels of repression, meaning that I would expect as positive
-coefficient. The result for coup attempts is consistent with my
-prediction, as \emph{NAVCO Repression} has a positive coefficient that
-is statistically significant at the 95\% level. The effect size is
-modest in comparison to that of \emph{Latent Protection Score}, as a
-one-unit increase in repression (for example, movement from ``moderate''
-to ``extreme'' repression) increases the probability of a coup by
-17.4\%. \emph{NAVCO Repression} is not significantly related to
-regime-based rebellion. On the whole, these results suggest strong
-support for Hypotheses 1a and 1b --- repression is a strong predictor of
-regime fragmentation, manifest in both coup attempts and rebellions
-originating from the regime.
-
-\singlespacing
-
-\input{table1.tex}
-
-\doublespacing
-
-Results for \emph{H2} are presented in Table 2. The first column reveals
-an statistically significant interaction between \emph{Latent Protection
-Score} and \emph{\% Military Discriminated}. The marginal effects
-plotted in Figure 1 reveal how the variables affect each other.
-\emph{Latent Protection Score} is virtually unaffected by the level of
-\emph{\% Military Discriminated}, having a consistent, slightly positive
-effect on coup probability. This pattern contradicts my expectations
-(recall that higher levels of the measure equate to \emph{less}
-repression). The effect of \emph{\% Military Discriminated}, however, is
-highly conditional on the level of \emph{Latent Protection Score}. At
-the most repressive end of the scale, the share of the military that
-belongs to a marginalized ethnic group is positively related to the
-probability of a coup. At the least repressive end of the spectrum,
-however, discrimination of ethnic groups well-represented in the
-military is \emph{negatively} related to the probability of coups. One
-interpretation of these result is that the violent repression of
-co-ethnics induces soldiers to turn against the regime, while
-non-violent forms of discrimination do not. It may also be the case that
-the different repressive strategies (violent vs.~non-violent) correlate
-with a confounding factor such as coup-proofing efforts. The former
-explanation would be consistent with my theoretical framework, while the
-latter likely would not be. The \emph{\% Military Discriminated} measure
-is not statistically significant in a simple additive model, and neither
-the interactive nor the additive effect is significantly related to
-regime-based rebellion.
-
-\singlespacing
-
-\input{table2.tex}
-
-\doublespacing
-
-\begin{figure}
-\centering
-\includegraphics{/Users/david/Dropbox/defection_manuscript/data/interaction1_2_combined.pdf}
-\caption{Marginal Effects of Repression x Military Discrimination
-Interaction}
-\end{figure}
-
-The results for \emph{H3} are presented in Table 3. The interaction of
-\emph{Military Infighting} and \emph{Latent Protection Score} is
-significant for neither coup attempts nor regime-based rebellions. The
-infighting measure is also not significant in the additive models. In
-fact, the only noteworthy result in Table 3 is that the effect of
-\emph{Latent Protection Score} is robust to the inclusion of the
-\emph{Military Infighting} measure.
-
-\singlespacing
-
-\input{table3.tex}
-
-\doublespacing
-
-\hypertarget{causal-inference}{%
-\section{Causal Inference}\label{causal-inference}}
-
-The results presented thus far are consistent with \emph{H1a} and
-\emph{H1b}, but face a notable shortcoming --- a government's decision
-to repress or not may be endogenous to the potential consequences of
-repression. Indeed, Hendrix and Salehyan
-(\protect\hyperlink{ref-Hendrix2017}{2017}) argue that the risk of
-internal backlash deters repression. Instrumental variables have been
-established as an effective means of correcting for such bias (Ritter
-and Conrad \protect\hyperlink{ref-Ritter2016}{2016}). Valid instruments
-are often difficult to find, as they must be strong predictors of the
-endogenous variable (repression in this case), but cannot be related to
-the dependent variable except through the effects of the endogenous
-variable. One variable that may satisfy both requirements is the ``youth
-bulge'' measure originally proposed by Urdal
-(\protect\hyperlink{ref-Urdal2006}{2006}). Youth bulges are a
-national-level demographic attribute defined as the ratio of 15-24
-year-olds relative to the adult population. In a meta analysis Hill and
-Jones (\protect\hyperlink{ref-Hill2014}{2014}) show that the youth bulge
-is among the strongest predictors of repression in the literature,
-satisfying the first requirement of an instrument. It is less clear
-whether youth bulges meet the second require (the exclusion
-restriction). On one hand Urdal
-(\protect\hyperlink{ref-Urdal2006}{2006}) finds that youth bulges are
-strongly associated with political violence. On the other hand, the
-theoretical mechanisms he outlines emphasize challenges that originate
-outside the state, motivated by resource shortages. We should not
-necessarily expect, then, that youth bulges would have a direct effect
-on defection from the regime. I thus proceed to utilize the measure as
-an instrument in a two-stage probit model.
-
-\singlespacing
-
-\input{table4.tex}
-
-\doublespacing
-
-The results of the instrumental variables analysis are presented in
-Table 4. In the first and third models, the youth bulge measure is used
-to instrument for \emph{Latent Protection Score}. The statistically
-significant relationship exhibited by the direct disappears after
-instrumenting. When instrumenting for the \emph{NAVCO Repression}
-measure, however, the relationship remains statistically significant and
-is larger, substantively than in the conventional regression.\footnote{It
-  was not possible to obtain estimates for the regime rebellion
-  dependent variable.} The instrumental variables analysis thus produces
-ambiguous results. One explanation is that by including a wide variety
-of data sources, the \emph{Latent Protection Scores} capture information
-that is endogenous to the dependent variables studied here. It may even
-be the case that coups are factoring into the scores directly, though it
-is not clear through which underlying dataset this would occur. The
-\emph{NAVCO} measure, by contrast, is more narrowly focused on the
-repression of non-state political movements, and thus less beset by the
-concerns.
-
-\hypertarget{conclusion}{%
-\section{Conclusion}\label{conclusion}}
-
-Anecdotally, repression seems to engender backlash and increase the risk
-of regime fragmentation. The evidence presented here suggests that cases
-like the Free Syrian Army and M23 are not rare. Repression is robustly
-related to coup attempts, and there is some evidence to suggest that it
-is an important cause of rebellions originating from the regime. The
-search for specific mechanisms found limited success, but it does appear
-that the combination of high levels of repression and ethnic ties
-between members of the military and the individuals being repressed
-increases coup risk.
-
-These results have two important implications for the existing
-literature. First, they lend support to the argument of Hendrix and
-Salehyan (\protect\hyperlink{ref-Hendrix2017}{2017}) that regimes face
-potential internal backlash over the use of repression. However, this
-study also shows that repression and subsequent fragmentation frequently
-do occur. Thus, the deterrence effect proposed by Hendrix and Salehyan
-(\protect\hyperlink{ref-Hendrix2017}{2017}) is not perfectly effective,
-leaving a need for further research on the conditions under which
-repression does and does not provoke a backlash. These findings also
-have implications for the coup literature. Theories of coups often
-assume they are opportunistic and motivated by material greed. While
-there could be a material link between repression and regime
-fragmentation (see the discussion in the theory section regarding
-non-tax revenue), the finding that repression strongly predicts coups
-could also suggest that coups are guided by more ideational and moral
-concerns than previously recognized.
+\begin{itemize}
+\tightlist
+\item
+  Examples: FSA, M23, NLA, Franco's Nationalists, Yemen?
+\item
+  Importance: not a huge percentage of cases, but present in many severe civil wars, and key drivers of broader conflict trajectory. Military rebels were first rebel groups in Syria, Libya, Yemen? - very possible that these cases of unrest would not have escalated to civil war had the military remained cohesive. In the DRC, M23 has prolonged the fighting in a country that otherwise seemed headed toward peace for the first time in over a decade.
+\end{itemize}
+
+When the Arab Spring protests spread to Syria in March 2011, the regime of President Bashar al-Assad quickly responded with forceful repression, including the torture and killing of a 13-year-old boy (Macleod and Flamand \protect\hyperlink{ref-Macleod2011}{2011}). While this brutality was presumably intended to deter threats to the regime, it arguably backfired by provoking the defection of a substantial portion of the regime military including Colonel Hussein Harmoush, who expressed a feeling of complicity in the government actions, saying that ``I defected from the Syrian Arab army and took responsibility for protecting civilians\ldots{} I feel like I am responsible for the deaths of every single martyr in Syria,'' (Abouzeid \protect\hyperlink{ref-Abouzeid2011}{2011}). Riad al-Assad, who defected from the Syrian Air Force to form the Free Syrian Army rebel group, similarly declared his intent to protect protestors and resist the regime military (Lister \protect\hyperlink{ref-Lister2016}{2016}). Several other contemporary rebel groups have similar origins, including M23 in the Democratic Republic of the Congo, and the National Liberation Army in Libya, suggesting that the phenomenon could be widespread. This paper thus seeks to answer two question. First, does the use of repression place regimes at greater risk of desertion and coups? Second, under what conditions is repression most likely to produce such outcomes?
+
+The fragmentation of the regime military is a key dynamic in many conflicts and potentially explains why the Arab Spring led to civil war in Syria and Libya, but not in other countries. Similar processes have occurred in numerous other cases, as original data presented herein shows that more than 15\% of rebel groups since World War II have traced their origins to the regime military, and an additional 9\% were founded by civilian regime officials. These rebellions have received little attention from scholars, and while some existing theories of civil war onset such as greed theory ({\textbf{???}}) could potentially account for them, many, including theories focusing on ethnic discrimination (e.g. Cederman, Wimmer, and Min \protect\hyperlink{ref-Cederman2010}{2010}) and protest escalation (e.g. Pierskalla \protect\hyperlink{ref-Pierskalla2010}{2010}), assume that rebellions originate outside the government. Studying these cases thus offers the possibility of enhancing our understanding of civil war onset.
+
+Another prominent form of regime fragmentation --- coups d'etat --- has been the subject of much scholarship. While most of the existing literature focuses on broader structural conditions affecting coup risk, some identify a connection between protests and coup occurrence (Casper and Tyson \protect\hyperlink{ref-Casper2014}{2014}; Johnson and Thyne \protect\hyperlink{ref-Johnson2018}{2018}). Hendrix and Salehyan (\protect\hyperlink{ref-Hendrix2017}{2017}) consider the government's response to protests, finding that the possibility of regime fragmentation often deters the use of repression. Yet, fragmentation does occur, suggesting the need for further research analyzing fragmentation as a dependent variable. Additionally, deterrence effects create the possibility of endogeneity, but existing studies have not fully corrected for this concern. This study advances the literature on coups and repression by making coups a dependent variable, by accounting for the possibility of endogeneity through the use of an instrumental variable, and by examining a wider set of cases than previous studies.
+
+This research also contributes to the literature on human rights. Understandably, most work in this area has focused on the causes of human rights violations. Several scholars, however, have turned their attention to the consequences of human rights violations for outcomes such as foreign direct investment (Blanton and Blanton \protect\hyperlink{ref-Blanton2007}{2007}) and foreign aid (Lebovic and Voeten \protect\hyperlink{ref-Lebovic2009}{2009}), and others have suggested that repression could provoke infighting amongst regime factions (Hendrix and Salehyan \protect\hyperlink{ref-Hendrix2017}{2017}). These consequences of human rights violations could offer insight to preventing abuses in the future. For example, if regime fragmentation has the potential to constrain abusive behavior (Hendrix and Salehyan \protect\hyperlink{ref-Hendrix2017}{2017}), disrupting the flow of private benefits to soldiers might undermine solidarity and strengthen this effect. By comparing specific mechanisms linking repression to regime fragmentation, this study offers the prospect of such policy recommendations.
+
+I proceed with a review of the literature on regime fragmentation, including coups, rebellions, and desertion. Next, I articulate three theoretical processes that could link repression to regime fragmentation. I then specify a research design to test these propositions, and present results from fixed-effects and instrumental variables regression models. I conclude by situating the results in the broader literature, and by offering suggestions for future research.
+
+\hypertarget{conceptualizing-military-defection}{%
+\section{Conceptualizing Military Defection}\label{conceptualizing-military-defection}}
+
+Few scholars have examined the phenomenon of rebel groups emerging from the regime military. However, several similar processes have been explored in the literature. Albrecht and Koehler (\protect\hyperlink{ref-Albrecht2018}{2018}) distinguish between atomized and collective
+
+In this section I review these concepts and discuss their relation to military rebellion.
+
+\hypertarget{rebellion}{%
+\subsection{Rebellion}\label{rebellion}}
+
+These definitions of rebellion do not preclude the possibility of such groups emerging from the state. However, the point at which an actor becomes disassociated with the state has not been fully articulated.
+
+\hypertarget{coups-duxe9tat}{%
+\subsection{Coups d'état}\label{coups-duxe9tat}}
+
+\begin{itemize}
+\tightlist
+\item
+  Does address dissent in regime
+\item
+  But doesn't account for action outside the regime.
+\end{itemize}
+
+Scholarly definitions of coups d'état often explicitly exclude revolts that occur outside existing military structures. For instance, Powell and Thyne (\protect\hyperlink{ref-Powell2011}{2011}, 252) define coups as ``illegal and overt attempts by the military or other elites \emph{within the state apparatus} to unseat the sitting executive {[}emphasis added{]}.'' As such, cases of military rebellion including the Free Syrian Army and M23 are not coded as coups in their widely-used dataset. Similarly, many theories of coups focus on the behavior of military or political elites (e.g. Roessler \protect\hyperlink{ref-Roessler2016}{2016}; Bove and Rivera \protect\hyperlink{ref-Bove2015a}{2015}; Casper and Tyson \protect\hyperlink{ref-Casper2014}{2014}). Many coups, however, are initiated by non-elite members of the military. Singh (\protect\hyperlink{ref-Singh2014}{2014}) distinguishes between coups from the top (military elites), middle (unit commanders), and bottom (enlisted men), finding that coups initiated by lower-ranking military members tend to be motivated by their treatment within the military rather than broader political concerns. While the coups from the bottom in Singh's case studies largely resemble traditional coups in the sense that the plotters attempted to seize control of the existing military apparatus, he hints at the possibility tactical diversity in this category, noting that low-ranking officers lack the ability to divert existing procedures and structures to their cause. Albrecht and Eibl (\protect\hyperlink{ref-Albrecht2018a}{2018}) similarly distinguish between coups attempted by elite and combat officers, finding that the two categories have different causes. Whereas the probability elite officer coups is largely a function of the structure of the regime and military, combat officer coups are associated with societal concerns such as low levels of welfare spending and the absence of political liberalization.
+
+In summary, this literature shows that revolt can come from any level of the military. While these works focus on cases where this dissent manifests in attempts to seize control of the regime from within, they raise the possibility that dissident soldiers, especially those from the lower ranks, could form organizations that challenge the state from the outside. Indeed, Singh (\protect\hyperlink{ref-Singh2014}{2014}) finds that coups typically result from covert organizations of plotters within the military.
+
+\hypertarget{mutiny}{%
+\subsection{Mutiny}\label{mutiny}}
+
+Nepstad
+
+Book
+
+\hypertarget{defection}{%
+\subsection{Defection}\label{defection}}
+
+Seymour
+
+Staniland
+
+Christia
+
+\hypertarget{desertion}{%
+\subsection{Desertion}\label{desertion}}
+
+\hypertarget{theoretical-framework}{%
+\section{Theoretical Framework}\label{theoretical-framework}}
+
+Definition - rebellion that is launched primarily by former military members. This is the key stage in the life cycle (see Lewis 2016). Whether they recruit more broadly later is a separate question.
+
+\hypertarget{the-sources-of-military-cohesion}{%
+\subsection{The Sources of Military Cohesion}\label{the-sources-of-military-cohesion}}
+
+I conceptualize states as having four categories of tools for producing a compliant military. First, can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service (Lutterbeck \protect\hyperlink{ref-Lutterbeck2013}{2013}; Barany \protect\hyperlink{ref-Barany2011}{2011}). This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population (Bellin \protect\hyperlink{ref-Bellin2012}{2012}). Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall (Heger and Salehyan \protect\hyperlink{ref-Heger2007a}{2007}; McLauchlin \protect\hyperlink{ref-McLauchlin2018}{2018}). Even states with ostensibly inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt (Røislien \protect\hyperlink{ref-Roislien2013}{2013}). Many states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
+
+Second, the promotion of loyalty is typically a core goal of military training and socialization. Militaries deliberately engineer their training programs to maximize feelings of group solidarity, patriotism, and deference to authority. In Rwanda, military recruits (Jowell)
+
+Some training and lots of socialization tailored to one enemy
+
+Combine 2-3 - Castillo is basically arguing that national symbols are a source of cohesion
+
+A third, related strategy is the use of normative and symbolic power. States can employ these devices to promote loyalty, but also to deny legitimacy to potential challengers.
+
+Lastly, material incentives play a crucial role in controlling the military. These include formal positive inducements such as salary and housing, informal positive inducements such as opportunities to engage in corruption or plunder, and negative sanctions including discharge and corporal punishment.
+
+McLauchlin - these can vary geographically
+
+\hypertarget{repressive-shocks-and-military-fragmentation}{%
+\subsection{Repressive Shocks and Military Fragmentation}\label{repressive-shocks-and-military-fragmentation}}
+
+\begin{itemize}
+\tightlist
+\item
+  Militaries tend to be good at ensuring compliance for action against existing/long-standing threats.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Public support
+  \item
+    Institutionalization of procedures, culture
+  \end{itemize}
+\item
+  Militaries tend to be less good at ensuring compliance for action against new threats, especially domestic ones.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Public opposition. In the abstract, repression of fellow citizens unpopular even if public would be supportive of action against actualized dissent.
+  \item
+    Prep for pre-existing threats limits capacity for addressing future threats.
+  \end{itemize}
+
+  Defection is a function of the regime's preparedness to repress the internal threats it faces. This preparedness in turn is a function of two factors:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The novelty of the threat. Governments go to great lengths to recruit and socialize their security forces in such a way that they will carry out orders to fight their enemies of the time. But if the targets of military action change over time, it may be harder for the regime to ensure compliance, particularly if the new targets are domestic civilians.
+  \item
+    The volume of targets. Regimes often have certain units that they view as particularly loyal, often the secret police. If the threats to the regime can be handled by these units, the risk of defection should be minimized. But if the threat is large enough that regular military forces must be deployed, the risk of defection increases dramatically.
+  \end{itemize}
+\end{itemize}
+
+Sincerity. This effect could be the result of sincere concern for human rights, or the opportunistic use of bad behavior by the regime to claim legitimacy.
+
+McLauchlin's concept of control - predictability could be another determinant. Institutionalized repression is predictable - leadership will aniticipate and prevent many opportunities for defections. The dynamics of repression shocks are much harder to predict.
+
+While repressive shocks can create opportunities for defection by undermining the regime's compliance mechanisms, opportunity alone is insufficient for conflict (Most and Starr \protect\hyperlink{ref-Most1989}{1989}). If repression is to produce defection, it must also create willingness among soldiers to turn against the regime. I argue that this should in fact occur for a variety of reasons.
+
+\begin{itemize}
+\tightlist
+\item
+  Sincere humanitarian concerns
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Soldiers may have enlisted to fight interstate foes, terrorists, existing rebels. They are socialized to dehumanize these entities. Turning their weapons on civilians is not what they signed up for. They haven't been socialized to dehumanize protesters, other civilians.
+  \end{itemize}
+\item
+  Ethnic ties
+\item
+  Concerns about prosecution from domestic or international courts
+\item
+  Concerns about reprisals from rebels, militias, etc.
+\item
+  Opportunism - increased odds of obtaining international legitimacy and support
+\end{itemize}
+
+\hypertarget{other-pathways-to-military-fragmentation}{%
+\subsection{Other Pathways to Military Fragmentation}\label{other-pathways-to-military-fragmentation}}
+
+I make no claim that repression shocks are the only source of military rebellion. Other mechanisms leading to military fragmentation surely exist. Furthermore, these mechanisms are not mutually-exclusive, and may interact in interesting ways. Thus, I explore what I expect to be the most common alternative paths to fragmentation.
+
+\begin{itemize}
+\tightlist
+\item
+  Opportunism
+\item
+  Inability to employ optimal methods for cohesion
+
+  \begin{itemize}
+  \tightlist
+  \item
+    No minority group large enough to meet security needs
+  \item
+    Competing concerns/political bargains lead to conscription
+  \item
+    Rough/large terrain
+  \end{itemize}
+
+  \hypertarget{the-form-of-military-defection}{%
+  \subsection{The Form of Military Defection}\label{the-form-of-military-defection}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Security - maybe punishing deserters incentives collective defection?
+  \item
+    Incentives
+  \item
+    Coup-proofing
+  \item
+    Geographic location
+  \end{itemize}
+\end{itemize}
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
@@ -851,275 +321,73 @@ concerns than previously recognized.
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-Abouzeid2011}{}%
-Abouzeid, Rania. 2011. ``The Soldier Who Gave up on Assad to Protect
-Syria's People.'' \emph{Time}.
-https://content.time.com/time/world/article/0,8599,2077348,00.html.
+Abouzeid, Rania. 2011. ``The Soldier Who Gave up on Assad to Protect Syria's People.'' \emph{Time}. https://content.time.com/time/world/article/0,8599,2077348,00.html.
 
-\leavevmode\hypertarget{ref-Althaus2017}{}%
-Althaus, Scott, Joseph Bajjalieh, John F. Carter, Buddy Peyton, and Dan
-A. Shalmon. 2017. ``Cline Center Historical Phoenix Event Data.
-V.1.0.0.'' Distributed by Cline Center for Advanced Social Research.
+\leavevmode\hypertarget{ref-Albrecht2018a}{}%
+Albrecht, Holger, and Ferdinand Eibl. 2018. ``How to Keep Officers in the Barracks: Causes, Agents, and Types of Military Coups.'' \emph{International Studies Quarterly}, April.
 
-\leavevmode\hypertarget{ref-Belkin2003}{}%
-Belkin, Aaron, and Evan Schofer. 2003. ``Toward a Structural
-Understanding of Coup Risk.'' \emph{Journal of Conflict Resolution} 47
-(5): 594--620.
+\leavevmode\hypertarget{ref-Albrecht2018}{}%
+Albrecht, Holger, and Kevin Koehler. 2018. ``Going on the Run: What Drives Military Desertion in Civil War?'' \emph{Security Studies} 27 (2): 179--203.
 
-\leavevmode\hypertarget{ref-Bell2018}{}%
-Bell, Sam R, and Amanda Murdie. 2018. ``The Apparatus for Violence:
-Repression, Violent Protest, and Civil War in a Cross-National
-Framework.'' \emph{Conflict Management and Peace Science} 35 (4):
-336--54.
+\leavevmode\hypertarget{ref-Barany2011}{}%
+Barany, Zoltan. 2011. ``The Role of the Military.'' \emph{Journal of Democracy} 22 (4): 24--35.
 
-\leavevmode\hypertarget{ref-Besley2009}{}%
-Besley, Timothy, and Torsten Persson. 2009. ``Repression or Civil War?''
-\emph{American Economic Review} 99 (2): 292--97.
+\leavevmode\hypertarget{ref-Bellin2012}{}%
+Bellin, Eva. 2012. ``Reconsidering the Robustness of Authoritarianism in the Middle East: Lessons from the Arab Spring.'' \emph{Comparative Politics} 44 (2): 127--49.
 
 \leavevmode\hypertarget{ref-Blanton2007}{}%
-Blanton, Shannon Lindsey, and Robert G. Blanton. 2007. ``What Attracts
-Foreign Investors? An Examination of Human Rights and Foreign Direct
-Investment.'' \emph{The Journal of Politics} 69 (1): 143--55.
+Blanton, Shannon Lindsey, and Robert G. Blanton. 2007. ``What Attracts Foreign Investors? An Examination of Human Rights and Foreign Direct Investment.'' \emph{The Journal of Politics} 69 (1): 143--55.
 
-\leavevmode\hypertarget{ref-Bowden2017}{}%
-Bowden, David F. 2017. ``Politics Among Rebels: The Causes of Division
-Between Dissidents.'' Ph.D. Diss., University of Illinois,
-Urbana-Champaign.
-
-\leavevmode\hypertarget{ref-Cao2013}{}%
-Cao, Xun, Brian Greenhill, and Aseem Prakash. 2013. ``Where Is the
-Tipping Point? Bilateral Trade and the Diffusion of Human Rights.''
-\emph{British Journal of Political Science} 43 (1): 133--56.
+\leavevmode\hypertarget{ref-Bove2015a}{}%
+Bove, Vincenzo, and Mauricio Rivera. 2015. ``Elite Co-Optation, Repression, and Coups in Autocracies.'' \emph{International Interactions} 41 (3): 453--79.
 
 \leavevmode\hypertarget{ref-Casper2014}{}%
-Casper, Brett Allen, and Scott A. Tyson. 2014. ``Popular Protest and
-Elite Coordination in a Coup d'état.'' \emph{Journal of Politics} 76
-(2): 548--64.
-
-\leavevmode\hypertarget{ref-Cederman2013a}{}%
-Cederman, Lars-Erik, Kristian Skrede Gleditsch, and Halvard Buhaug.
-2013. \emph{Inequality, Grievances, and Civil War}. New York: Cambridge
-University Press.
+Casper, Brett Allen, and Scott A. Tyson. 2014. ``Popular Protest and Elite Coordination in a Coup d'état.'' \emph{Journal of Politics} 76 (2): 548--64.
 
 \leavevmode\hypertarget{ref-Cederman2010}{}%
-Cederman, Lars-Erik, Andreas Wimmer, and Brian Min. 2010. ``Why Do
-Ethnic Groups Rebel?: New Data and Analysis.'' \emph{World Politics} 62
-(1): 87--98.
+Cederman, Lars-Erik, Andreas Wimmer, and Brian Min. 2010. ``Why Do Ethnic Groups Rebel?: New Data and Analysis.'' \emph{World Politics} 62 (1): 87--98.
 
-\leavevmode\hypertarget{ref-Chenoweth2013b}{}%
-Chenoweth, Erica, and Orion A. Lewis. 2013a. ``Nonviolent and Violent
-Campaigns and Outcomes Dataset, V. 2.0.'' University of Denver.
-
-\leavevmode\hypertarget{ref-Chenoweth2013a}{}%
-Chenoweth, Erica, and Orion A Lewis. 2013b. ``Unpacking Nonviolent
-Campaigns: Introducing the NAVCO 2.0 Dataset.'' \emph{Journal of Peace
-Research} 50 (3): 415--23.
-
-\leavevmode\hypertarget{ref-Choi2018}{}%
-Choi, Hyun Jin, and Dongsuk Kim. 2018. ``Coup, Riot, War: How Political
-Institutions and Ethnic Politics Shape Alternative Forms of Political
-Violence.'' \emph{Terrorism and Political Violence} 30 (4): 718--39.
-
-\leavevmode\hypertarget{ref-Collier2004}{}%
-Collier, Paul, and Anke Hoeffler. 2004. ``Greed and Grievance in Civil
-War.'' \emph{Oxford Economic Papers} 56 (4): 563--95.
-
-\leavevmode\hypertarget{ref-Davenportnd}{}%
-Davenport, Christian, David A. Armstrong II, and Mark I. Lichbach. n.d.
-``From Mountains to Movements : Dissent , Repression and Escalation to
-Civil War.'' \emph{Unpublished}.
-
-\leavevmode\hypertarget{ref-Eifert2010}{}%
-Eifert, Benn, Edward Miguel, and Daniel N. Posner. 2010. ``Political
-Competition and Ethnic Identification in Africa.'' \emph{American
-Journal of Political Science} 54 (2): 494--510.
-
-\leavevmode\hypertarget{ref-Fariss2014}{}%
-Fariss, Christopher J. 2014. ``Respect for Human Rights Has Improved
-over Time: Modeling the Changing Standard of Accountability.''
-\emph{American Political Science Review} 108 (2): 297--318.
-
-\leavevmode\hypertarget{ref-Geddes2014a}{}%
-Geddes, Barbara, Joseph Wright, and Erica Frantz. 2014. ``Autocratic
-Breakdown and Regime Transitions: A New Data Set.'' \emph{Perspectives
-on Politics} 12 (02): 313--31.
-
-\leavevmode\hypertarget{ref-Gleditsch2002a}{}%
-Gleditsch, Kristian Skrede. 2002. ``Expanded Trade and GDP Data.''
-\emph{Journal of Conflict Resolution} 46 (5): 712--24.
-
-\leavevmode\hypertarget{ref-Habyarimana2007}{}%
-Habyarimana, James, Macartan Humphreys, Daniel N. Posner, and Jeremy M.
-Weinstein. 2007. ``Why Does Ethnic Diversity Undermine Public Goods
-Provision ?'' \emph{American Political Science Review} 101 (4): 709--25.
-
-\leavevmode\hypertarget{ref-Hegre2001}{}%
-Hegre, Havard, Tanja Ellison, Scott Gates, and Nils Petter Gleditsch.
-2001. ``Toward a Democratic Civil Peace? Democracy, Political Change,
-and Civil War, 1816-1992.'' \emph{American Political Science Review} 95
-(1): 33--48.
+\leavevmode\hypertarget{ref-Heger2007a}{}%
+Heger, Lindsay, and Idean Salehyan. 2007. ``Ruthless Rulers: Coalition Size and the Severity of Civil Conflict.'' \emph{International Studies Quarterly} 51 (2): 385--403.
 
 \leavevmode\hypertarget{ref-Hendrix2017}{}%
-Hendrix, Cullen S., and Idean Salehyan. 2017. ``A House Divided: Threat
-Perception, Military Factionalism, and Repression in Africa.''
-\emph{Journal of Conflict Resolution} 61 (8): 1653--81.
-
-\leavevmode\hypertarget{ref-Hill2014}{}%
-Hill, Daniel W, and Zachary M Jones. 2014. ``An Empirical Evaluation of
-Explanations for State Repression'' 108 (3): 661--87.
-
-\leavevmode\hypertarget{ref-Jazayeri2016}{}%
-Jazayeri, Karen Bodnaruk. 2016. ``Identity-Based Political Inequality
-and Protest: The Dynamic Relationship Between Political Power and
-Protest in the Middle East and North Africa.'' \emph{Conflict Management
-and Peace Science} 33 (4): 400--422.
+Hendrix, Cullen S., and Idean Salehyan. 2017. ``A House Divided: Threat Perception, Military Factionalism, and Repression in Africa.'' \emph{Journal of Conflict Resolution} 61 (8): 1653--81.
 
 \leavevmode\hypertarget{ref-Johnson2018}{}%
-Johnson, Jaclyn, and Clayton L. Thyne. 2018. ``Squeaky Wheels and Troop
-Loyalty: How Domestic Protests Influence Coups d'état, 19512005.''
-\emph{Journal of Conflict Resolution} 62 (3): 597--625.
-
-\leavevmode\hypertarget{ref-Johnson2017}{}%
-Johnson, Paul Lorenzo, and Ches Thurber. 2017. ``The Security-Force
-Ethnicity (SFE) Project: Introducing a New Dataset.'' \emph{Conflict
-Management and Peace Science}, 073889421770901.
-
-\leavevmode\hypertarget{ref-Kuran1998}{}%
-Kuran, Timur. 1998. ``Ethnic Dissimilation and Its International
-Diffusion.'' In \emph{The International Spread of Ethnic Conflict: Fear,
-Diffusion, and Escalation}, edited by David A. Lake and Donald
-Rothchild, 35--60. Princeton, NJ: Princeton University Press.
+Johnson, Jaclyn, and Clayton L. Thyne. 2018. ``Squeaky Wheels and Troop Loyalty: How Domestic Protests Influence Coups d'état, 19512005.'' \emph{Journal of Conflict Resolution} 62 (3): 597--625.
 
 \leavevmode\hypertarget{ref-Lebovic2009}{}%
-Lebovic, James H., and Erik Voeten. 2009. ``The Cost of Shame:
-International Organizations and Foreign Aid in the Punishing of Human
-Rights Violators.'' \emph{Journal of Peace Research} 46 (1): 79--97.
-
-\leavevmode\hypertarget{ref-Lichbach1987}{}%
-Lichbach, Mark Irving. 1987. ``Deterrence or Escalation? The Puzzle of
-Aggregate Studies of Repression and Dissent.'' \emph{Journal of Conflict
-Resolution} 31 (2): 266--97.
+Lebovic, James H., and Erik Voeten. 2009. ``The Cost of Shame: International Organizations and Foreign Aid in the Punishing of Human Rights Violators.'' \emph{Journal of Peace Research} 46 (1): 79--97.
 
 \leavevmode\hypertarget{ref-Lister2016}{}%
-Lister, Charles. 2016. ``The Free Syrian Army: A Decentralized Insurgent
-Brand.'' \emph{Brookings Project on U.S. Relations with the Islamic
-World}, no. 26.
+Lister, Charles. 2016. ``The Free Syrian Army: A Decentralized Insurgent Brand.'' \emph{Brookings Project on U.S. Relations with the Islamic World}, no. 26.
 
-\leavevmode\hypertarget{ref-Londregan1990}{}%
-Londregan, John B., and Keith T. Poole. 1990. ``Poverty, the Coup Trap,
-and the Seizure of Executive Power.'' \emph{World Politics} 42 (2):
-151--83.
+\leavevmode\hypertarget{ref-Lutterbeck2013}{}%
+Lutterbeck, Derek. 2013. ``Arab Uprisings, Armed Forces, and CivilMilitary Relations.'' \emph{Armed Forces \& Society} 39 (1): 28--52.
 
 \leavevmode\hypertarget{ref-Macleod2011}{}%
-Macleod, Hugh, and Annasofie Flamand. 2011. ``Tortured and Killed: Hamza
-Al-Khateeb, Age 13.'' \emph{Al Jazeera}.
-https://www.aljazeera.com/indepth/features/2011/05/201153185927813389.html.
+Macleod, Hugh, and Annasofie Flamand. 2011. ``Tortured and Killed: Hamza Al-Khateeb, Age 13.'' \emph{Al Jazeera}. https://www.aljazeera.com/indepth/features/2011/05/201153185927813389.html.
 
-\leavevmode\hypertarget{ref-Marshall2016}{}%
-Marshall, Monty G., Ted Robert Gurr, and Keith Jaggers. 2016. ``Polity
-IV Project Dataset Users' Manual, V.2015.'' \emph{Polity IV Project},
-1--86.
+\leavevmode\hypertarget{ref-McLauchlin2018}{}%
+McLauchlin, Theodore. 2018. ``The Loyalty Trap: Regime Ethnic Exclusion, Commitment Problems, and Civil War Duration in Syria and Beyond.'' \emph{Security Studies} 27 (2): 296--317.
 
-\leavevmode\hypertarget{ref-Moore1998}{}%
-Moore, Will H. 1998. ``Repression and Dissent: Substitution, Context,
-and Timing.'' \emph{American Journal of Political Science} 42 (3):
-851--73.
-
-\leavevmode\hypertarget{ref-Morrison2009}{}%
-Morrison, Kevin M. 2009. ``Oil, Nontax Revenue, and the Redistributional
-Foundations of Regime Stability.'' \emph{International Organization} 63
-(1): 107--38.
-
-\leavevmode\hypertarget{ref-Pettersson2018}{}%
-Pettersson, Therése, and Kristine Eck. 2018. ``Organized Violence,
-1989-2017.'' \emph{Journal of Peace Research} 55 (4): 535--47.
+\leavevmode\hypertarget{ref-Most1989}{}%
+Most, Benjamin A, and Harvey Starr. 1989. \emph{Inquiry, Logic and International Politics}. Columbia, SC: University of South Carolina Press.
 
 \leavevmode\hypertarget{ref-Pierskalla2010}{}%
-Pierskalla, Jan Henryk. 2010. ``Protest, Deterrence, and Escalation: The
-Strategic Calculus of Government Repression.'' \emph{Journal of Conflict
-Resolution} 54 (1): 117--45.
-
-\leavevmode\hypertarget{ref-Powell2012a}{}%
-Powell, Jonathan. 2012. ``Determinants of the Attempting and Outcome of
-Coups d'état.'' \emph{Journal of Conflict Resolution} 56 (6): 1017--40.
+Pierskalla, Jan Henryk. 2010. ``Protest, Deterrence, and Escalation: The Strategic Calculus of Government Repression.'' \emph{Journal of Conflict Resolution} 54 (1): 117--45.
 
 \leavevmode\hypertarget{ref-Powell2011}{}%
-Powell, Jonathan M., and Clayton L. Thyne. 2011. ``Global Instances of
-Coups from 1950 to 2010: A New Dataset.'' \emph{Journal of Peace
-Research} 48 (2): 249--59.
+Powell, Jonathan M., and Clayton L. Thyne. 2011. ``Global Instances of Coups from 1950 to 2010: A New Dataset.'' \emph{Journal of Peace Research} 48 (2): 249--59.
 
-\leavevmode\hypertarget{ref-Rasler1996}{}%
-Rasler, Karen. 1996. ``Concessions, Repression, and Political Protest in
-the Iranian Revolution.'' \emph{American Sociological Review} 61 (1):
-132.
+\leavevmode\hypertarget{ref-Roessler2016}{}%
+Roessler, Philip. 2016. \emph{Ethnic Politics and State Power in Africa: The Logic of the Coup-Civil War Trap}. Cambridge, United Kingdom ; New York, NY: Cambridge University Press.
 
-\leavevmode\hypertarget{ref-Ritter2016}{}%
-Ritter, Emily Hencken, and Courtenay R. Conrad. 2016. ``Preventing and
-Responding to Dissent: The Observational Challenges of Explaining
-Strategic Repression.'' \emph{American Political Science Review} 110
-(1): 85--99.
+\leavevmode\hypertarget{ref-Roislien2013}{}%
+Røislien, Hanne Eggen. 2013. ``Religion and Military Conscription: The Case of the Israel Defense Forces (IDF).'' \emph{Armed Forces \& Society} 39 (2): 213--32.
 
-\leavevmode\hypertarget{ref-Robinson2014}{}%
-Robinson, Amanda Lea. 2014. ``National Versus Ethnic Identification in
-Africa: Modernization, Colonial Legacy, and the Origins of Territorial
-Nationalism.'' \emph{World Politics} 66 (4): 709--46.
-
-\leavevmode\hypertarget{ref-Roessler2011}{}%
-Roessler, Philip. 2011. ``The Enemy Within: Personal Rule, Coups, and
-Civil War in Africa.'' \emph{World Politics} 63 (2): 300--346.
-
-\leavevmode\hypertarget{ref-Salehyan2017}{}%
-Salehyan, Idean, and Brandon Stewart. 2017. ``Political Mobilization and
-Government Targeting: When Do Dissidents Challenge the State?''
-\emph{Comparative Political Studies} 50 (7): 963--91.
-
-\leavevmode\hypertarget{ref-Schnakenberg2014}{}%
-Schnakenberg, Keith E., and Christopher J. Fariss. 2014. ``Dynamic
-Patterns of Human Rights Practices.'' \emph{Political Science Research
-and Methods} 2 (1): 1--31.
-
-\leavevmode\hypertarget{ref-Shellman2013}{}%
-Shellman, Stephen M., Brian P. Levey, and Joseph K. Young. 2013.
-``Shifting Sands: Explaining and Predicting Phase Shifts by Dissident
-Organizations.'' \emph{Journal of Peace Research} 50 (3): 319--36.
-
-\leavevmode\hypertarget{ref-Svolik2012e}{}%
-Svolik, Milan W. 2012. ``Contracting on Violence: The Moral Hazard in
-Authoritarian Repression and Military Intervention in Politics.''
-\emph{Journal of Conflict Resolution} 57 (5): 765--94.
-
-\leavevmode\hypertarget{ref-Urdal2006}{}%
-Urdal, Henrik. 2006. ``A Clash of Generations? Youth Bulges and
-Political Violence.'' \emph{International Studies Quarterly} 50 (3):
-607--29.
-
-\leavevmode\hypertarget{ref-Vogt2015}{}%
-Vogt, Manuel, Nils-Christian Bormann, Seraina Ruegger, Lars-Erik
-Cederman, Philipp Hunziker, and Luc Girardin. 2015. ``Integrating Data
-on Ethnicity, Geography, and Conflict: The Ethnic Power Relations Data
-Set Family.'' \emph{Journal of Conflict Resolution} 59 (7): 1327--42.
-
-\leavevmode\hypertarget{ref-Walter2006a}{}%
-Walter, Barbara F. 2006. ``Building Reputation: Why Governments Fight
-Some Separatists but Not Others.'' \emph{American Journal of Political
-Science} 50 (2): 313--30.
-
-\leavevmode\hypertarget{ref-Wantchekon2003}{}%
-Wantchekon, Leonard. 2003. ``Clientelism and Voting Behavior: Evidence
-from a Field Experiment in Benin.'' \emph{World Politics} 55 (3):
-399--422.
-
-\leavevmode\hypertarget{ref-Weeks2008}{}%
-Weeks, Jessica L. 2008. ``Autocratic Audience Costs: Regime Type and
-Signaling Resolve.'' \emph{International Organization} 62 (1): 35--64.
-
-\leavevmode\hypertarget{ref-Wood2008a}{}%
-Wood, Elisabeth Jean. 2008. ``The Social Processes of Civil War: The
-Wartime Transformation of Social Networks.'' \emph{Annual Review of
-Political Science} 11 (1): 539--61.
-
-\leavevmode\hypertarget{ref-Young2013}{}%
-Young, Joseph K. 2013. ``Repression, Dissent, and the Onset of Civil
-War.'' \emph{Political Research Quarterly} 66 (3): 516--32.
+\leavevmode\hypertarget{ref-Singh2014}{}%
+Singh, Naunihal. 2014. \emph{Seizing Power}. Johns Hopkins University Press.
 
 
 \end{document}

@@ -37,20 +37,10 @@ options(xtable.comment = FALSE)
 ```{r child='defection_lit.txt'}
 ```
 
-```{r child='defection_theory.txt'}
+```{r child='defection_theory_sep19.txt'}
 ```
 
-```{r child='defection_research_design.txt'}
-```
 
-```{r child='defection_results.Rmd'}
-```
-
-```{r child='defection_causal.Rmd'}
-```
-
-```{r child='defection_conclusion.txt'}
-```
 
 # References {-}
 \markboth{REFERENCES}{}

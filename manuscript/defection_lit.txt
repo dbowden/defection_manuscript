@@ -1,10 +1,48 @@
-# Prior Work on Regime Fragmentation
+# Conceptualizing Military Defection
 
-While some forms of political violence are often considered jointly, such as protests and civil war or civil and international war, coups d'etat are typically treated as distinct phenomena and are not considered jointly with other forms of violence.^[One notable exception is @Roessler2011.] Given examples such as the Free Syrian Army, however, I argue that there is considerable overlap between coups and civil wars. Thus, I analyze coups and rebellions that originate from the regime jointly under the umbrella term "regime fragmentation." 
+Few scholars have examined the phenomenon of rebel groups emerging from the regime military. However, several similar processes have been explored in the literature. @Albrecht2018 distinguish between atomized and collective 
+
+In this section I review these concepts and discuss their relation to military rebellion.
+
+
+
+## Rebellion
+
+These definitions of rebellion do not preclude the possibility of such groups emerging from the state. However, the point at which an actor becomes disassociated with the state has not been fully articulated.
+
+## Coups d'état
+
+- Does address dissent in regime
+- But doesn't account for action outside the regime. 
+
+Scholarly definitions of coups d'état often explicitly exclude revolts that occur outside existing military structures. For instance, @Powell2011 [p. 252] define coups as "illegal and overt attempts by the military or other elites _within the state apparatus_ to unseat the sitting executive [emphasis added]." As such, cases of military rebellion including the Free Syrian Army and M23 are not coded as coups in their widely-used dataset. Similarly, many theories of coups focus on the behavior of military or political elites [e.g. @Roessler2016; @Bove2015a; @Casper2014]. Many coups, however, are initiated by non-elite members of the military. @Singh2014 distinguishes between coups from the top (military elites), middle (unit commanders), and bottom (enlisted men), finding that coups initiated by lower-ranking military members tend to be motivated by their treatment within the military rather than broader political concerns. While the coups from the bottom in Singh's case studies largely resemble traditional coups in the sense that the plotters attempted to seize control of the existing military apparatus, he hints at the possibility tactical diversity in this category, noting that low-ranking officers lack the ability to divert existing procedures and structures to their cause. @Albrecht2018a similarly distinguish between coups attempted by elite and combat officers, finding that the two categories have different causes. Whereas the probability elite officer coups is largely a function of the structure of the regime and military, combat officer coups are associated with societal concerns such as low levels of welfare spending and the absence of political liberalization.
+
+In summary, this literature shows that revolt can come from any level of the military. While these works focus on cases where this dissent manifests in attempts to seize control of the regime from within, they raise the possibility that dissident soldiers, especially those from the lower ranks, could form organizations that challenge the state from the outside. Indeed, @Singh2014 finds that coups typically result from covert organizations of plotters within the military.
+
+## Mutiny
+
+Nepstad
+
+Book
+
+## Defection
+
+Seymour
+
+Staniland
+
+Christia
+
+## Desertion
+
+
+<!-- # Prior Work on Regime Fragmentation
+
+While some forms of political violence are often considered jointly, such as protests and civil war or civil and international war, coups d'état are typically treated as distinct phenomena and are not considered jointly with other forms of violence.^[One notable exception is @Roessler2011.] Given examples such as the Free Syrian Army, however, I argue that there is considerable overlap between coups and civil wars. Thus, I analyze coups and rebellions that originate from the regime jointly under the umbrella term "regime fragmentation."  -->
 
 <!-- Desertion is also an important form of regime fragmentation. While I am not able to capture this phenomenon empirically, I include it in my literature review as it may offer insights to the forms of fragmentation that are included in the analysis. -->
 
-## Dissent, Repression, and Coups
+<!-- ## Dissent, Repression, and Coups
 
 The literature often conceptualizes coup attempts as coordination problems among elites [@Weeks2008; @Powell2012a]. Protests can potentially solve this coordination problem by revealing the regime's ability to deter challenges [@Casper2014; @Johnson2018]. These signals are likely to be especially influential when protests are non-violent [@Johnson2018], occur in or near the national capital [@Johnson2018], and are amplified by a free press [@Casper2014]. Protests can also serve as a motive for coup attempts by signaling the illegitimacy of the regime [@Johnson2018] and enhance opportunities for successful coups by empowering the military [@Svolik2012e]. 
 
@@ -16,6 +54,6 @@ Many scholars of political violence and human rights have examined the "repressi
 
 The preceding studies generally define escalation in relative terms, leaving unclear the frequency with which the violence they observe aligns with scholarly definitions of civil war.^[Such definitions typically entail a minimum threshold of severity such as 25 fatalities per calendar year, a substantial degree of organization on both sides, and some amount of competitiveness between the two sides. For a  representative example, see @Pettersson2018.] However, several works do focus specifically on civil war as a form of escalation. Some scholars conceptualize repression and civil war as distinct equilibria [@Besley2009; @Choi2018]. The probability that repression is met by effective resistance (the civil war outcome) rather than remaining one-sided is shown to increase with the material value of winning control of the government [@Besley2009], decrease with the inclusiveness of political institutions [@Besley2009; @Choi2018], and increase with the size of the dominant ethnic group relative to the size of the minimum winning coalition [@Choi2018]. Others treat repression and civil war as sequential steps in a process of escalation. In this view, repression often proves counterproductive as it decreases support for the regime [@Young2013] and increases the probability of civil war. Interestingly, this relationship does not appear to be conditional on the efficacy of repression, as effective repression increases the risk of civil war by further inflaming tensions, while ineffective repression does so by emboldening dissidents [@Davenportnd]. In addition to being associated with the onset of civil conflict, repression predicts increased violence by existing rebel groups [@Shellman2013].
 
-The studies reviewed here have consistently found a link between repression and the onset of civil conflict. However, tests of specific theoretical mechanisms have been less conclusive. A potential reason for this is that while all of the theories above assume that rebel groups emerge from non-state dissident movements, original data presented here reveals that a large number of rebellions included in commonly-used datasets are launched by members of the regime. Differences in the conditions under which repression produces these two types of rebellions could account for the inconclusive results on mechanisms observed thus far. This analysis could shed light on such a possibility.
+The studies reviewed here have consistently found a link between repression and the onset of civil conflict. However, tests of specific theoretical mechanisms have been less conclusive. A potential reason for this is that while all the theories above assume that rebel groups emerge from non-state dissident movements, original data presented here reveals that many rebellions included in commonly-used datasets are launched by members of the regime. Differences in the conditions under which repression produces these two types of rebellions could account for the inconclusive results on mechanisms observed thus far. This analysis could shed light on such a possibility.
 
-<!-- ## Desertion -->
+-->
