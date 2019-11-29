@@ -1,0 +1,66 @@
+# Theoretical Framework
+
+Definition - rebellion that is launched primarily by former military members. This is the key stage in the life cycle (see Lewis 2016). Whether they recruit more broadly later is a separate question.
+
+## The Sources of Military Cohesion
+
+I conceptualize states as having four categories of tools for producing a compliant military. First, can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service [@Lutterbeck2013; @Barany2011]. This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population [@Bellin2012]. Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall [@Heger2007a; @McLauchlin2018]. Even states with ostensibly inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt [@Roislien2013]. Many states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
+
+Second, the promotion of loyalty is typically a core goal of military training and socialization. Militaries deliberately engineer their training programs to maximize feelings of group solidarity, patriotism, and deference to authority. In Rwanda, military leaders
+
+recruits (Jowell)
+
+Some training and lots of socialization tailored to one enemy
+
+
+Combine 2-3 - Castillo is basically arguing that national symbols are a source of cohesion
+
+A third, related strategy is the use of normative and symbolic power. States can employ these devices to promote loyalty, but also to deny legitimacy to potential challengers. 
+
+Lastly, material incentives play a crucial role in controlling the military. These include formal positive inducements such as salary and housing, informal positive inducements such as opportunities to engage in corruption or plunder, and negative sanctions including discharge and corporal punishment.
+
+McLauchlin - these can vary geographically
+
+## Repressive Shocks and Military Fragmentation
+
+- Militaries tend to be good at ensuring compliance for action against existing/long-standing threats.
+  - Public support
+  - Institutionalization of procedures, culture
+- Militaries tend to be less good at ensuring compliance for action against new threats, especially domestic ones.
+  - Public opposition. In the abstract, repression of fellow citizens unpopular even if public would be supportive of action against actualized dissent.
+  - Prep for pre-existing threats limits capacity for addressing future threats.
+
+  Defection is a function of the regime's preparedness to repress the internal threats it faces. This preparedness in turn is a function of two factors:
+
+  - The novelty of the threat. Governments go to great lengths to recruit and socialize their security forces in such a way that they will carry out orders to fight their enemies of the time. But if the targets of military action change over time, it may be harder for the regime to ensure compliance, particularly if the new targets are domestic civilians.
+  - The volume of targets. Regimes often have certain units that they view as particularly loyal, often the secret police. If the threats to the regime can be handled by these units, the risk of defection should be minimized. But if the threat is large enough that regular military forces must be deployed, the risk of defection increases dramatically.
+
+Sincerity. This effect could be the result of sincere concern for human rights, or the opportunistic use of bad behavior by the regime to claim legitimacy.
+
+McLauchlin's concept of control - predictability could be another determinant. Institutionalized repression is predictable - leadership will aniticipate and prevent many opportunities for defections. The dynamics of repression shocks are much harder to predict.
+
+While repressive shocks can create opportunities for defection by undermining the regime's compliance mechanisms, opportunity alone is insufficient for conflict [@Most1989]. If repression is to produce defection, it must also create willingness among soldiers to turn against the regime. I argue that this should in fact occur for a variety of reasons.
+
+  - Sincere humanitarian concerns
+    - Soldiers may have enlisted to fight interstate foes, terrorists, existing rebels. They are socialized to dehumanize these entities. Turning their weapons on civilians is not what they signed up for. They haven't been socialized to dehumanize protesters, other civilians.
+  - Ethnic ties
+  - Concerns about prosecution from domestic or international courts
+  - Concerns about reprisals from rebels, militias, etc.
+  - Opportunism - increased odds of obtaining international legitimacy and support
+
+## Other Pathways to Military Fragmentation
+
+I make no claim that repression shocks are the only source of military rebellion. Other mechanisms leading to military fragmentation surely exist. Furthermore, these mechanisms are not mutually-exclusive, and may interact in interesting ways. Thus, I explore what I expect to be the most common alternative paths to fragmentation.
+
+- Opportunism
+- Inability to employ optimal methods for cohesion
+  - No minority group large enough to meet security needs
+  - Competing concerns/political bargains lead to conscription
+  - Rough/large terrain
+
+  ## The Form of Military Defection
+
+  - Security - maybe punishing deserters incentives collective defection?
+  - Incentives
+  - Coup-proofing
+  - Geographic location

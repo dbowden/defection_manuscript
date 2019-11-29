@@ -1,0 +1,9 @@
+# Unit/Question
+
+country-year: what factors lead to the formation of former regime rebels?
+
+# Vars
+
+- Ethnic ties b/t military & repressed - how to operationalize?
+    - Middle of EPR scale? Some power
+- SFE data
