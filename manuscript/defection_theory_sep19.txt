@@ -4,24 +4,45 @@ Definition - rebellion that is launched primarily by former military members. Th
 
 ## The Sources of Military Cohesion
 
-I conceptualize states as having four categories of tools for producing a compliant military. First, can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service [@Lutterbeck2013; @Barany2011]. This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population [@Bellin2012]. Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall [@Heger2007a; @McLauchlin2018]. Even states with ostensibly inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt [@Roislien2013]. Many states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
+I conceptualize states as having four categories of tools for producing a compliant military. First, states can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service [@Lutterbeck2013; @Barany2011]. This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population [@Bellin2012]. Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall [@Heger2007a; @McLauchlin2018]. Even states with nominally inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt [@Roislien2013]. Most states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
 
-Second, the promotion of loyalty is typically a core goal of military training and socialization. Militaries deliberately engineer their training programs to maximize feelings of group solidarity, patriotism, and deference to authority. In Rwanda, military leaders
+Second, the promotion of loyalty is typically a core goal of military training and socialization, which states often deliberately engineer to maximize feelings of group solidarity, patriotism, and deference to authority. These techniques can produce cohesion and loyalty even in difficult circumstances. For example, since 1994, the Rwandan military has successfully integrated Hutu and Tutsi soldiers through a political education course known as Ingando that emphasizes pre-colonial ethnic harmony. Subsequently, soldiers from both ethnic groups are sent on joint deployments meant to build trust [@Jowell2014]. Effective training also promotes military Cohesion by improving combat effectiveness, and in turn reducing the probability of disloyalty in response to battlefield defeat [@Castillo2014].
 
-recruits (Jowell)
+<!-- Training is often an internationalized process as states share best practices with allies. A notable example is the US Army School of the Americas, which brought officers from many Latin American militaries to the US for training in professionalization and a variety of advanced tactics. There is substantial evidence, however, that attending the School of the Americas is associated with human rights abuses [@McCoy2005a].  -->
 
-Some training and lots of socialization tailored to one enemy
+A third, related strategy is the use of normative and symbolic power. States can employ these devices to promote loyalty, but also to deAny legitimacy to potential challengers.
 
+Castillo book
 
-Combine 2-3 - Castillo is basically arguing that national symbols are a source of cohesion
-
-A third, related strategy is the use of normative and symbolic power. States can employ these devices to promote loyalty, but also to deny legitimacy to potential challengers. 
+de Lee pg 13
 
 Lastly, material incentives play a crucial role in controlling the military. These include formal positive inducements such as salary and housing, informal positive inducements such as opportunities to engage in corruption or plunder, and negative sanctions including discharge and corporal punishment.
 
 McLauchlin - these can vary geographically
 
+Jowell - command and control on p 283
+
+Roy - part III - care for military families
+
+de Lee - pg 11-12 - WWI soldiers shot for disobedience
+
 ## Repressive Shocks and Military Fragmentation
+
+Grewal
+
+Johnson & Thyne
+
+Morency
+
+Nassif
+
+Bou Nassif
+
+Gal - pg 6 - IDF Col. Geva resigned after being ordered to prepare for unprecedented invasion of Beirut.
+
+Scharpf - commanders who do not share the leader's ideology less likely to carry out repression
+
+Some training and lots of socialization tailored to one enemy
 
 - Militaries tend to be good at ensuring compliance for action against existing/long-standing threats.
   - Public support

@@ -40,8 +40,6 @@ options(xtable.comment = FALSE)
 ```{r child='defection_theory_sep19.txt'}
 ```
 
-
-
 # References {-}
 \markboth{REFERENCES}{}
 

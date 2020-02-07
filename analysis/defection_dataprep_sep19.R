@@ -29,7 +29,6 @@ cyears$gwcode <- as.numeric(cyears$gwcode)
 
 cyears <- rename(cyears, gwno_loc=gwcode, year=date)
 
-
 # 2. My origins (v1) data ----
 
 ucdp.dyad <- read_excel("~/OneDrive - PennO365/Civil War Data/milorigins/milorigins_base_coded.xlsx")

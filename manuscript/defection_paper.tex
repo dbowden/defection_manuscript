@@ -1,39 +1,57 @@
-\documentclass[12pt,]{article}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+]{article}
 \usepackage[]{tgpagella}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
 \usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
-% grffile has become a legacy package: https://ctan.org/pkg/grffile
-\IfFileExists{grffile.sty}{%
-\usepackage{grffile}
-}{}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -42,54 +60,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{David Bowden\\
-University of Pennsylvania\\
-\href{mailto:davidbow@sas.upenn.edu}{\nolinkurl{davidbow@sas.upenn.edu}}}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{November 29, 2019}
-
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{setspace}
 \usepackage{longtable}
 
@@ -104,6 +82,18 @@ University of Pennsylvania\\
 }
 
 \raggedbottom
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+\title{I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces}
+\author{David Bowden\\
+University of Pennsylvania\\
+\href{mailto:davidbow@sas.upenn.edu}{\nolinkurl{davidbow@sas.upenn.edu}}}
+\date{February 7, 2020}
 
 \begin{document}
 \maketitle
@@ -128,7 +118,7 @@ Recent high-profile examples such as the Free Syrian Army and M23 suggest that w
 
 When the Arab Spring protests spread to Syria in March 2011, the regime of President Bashar al-Assad quickly responded with forceful repression, including the torture and killing of a 13-year-old boy (Macleod and Flamand \protect\hyperlink{ref-Macleod2011}{2011}). While this brutality was presumably intended to deter threats to the regime, it arguably backfired by provoking the defection of a substantial portion of the regime military including Colonel Hussein Harmoush, who expressed a feeling of complicity in the government actions, saying that ``I defected from the Syrian Arab army and took responsibility for protecting civilians\ldots{} I feel like I am responsible for the deaths of every single martyr in Syria,'' (Abouzeid \protect\hyperlink{ref-Abouzeid2011}{2011}). Riad al-Assad, who defected from the Syrian Air Force to form the Free Syrian Army rebel group, similarly declared his intent to protect protestors and resist the regime military (Lister \protect\hyperlink{ref-Lister2016}{2016}). Several other contemporary rebel groups have similar origins, including M23 in the Democratic Republic of the Congo, and the National Liberation Army in Libya, suggesting that the phenomenon could be widespread. This paper thus seeks to answer two question. First, does the use of repression place regimes at greater risk of desertion and coups? Second, under what conditions is repression most likely to produce such outcomes?
 
-The fragmentation of the regime military is a key dynamic in many conflicts and potentially explains why the Arab Spring led to civil war in Syria and Libya, but not in other countries. Similar processes have occurred in numerous other cases, as original data presented herein shows that more than 15\% of rebel groups since World War II have traced their origins to the regime military, and an additional 9\% were founded by civilian regime officials. These rebellions have received little attention from scholars, and while some existing theories of civil war onset such as greed theory ({\textbf{???}}) could potentially account for them, many, including theories focusing on ethnic discrimination (e.g. Cederman, Wimmer, and Min \protect\hyperlink{ref-Cederman2010}{2010}) and protest escalation (e.g. Pierskalla \protect\hyperlink{ref-Pierskalla2010}{2010}), assume that rebellions originate outside the government. Studying these cases thus offers the possibility of enhancing our understanding of civil war onset.
+The fragmentation of the regime military is a key dynamic in many conflicts and potentially explains why the Arab Spring led to civil war in Syria and Libya, but not in other countries. Similar processes have occurred in numerous other cases, as original data presented herein shows that more than 15\% of rebel groups since World War II have traced their origins to the regime military, and an additional 9\% were founded by civilian regime officials. These rebellions have received little attention from scholars, and while some existing theories of civil war onset such as greed theory ({\textbf{???}}) could potentially account for them, many, including theories focusing on ethnic discrimination (e.g.~Cederman, Wimmer, and Min \protect\hyperlink{ref-Cederman2010}{2010}) and protest escalation (e.g.~Pierskalla \protect\hyperlink{ref-Pierskalla2010}{2010}), assume that rebellions originate outside the government. Studying these cases thus offers the possibility of enhancing our understanding of civil war onset.
 
 Another prominent form of regime fragmentation --- coups d'etat --- has been the subject of much scholarship. While most of the existing literature focuses on broader structural conditions affecting coup risk, some identify a connection between protests and coup occurrence (Casper and Tyson \protect\hyperlink{ref-Casper2014}{2014}; Johnson and Thyne \protect\hyperlink{ref-Johnson2018}{2018}). Hendrix and Salehyan (\protect\hyperlink{ref-Hendrix2017}{2017}) consider the government's response to protests, finding that the possibility of regime fragmentation often deters the use of repression. Yet, fragmentation does occur, suggesting the need for further research analyzing fragmentation as a dependent variable. Additionally, deterrence effects create the possibility of endogeneity, but existing studies have not fully corrected for this concern. This study advances the literature on coups and repression by making coups a dependent variable, by accounting for the possibility of endogeneity through the use of an instrumental variable, and by examining a wider set of cases than previous studies.
 
@@ -142,6 +132,8 @@ I proceed with a review of the literature on regime fragmentation, including cou
 Few scholars have examined the phenomenon of rebel groups emerging from the regime military. However, several similar processes have been explored in the literature. Albrecht and Koehler (\protect\hyperlink{ref-Albrecht2018}{2018}) distinguish between atomized and collective
 
 In this section I review these concepts and discuss their relation to military rebellion.
+
+Castillo views these as a spectrum, whereas others like Singh view them as largely distinct processes.
 
 \hypertarget{rebellion}{%
 \subsection{Rebellion}\label{rebellion}}
@@ -159,7 +151,7 @@ These definitions of rebellion do not preclude the possibility of such groups em
   But doesn't account for action outside the regime.
 \end{itemize}
 
-Scholarly definitions of coups d'état often explicitly exclude revolts that occur outside existing military structures. For instance, Powell and Thyne (\protect\hyperlink{ref-Powell2011}{2011}, 252) define coups as ``illegal and overt attempts by the military or other elites \emph{within the state apparatus} to unseat the sitting executive {[}emphasis added{]}.'' As such, cases of military rebellion including the Free Syrian Army and M23 are not coded as coups in their widely-used dataset. Similarly, many theories of coups focus on the behavior of military or political elites (e.g. Roessler \protect\hyperlink{ref-Roessler2016}{2016}; Bove and Rivera \protect\hyperlink{ref-Bove2015a}{2015}; Casper and Tyson \protect\hyperlink{ref-Casper2014}{2014}). Many coups, however, are initiated by non-elite members of the military. Singh (\protect\hyperlink{ref-Singh2014}{2014}) distinguishes between coups from the top (military elites), middle (unit commanders), and bottom (enlisted men), finding that coups initiated by lower-ranking military members tend to be motivated by their treatment within the military rather than broader political concerns. While the coups from the bottom in Singh's case studies largely resemble traditional coups in the sense that the plotters attempted to seize control of the existing military apparatus, he hints at the possibility tactical diversity in this category, noting that low-ranking officers lack the ability to divert existing procedures and structures to their cause. Albrecht and Eibl (\protect\hyperlink{ref-Albrecht2018a}{2018}) similarly distinguish between coups attempted by elite and combat officers, finding that the two categories have different causes. Whereas the probability elite officer coups is largely a function of the structure of the regime and military, combat officer coups are associated with societal concerns such as low levels of welfare spending and the absence of political liberalization.
+Scholarly definitions of coups d'état often explicitly exclude revolts that occur outside existing military structures. For instance, Powell and Thyne (\protect\hyperlink{ref-Powell2011}{2011}, 252) define coups as ``illegal and overt attempts by the military or other elites \emph{within the state apparatus} to unseat the sitting executive {[}emphasis added{]}.'' As such, cases of military rebellion including the Free Syrian Army and M23 are not coded as coups in their widely-used dataset. Similarly, many theories of coups focus on the behavior of military or political elites (e.g.~Roessler \protect\hyperlink{ref-Roessler2016}{2016}; Bove and Rivera \protect\hyperlink{ref-Bove2015a}{2015}; Casper and Tyson \protect\hyperlink{ref-Casper2014}{2014}). Many coups, however, are initiated by non-elite members of the military. Singh (\protect\hyperlink{ref-Singh2014}{2014}) distinguishes between coups from the top (military elites), middle (unit commanders), and bottom (enlisted men), finding that coups initiated by lower-ranking military members tend to be motivated by their treatment within the military rather than broader political concerns. While the coups from the bottom in Singh's case studies largely resemble traditional coups in the sense that the plotters attempted to seize control of the existing military apparatus, he hints at the possibility tactical diversity in this category, noting that low-ranking officers lack the ability to divert existing procedures and structures to their cause. Albrecht and Eibl (\protect\hyperlink{ref-Albrecht2018a}{2018}) similarly distinguish between coups attempted by elite and combat officers, finding that the two categories have different causes. Whereas the probability elite officer coups is largely a function of the structure of the regime and military, combat officer coups are associated with societal concerns such as low levels of welfare spending and the absence of political liberalization.
 
 In summary, this literature shows that revolt can come from any level of the military. While these works focus on cases where this dissent manifests in attempts to seize control of the regime from within, they raise the possibility that dissident soldiers, especially those from the lower ranks, could form organizations that challenge the state from the outside. Indeed, Singh (\protect\hyperlink{ref-Singh2014}{2014}) finds that coups typically result from covert organizations of plotters within the military.
 
@@ -190,25 +182,46 @@ Definition - rebellion that is launched primarily by former military members. Th
 \hypertarget{the-sources-of-military-cohesion}{%
 \subsection{The Sources of Military Cohesion}\label{the-sources-of-military-cohesion}}
 
-I conceptualize states as having four categories of tools for producing a compliant military. First, can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service (Lutterbeck \protect\hyperlink{ref-Lutterbeck2013}{2013}; Barany \protect\hyperlink{ref-Barany2011}{2011}). This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population (Bellin \protect\hyperlink{ref-Bellin2012}{2012}). Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall (Heger and Salehyan \protect\hyperlink{ref-Heger2007a}{2007}; McLauchlin \protect\hyperlink{ref-McLauchlin2018}{2018}). Even states with ostensibly inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt (Røislien \protect\hyperlink{ref-Roislien2013}{2013}). Many states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
+I conceptualize states as having four categories of tools for producing a compliant military. First, states can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service (Lutterbeck \protect\hyperlink{ref-Lutterbeck2013}{2013}; Barany \protect\hyperlink{ref-Barany2011}{2011}). This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population (Bellin \protect\hyperlink{ref-Bellin2012}{2012}). Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall (Heger and Salehyan \protect\hyperlink{ref-Heger2007a}{2007}; McLauchlin \protect\hyperlink{ref-McLauchlin2018}{2018}). Even states with nominally inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt (Røislien \protect\hyperlink{ref-Roislien2013}{2013}). Most states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
 
-Second, the promotion of loyalty is typically a core goal of military training and socialization. Militaries deliberately engineer their training programs to maximize feelings of group solidarity, patriotism, and deference to authority. In Rwanda, military recruits (Jowell)
+Second, the promotion of loyalty is typically a core goal of military training and socialization, which states often deliberately engineer to maximize feelings of group solidarity, patriotism, and deference to authority. These techniques can produce cohesion and loyalty even in difficult circumstances. For example, since 1994, the Rwandan military has successfully integrated Hutu and Tutsi soldiers through a political education course known as Ingando that emphasizes pre-colonial ethnic harmony. Subsequently, soldiers from both ethnic groups are sent on joint deployments meant to build trust (Jowell \protect\hyperlink{ref-Jowell2014}{2014}). Training is often an internationalized process as states share best practices with allies. A notable example is the US Army School of the Americas, which brought officers from many Latin American militaries to the US for training in professionalization and a variety of advanced tactics. There is substantial evidence, however, that attending the School of the Americas is associated with human rights abuses (McCoy \protect\hyperlink{ref-McCoy2005a}{2005}). Effective training also promotes military Cohesion by improving combat effectiveness, and in turn reducing the probability of disloyalty in response to battlefield defeat (Castillo \protect\hyperlink{ref-Castillo2014}{2014}).
 
-Some training and lots of socialization tailored to one enemy
+A third, related strategy is the use of normative and symbolic power. States can employ these devices to promote loyalty, but also to deAny legitimacy to potential challengers.
 
-Combine 2-3 - Castillo is basically arguing that national symbols are a source of cohesion
+Castillo book
 
-A third, related strategy is the use of normative and symbolic power. States can employ these devices to promote loyalty, but also to deny legitimacy to potential challengers.
+de Lee pg 13
 
 Lastly, material incentives play a crucial role in controlling the military. These include formal positive inducements such as salary and housing, informal positive inducements such as opportunities to engage in corruption or plunder, and negative sanctions including discharge and corporal punishment.
 
 McLauchlin - these can vary geographically
 
+Jowell - command and control on p 283
+
+Roy - part III - care for military families
+
+de Lee - pg 11-12 - WWI soldiers shot for disobedience
+
 \hypertarget{repressive-shocks-and-military-fragmentation}{%
 \subsection{Repressive Shocks and Military Fragmentation}\label{repressive-shocks-and-military-fragmentation}}
 
+Grewal
+
+Johnson \& Thyne
+
+Morency
+
+Nassif
+
+Bou Nassif
+
+Gal - pg 6 - IDF Col. Geva resigned after being ordered to prepare for unprecedented invasion of Beirut.
+
+Scharpf - commanders who do not share the leader's ideology less likely to carry out repression
+
+Some training and lots of socialization tailored to one enemy
+
 \begin{itemize}
-\tightlist
 \item
   Militaries tend to be good at ensuring compliance for action against existing/long-standing threats.
 
@@ -320,6 +333,7 @@ I make no claim that repression shocks are the only source of military rebellion
 \singlespacing
 
 \hypertarget{refs}{}
+\begin{cslreferences}
 \leavevmode\hypertarget{ref-Abouzeid2011}{}%
 Abouzeid, Rania. 2011. ``The Soldier Who Gave up on Assad to Protect Syria's People.'' \emph{Time}. https://content.time.com/time/world/article/0,8599,2077348,00.html.
 
@@ -344,6 +358,9 @@ Bove, Vincenzo, and Mauricio Rivera. 2015. ``Elite Co-Optation, Repression, and 
 \leavevmode\hypertarget{ref-Casper2014}{}%
 Casper, Brett Allen, and Scott A. Tyson. 2014. ``Popular Protest and Elite Coordination in a Coup d'état.'' \emph{Journal of Politics} 76 (2): 548--64.
 
+\leavevmode\hypertarget{ref-Castillo2014}{}%
+Castillo, Jasen J. 2014. \emph{Endurance and War: The National Sources of Military Cohesion}. 1 edition. Stanford, California: Stanford Security Studies.
+
 \leavevmode\hypertarget{ref-Cederman2010}{}%
 Cederman, Lars-Erik, Andreas Wimmer, and Brian Min. 2010. ``Why Do Ethnic Groups Rebel?: New Data and Analysis.'' \emph{World Politics} 62 (1): 87--98.
 
@@ -356,6 +373,9 @@ Hendrix, Cullen S., and Idean Salehyan. 2017. ``A House Divided: Threat Percepti
 \leavevmode\hypertarget{ref-Johnson2018}{}%
 Johnson, Jaclyn, and Clayton L. Thyne. 2018. ``Squeaky Wheels and Troop Loyalty: How Domestic Protests Influence Coups d'état, 19512005.'' \emph{Journal of Conflict Resolution} 62 (3): 597--625.
 
+\leavevmode\hypertarget{ref-Jowell2014}{}%
+Jowell, Marco. 2014. ``Cohesion Through Socialization: Liberation, Tradition and Modernity in the Forging of the Rwanda Defence Force (RDF).'' \emph{Journal of Eastern African Studies} 8 (2): 278--93.
+
 \leavevmode\hypertarget{ref-Lebovic2009}{}%
 Lebovic, James H., and Erik Voeten. 2009. ``The Cost of Shame: International Organizations and Foreign Aid in the Punishing of Human Rights Violators.'' \emph{Journal of Peace Research} 46 (1): 79--97.
 
@@ -367,6 +387,9 @@ Lutterbeck, Derek. 2013. ``Arab Uprisings, Armed Forces, and CivilMilitary Relat
 
 \leavevmode\hypertarget{ref-Macleod2011}{}%
 Macleod, Hugh, and Annasofie Flamand. 2011. ``Tortured and Killed: Hamza Al-Khateeb, Age 13.'' \emph{Al Jazeera}. https://www.aljazeera.com/indepth/features/2011/05/201153185927813389.html.
+
+\leavevmode\hypertarget{ref-McCoy2005a}{}%
+McCoy, Katherine E. 2005. ``Trained to Torture? The Human Rights Effects of Military Training at the School of the Americas.'' \emph{Latin American Perspectives} 32 (6): 47--64.
 
 \leavevmode\hypertarget{ref-McLauchlin2018}{}%
 McLauchlin, Theodore. 2018. ``The Loyalty Trap: Regime Ethnic Exclusion, Commitment Problems, and Civil War Duration in Syria and Beyond.'' \emph{Security Studies} 27 (2): 296--317.
@@ -388,6 +411,6 @@ Røislien, Hanne Eggen. 2013. ``Religion and Military Conscription: The Case of 
 
 \leavevmode\hypertarget{ref-Singh2014}{}%
 Singh, Naunihal. 2014. \emph{Seizing Power}. Johns Hopkins University Press.
-
+\end{cslreferences}
 
 \end{document}
