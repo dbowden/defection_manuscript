@@ -1,32 +1,24 @@
-# Theoretical Framework
 
-Definition - rebellion that is launched primarily by former military members. This is the key stage in the life cycle (see Lewis 2016). Whether they recruit more broadly later is a separate question.
 
-## The Sources of Military Cohesion
+<!-- Definition - rebellion that is launched primarily by former military members. This is the key stage in the life cycle (see Lewis 2016). Whether they recruit more broadly later is a separate question. -->
 
-I conceptualize states as having four categories of tools for producing a compliant military. First, states can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service [@Lutterbeck2013; @Barany2011]. This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population [@Bellin2012]. Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall [@Heger2007a; @McLauchlin2018]. Even states with nominally inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt [@Roislien2013]. Most states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
+<!-- I argue that military rebellions typically require soldiers to retain loyalty to their unit while turning against the civilian government and often the top military leadership. While it is theoretically p -->
 
-Second, the promotion of loyalty is typically a core goal of military training and socialization, which states often deliberately engineer to maximize feelings of group solidarity, patriotism, and deference to authority. These techniques can produce cohesion and loyalty even in difficult circumstances. For example, since 1994, the Rwandan military has successfully integrated Hutu and Tutsi soldiers through a political education course known as Ingando that emphasizes pre-colonial ethnic harmony. Subsequently, soldiers from both ethnic groups are sent on joint deployments meant to build trust [@Jowell2014]. Effective training also promotes military Cohesion by improving combat effectiveness, and in turn reducing the probability of disloyalty in response to battlefield defeat [@Castillo2014].
+# The Sources of Military Loyalty
+
+I argue that the key factor shaping the probability of military rebellion is the regime's ability to retain the loyalty of its armed forces in the face of emerging threats. States have four broad, non-mutually-exclusive categories of mechanisms through which they can promote loyalty.
+
+First, states can tailor their recruiting processes to select for soldiers who are likely to be loyal. For example, Bahrain has built a military composed almost exclusively of Sunni Muslims, while the majority Shia population is barred from service [@Lutterbeck2013; @Barany2011]. This common sectarian background contributes to cohesion both among soldiers and between the military and the Sunni ruling class, and is a basis for division between soldiers and the predominantly Shia population [@Bellin2012]. Furthermore, stacking the security forces with members of minority ethnic or religious groups induces loyalty through the fear that excluded groups will engage in reprisals should the regime fall [@Heger2007a; @McLauchlin2018]. Even states with nominally inclusive military institutions often reject recruits perceived as having questionable loyalty. For instance, while Israeli law calls for near-universal conscription, in practice, Palestinian Arabs with Israeli citizenship are exempt [@Roislien2013]. Most states also apply screening at the individual level, using interviews or background checks to assess potential disloyalty.
+
+Second, the promotion of loyalty is typically a core goal of military training and socialization, which states often deliberately engineer to maximize feelings of group solidarity, patriotism, and deference to authority. These techniques can produce cohesion and loyalty even in difficult circumstances. For example, since 1994, the Rwandan military has successfully integrated Hutu and Tutsi soldiers through a political education course known as Ingando that emphasizes pre-colonial ethnic harmony. Subsequently, soldiers from both ethnic groups are sent on joint deployments meant to build trust [@Jowell2014]. Small-group loyalty has long been thought to be a crucial determinant of battlefield cohesion [@Shils1948]. Such bonds often result from training, as does a more general sense of distinction from civilian life and professional pride [@Strachan2006]. Effective training also promotes military Cohesion by improving combat effectiveness, and in turn reducing the probability of disloyalty in response to battlefield defeat [@Castillo2014].
 
 <!-- Training is often an internationalized process as states share best practices with allies. A notable example is the US Army School of the Americas, which brought officers from many Latin American militaries to the US for training in professionalization and a variety of advanced tactics. There is substantial evidence, however, that attending the School of the Americas is associated with human rights abuses [@McCoy2005a].  -->
 
-A third, related strategy is the use of normative and symbolic power. States can employ these devices to promote loyalty, but also to deAny legitimacy to potential challengers.
+A third, loyalty strategy is the use of symbolic and ideological power. Nationalist ideology is a powerful force for loyalty in general [@Hobsbawm2012], and its pull is often especially strong within militaries. For example, some attribute the German army's resilience in 1945 to the emphasis on unconditional loyalty to the state found within Nazi ideology. Political indoctrination was also a crucial mechanism of control for the Soviet Union, which went as far as to embed political officers (Comissars) with significant authority in military units [@Castillo2014]. At the individual level, there is evidence that soldiers exposed to more propaganda fought harder [@Barber2019].
 
-Castillo book
+Lastly, material incentives play a crucial role in controlling the military. Desertion and mutiny are typically met with harsh punishments. During World War II, there were numerous examples of disobedient soldiers on both the Allied and Axis sides being executed [@Strachan2006]. Other negative sanctions include imprisonment, non-lethal corporal punishment, demotion, and discharge. States also use positive inducements to retain the loyalty of their soldiers. For example, Britain was able to maintain the loyalty of Indian soldiers during World War II because while much of the country faced famine, soldiers and their families were supplied with adequate food [@Roy2009]. Many states offer soldiers a level of pay and benefits that would be difficult to replace. Soldiers may also receive informal benefits, such as opportunities to engage in plunder.
 
-de Lee pg 13
-
-Lastly, material incentives play a crucial role in controlling the military. These include formal positive inducements such as salary and housing, informal positive inducements such as opportunities to engage in corruption or plunder, and negative sanctions including discharge and corporal punishment.
-
-McLauchlin - these can vary geographically
-
-Jowell - command and control on p 283
-
-Roy - part III - care for military families
-
-de Lee - pg 11-12 - WWI soldiers shot for disobedience
-
-## Repressive Shocks and Military Fragmentation
+# Loyalty and Novel Threats
 
 Grewal
 
@@ -44,6 +36,9 @@ Scharpf - commanders who do not share the leader's ideology less likely to carry
 
 Some training and lots of socialization tailored to one enemy
 
+McLauchlin - command and control can vary geographically
+
+
 - Militaries tend to be good at ensuring compliance for action against existing/long-standing threats.
   - Public support
   - Institutionalization of procedures, culture
@@ -58,7 +53,7 @@ Some training and lots of socialization tailored to one enemy
 
 Sincerity. This effect could be the result of sincere concern for human rights, or the opportunistic use of bad behavior by the regime to claim legitimacy.
 
-McLauchlin's concept of control - predictability could be another determinant. Institutionalized repression is predictable - leadership will aniticipate and prevent many opportunities for defections. The dynamics of repression shocks are much harder to predict.
+McLauchlin's concept of control - predictability could be another determinant. Institutionalized repression is predictable - leadership will anticipate and prevent many opportunities for defections. The dynamics of repression shocks are much harder to predict.
 
 While repressive shocks can create opportunities for defection by undermining the regime's compliance mechanisms, opportunity alone is insufficient for conflict [@Most1989]. If repression is to produce defection, it must also create willingness among soldiers to turn against the regime. I argue that this should in fact occur for a variety of reasons.
 
@@ -68,6 +63,8 @@ While repressive shocks can create opportunities for defection by undermining th
   - Concerns about prosecution from domestic or international courts
   - Concerns about reprisals from rebels, militias, etc.
   - Opportunism - increased odds of obtaining international legitimacy and support
+
+Some novel threats easier to address than others
 
 ## Other Pathways to Military Fragmentation
 
@@ -79,7 +76,7 @@ I make no claim that repression shocks are the only source of military rebellion
   - Competing concerns/political bargains lead to conscription
   - Rough/large terrain
 
-  ## The Form of Military Defection
+# The Form of Military Defection
 
   - Security - maybe punishing deserters incentives collective defection?
   - Incentives

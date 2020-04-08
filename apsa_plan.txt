@@ -1,0 +1,53 @@
+# Framing
+
+- Past work has explored the relationship between protests and coups. But the government has agency, and can respond to these protests with varying degrees of repression. How does the level of repression with which the government responds affect the probability of coups?
+
+# Theory
+
+    - Repression alienates international audiences, which might support or help coordinate coups 
+        - (Thyne & Powell 2016; Finer 1962; Belkin and Schofer 2003; Lindberg and Clark 2008; Huntington 1968; Londergan and Poole 1990) (cited in Johnson and Thyne).
+    - Ethnic ties between mil and victims
+        - Hendrix and Salehyan
+
+
+
+# Analysis
+
+1. Logit/ivprobit models of repression predicting coups
+2. What types of repression matter most?
+    - Genocide
+    - Large scale violent repression
+    - Targeted killings
+    - Torture
+    - Imprisonment
+2. What mechanisms are at work?
+    - International pressure/support
+        - IGO memberships
+        - Alliances with Democracies
+        - Military aid
+        - Theory: coup proofing strategies often depend on foreign aid. Signal of unacceptability. Possibility of support for new regime/rebel group.
+    - Ethnic ties
+        - Add WVS data on strength of ethnic ID
+    - Degree of control
+        - Number of repression events X distance from capital
+        - Mil-mil conflict events
+2. Subanalysis of whether repression of groups represented in military has especially strong effect on coups
+3. Heckman or ivprobit models
+
+
+- contrast between high repression and low repression protest events
+
+- EPR rebel group with mil representation
+
+
+TODO:
+
+- Unpack variation in repression
+    - ID cases that are 2 sd below global yearly mean on latentmean
+    - Look at latentmean components
+- Add data to test international mechanisms
+    - Alliances
+    - Mil aid
+- Add data to test mil centralization
+    - Mil-mil conflict from phoenix
+- IV models

@@ -1,0 +1,78 @@
+# IVs
+
+- Repression shock (look at data on econ, enviro shocks for definitions)
+  - Fariss scores
+    - Change over X years
+    - Lag diff
+  - VDem
+    - Change over X years
+  - NAVCO
+    - Any use of repression within X years
+    - Repression of nonviolent protests within X years
+    - Repression of violent protests within X years
+    - Number of movements
+    - Total participants in all movements
+  - EPR downgrades
+- Repression shocks (pick favorite) interacted with:
+  - Absolute level of human rights at t-1
+  - Level of democracy at t-1
+- Military size shock
+- Paramilitaries/militias/PMCs
+- HR treaties/ICC jurisdiction
+- Distance from capital
+- Ethnic ties between military and repressed. 
+- Coup-proofing ethnic purges a la Roessler.
+
+# Controls
+
+## Significant in Singh
+
+- ~~ln GDPpc (Gleditsch, PWT, Maddison)~~
+- Democracy t-1, quadratic (Unified democracy scores)
+- ~~Presidential system t-1 (Cheibub and Gandhi)~~
+- ~~Military regime t-1 (Cheibub and Gandhi)~~
+- Presidential election t0 (Golder)
+- ~~Cold War t0~~
+- ~~International conflict t-1 (UCDP)~~
+- ~~Domestic conflict t-1 (UCDP)~~
+- ln military budget / GDP t-1 (COW)
+- ln military size / pop t-1 (COW)
+- Past successful coups
+- Past unsuccessful coups
+- ~~ln population~~
+- ~~Regional dummy~~
+
+## Significant in Powell
+
+- ~~Mil spending / soldier (COW)~~
+- ~~Mil personnel (COW)~~
+- ~~Effective number of orgs (Pilster and Bohmelt)~~
+- Paramilitary (Pilster and Bohmelt)
+- Counterbalancing (Belkin and Schofer)
+- Instability (Banks)
+- ~~Democracy (Polity >= 5)~~
+- ~~Authoritarian (Polity <= -5)~~
+- ~~Military regime (Banks)~~
+- Years since coup
+
+## Albrecht and Eibl
+
+(All measured at t-1)
+- ~~Welfare/budget (IMF, Global State Revenue and Expenditure data) [robust]~~
+- ~~Liberalization (Increase in polity) [robust]~~
+- Counterbalancing (Pilster and Bohmelt) [not robust]
+- Resource rents [only significant for elite coups]
+
+## Other Things to Try
+
+- ~~Regime age~~
+- Resources
+- ~~ELF~~
+- ~~Past civil wars~~
+- ~~Past coups~~
+- ~~Recent coups (no more than 6 years ago, Londergan and Poole)~~
+- Time since last civil war/coup
+- ~~Pilster and Bohmelt data~~
+- Mountainous terrain
+- ~~Area~~
+- ~~Regional dummies~~

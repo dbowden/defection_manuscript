@@ -1,0 +1,128 @@
+# Questions
+
+- When do members of the military rebel against the regime?
+- How do former soldiers organize their rebellion?
+
+# Framing
+
+- Civ-Mil scholars focus heavily on internal characteristics, overlooking patterns in the relationship between external environments and defection
+- Civ-Mil scholars focus on specific forms of disloyalty, overlooking obvious examples like FSA
+- Civil war scholars overlook the fact that many of their cases emerge from the regime side
+- While coups have declined, dissent within the military is still quite common. Today it manifests as rebellion rather than coups.
+- More focus on socialization than much of civ-mil lit
+
+# Theory Outline - Institutionalized vs. ad-hoc Repression
+
+- Militaries have three sets of tools for producing a compliant military - recruitment, socialization, and incentives.
+- Militaries tend to be good at ensuring compliance for action against existing/long-standing threats.
+  - Public support
+  - Institutionalization of procedures, culture
+- Militaries tend to be less good at ensuring compliance for action against new threats, especially domestic ones.
+  - Public opposition. In the abstract, repression of fellow citizens unpopular even if public would be supportive of action against actualized dissent.
+  - Prep for pre-existing threats limits capacity for addressing future threats.
+- Several mechanisms could lead to defection:
+  - Sincere humanitarian concerns
+  - Concerns about prosecution from domestic or international courts
+  - Concerns about reprisals from rebels, militias, etc.
+  - Opportunism - increased odds of obtaining international legitimacy and support
+
+  Defection is a function of the regime's preparedness to repress the internal threats it faces. This preparedness in turn is a function of two factors:
+
+  - The novelty of the threat. Governments go to great lengths to recruit and socialize their security forces in such a way that they will carry out orders to fight their enemies of the time. But if the targets of military action change over time, it may be harder for the regime to ensure compliance, particularly if the new targets are domestic civilians.
+  - The volume of targets. Regimes often have certain units that they view as particularly loyal, often the secret police. If the threats to the regime can be handled by these units, the risk of defection should be minimized. But if the threat is large enough that regular military forces must be deployed, the risk of defection increases dramatically.
+
+
+# Hypotheses
+
+- Repression spikes should lead to defection
+  - Increase in level of repression over short period
+  - Repression of specific groups/campaigns
+  - Interaction between spike and previous levels of human rights / democracy
+- External support
+- Militias should decrease defection
+- Ratification of human rights treaties should increase defection, especially if there is training
+- Rapid expansion of the military should increase risk of defection
+
+
+# Other Theory Ideas
+
+- Key questions:
+  - Why rebel?
+  - Why not join with existing rebels?
+  - Why are some militaries content to repress?
+- Scope conditions
+- Potential mechanisms:
+  - Refusal to repress
+    - Soldiers may have enlisted to fight interstate foes, terrorists, existing rebels. They are socialized to dehumanize these entities. Turning their weapons on civilians is not what they signed up for. They haven't been socialized to dehumanize protesters, other civilians.
+    - Civilians in their homes, women, children might be especially likely to trigger this effect. Repression of protesters, rioters might be seen as more legitimate.
+    - How to test:
+      - General human rights data (Fariss, VDem)
+      - NAVCO
+      - ICEWS / SPEED / Phoenix
+    - Dynamic threat environment / repression shocks
+      - A corollary to above. Ceteris paribus, regimes should be reasonably good at coup-proofing and will recruit and train soldiers who will meet existing security needs.
+      - There should be few dissenters against long-standing repressive policies. Newly-implemented repressive policies, however, will largely need to be carried out by soldiers who were recruited for a different purpose.
+      - Institutionalized vs. ad hoc repression
+        - Secondary question - how long does it take for a type of repression to become institutionalized
+      - How to test:
+        - Autocratic changes in Polity
+        - Changes in EPR status
+        - Initiation of NAVCO campaign
+        - Previous interstate wars / rivalries - this might be the focus of recruiting and training.
+  - Signaling and opportunity
+  - Inequality within regime
+    - Rank and status are very explicit within militaries
+    - There are often relatively standard career trajectories
+    - Systematic inequalities will be obvious
+    - How to test?
+      - Thurber and Johnson data - compare representation in military to country demographics
+      - Use societal inequality (EPR, etc.) and assume patterns in military tend to be similar
+    - Identity activation
+    - Physical location - battalions are deployed far from commanders and have greater opportunity to defect
+  - Is there an international mechanism? Expectation that outside states would support a challenger.
+  - Framing: tells us something about the protest-civil war link
+  - Explains variation in Arab Spring
+  - How to account for deterrence effects?
+  - Lag measure
+- Socializing military to repress future domestic threats risks public backlash. For instance, Israel presumably good at preparing mil to repress Palestinians, but do they prep for leftist protests?
+  - Btw, Israel might be a good case study in general. They use conscription, so they must be achieving compliance entirely through socialization and incentives.
+- Does Kuran have relevant work?
+- Expansion of the military - is this more likely after a rapid expansion? Such as during a civil war?
+- Could this be a motive for delegating to militias?
+- The logistics of ensuring compliance could be difficult if the military is not prepared
+- Motive and opportunity - sudden international crises create opportunities for defection, but not motive
+- Militaries prepare for the threats they anticipate - past threats and strategic planning
+- Is preparedness a concept I want to use?
+
+- Other key question - when does this process result in coups, when does it result in rebellion? 
+  - Level in the military
+  - Geographic location
+  - Social structure of coup plotters - do they command entire units, or is support scattered across units?
+  - Key var: who carries out repression? This is why many regimes employ ultra-loyal secret police, rather than uses normal military for this task. And what about paramilitaries?
+  - Patterns over time - regimes have gotten better at coup-proofing, the international environment less supportive of coup plotters
+  - Alternative ways of achieving loyalty - money, power. Finite resources.
+  - Forming a rebellion surrenders legitimacy
+- Does repression of non-violent movements have a stronger effect?
+- Does mil defection lead to reduced repression? Or is there a conscientiousness curse?
+
+
+
+# Working Theory
+
+
+# Case Studies
+
+- Arab Spring - why was there major defection in Syria and Libya, a coup in Egypt, and status quo everywhere else?
+- Myanmar - why did the military relent against Aung San Suu Kyi and pro-democracy protesters, while repressing ethnic minorities without issue?
+- M23
+- Pick some cases on the basis of availability of military handbooks/training materials
+
+# Data Collection
+
+- Did the group's leader serve in the regime military?
+- Did other group members serve in the military?
+- Was the group leader expelled from the military, or did they leave voluntarily?
+- Was there a lag time between serving the regime and forming a rebellion, or did the members move more or less directly to rebellion?
+- In the coup data?
+- From other security forces?
+- From civilian gov?

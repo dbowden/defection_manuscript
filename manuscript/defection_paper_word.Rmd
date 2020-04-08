@@ -1,0 +1,45 @@
+---
+title: "I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces"
+author: "David Bowden"
+date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
+output: word_document
+bibliography: /Users/david/Dropbox/zotero_library.bib
+csl: /Users/david/Zotero/styles/sage-harvard.csl
+documentclass: article
+link-citations: yes
+fontsize: 12pt
+fontfamily: tgpagella
+geometry: margin=1in
+numbersections: false
+toc: false
+abstract: "Recent high-profile examples such as the Free Syrian Army and M23 suggest that when governments violate human rights, they risk spurring resistance within their own security forces. Does repression generally lead to regime coups and rebellions originating from the regime? Under what conditions are we most likely to observe this process? I argue that when governments engage in repression, they tend to lose legitimacy at both the domestic and international levels, increasing the risk of defections from the regime. This risk should be even greater when significant numbers of soldiers share ethnic ties with the individuals being repressed, and when the military has limited centralized control over its members. Using a global sample spanning the years 1946--2013, I find robust evidence that repression is associated with an increased probability of coup attempts, and limited evidence for a link to rebel groups originating from the regime. The ethnic ties hypothesis finds more support than the military centralization prediction. The results add support to previous arguments that internal backlash provides a disincentive for governments to repress."
+---
+
+```{r setup, include=F}
+knitr::opts_chunk$set(echo=F, error=F, message=F, warning=F, cache=T, results='asis', tidy=F)
+options(xtable.comment = FALSE)
+```
+
+\doublespacing
+
+\setlength{\parindent}{1cm}
+
+```{r child='defection_intro.txt'}
+```
+
+```{r child='defection_lit.txt'}
+```
+
+```{r child='defection_theory_sep19.txt'}
+```
+
+# References {-}
+\markboth{REFERENCES}{}
+
+\indent
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing

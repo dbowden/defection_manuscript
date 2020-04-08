@@ -17,6 +17,7 @@ library(haven)
 library(countrycode)
 library(zoo)
 
+
 # 1. Build a frame of country-years ----
 
 library(states)
@@ -231,11 +232,11 @@ cyears$gdpgr_lag <- cyears$gdppc_lag/cyears$gdppc_lag2*100 - 100
 
 # Welfare spending ----
 
-gsre <- read_delim("~/Data/Economics/GSRE_raw_1_0.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+# gsre <- read_delim("~/Data/Economics/GSRE_raw_1_0.csv", ";", escape_double = FALSE, trim_ws = TRUE)
 
-gsre <- select(gsre, gwno_loc=cowcode, year, total_welfare)
+# gsre <- select(gsre, gwno_loc=cowcode, year, total_welfare)
 
-cyears <- left_join(cyears, gsre)
+# cyears <- left_join(cyears, gsre)
 
   
 # WDI data ----

@@ -158,13 +158,13 @@ c18 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_l
 
 c19 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable, data=cyears, family=binomial("logit"))
 
-c20 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + welfg, data=cyears, family=binomial("logit"))
+#c20 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + welfg, data=cyears, family=binomial("logit"))
 
-screenreg(list(c17,c18,c19,c20))
+screenreg(list(c17,c18,c19))
 ```
 
 ```{r}
-c21 <- glm(new_mil ~ theta_diff_lag + total_welfare, data=cyears, family=binomial("logit"))
+#c21 <- glm(new_mil ~ theta_diff_lag + total_welfare, data=cyears, family=binomial("logit"))
 
 c22 <- glm(new_mil ~ theta_diff_lag + oilrents, data=cyears, family=binomial("logit"))
 
@@ -172,7 +172,7 @@ c23 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_l
 
 c24 <- glm(new_mil ~ theta_diff_lag + (polity2_lag>5) + log(gdppc_lag) + gdpgr_lag + (navco_campaigns>0) + durable + region, data=cyears, family=binomial("logit"))
 
-screenreg(list(c21,c22,c23,c24))
+screenreg(list(c22,c23,c24))
 ```
 
 ```{r}

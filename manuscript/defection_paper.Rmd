@@ -6,12 +6,13 @@ author: |
     | davidbow@sas.upenn.edu
 date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
 output:
-     bookdown::pdf_book:
+     bookdown::pdf_document2:
+         pandoc_args: ["-F", "pandoc-crossref"]
          keep_tex: yes
          includes:
              in_header: preamble.tex
 bibliography: /Users/david/Dropbox/zotero_library.bib
-biblio-sytle: apsr
+csl: /Users/david/Zotero/styles/sage-harvard.csl
 documentclass: article
 link-citations: yes
 fontsize: 12pt

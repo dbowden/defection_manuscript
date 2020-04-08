@@ -1,0 +1,254 @@
+# General Lit on Coups
+
+## Singh - Seizing Power
+
+- Why do some coups succeed while others fail?
+- Group of coup plotters is usually small to avoid detection. The outcome is determined by how the rest of the military responds.
+- Findings from field research:
+  - Usual political concerns - performance of government, legitimacy of coup grievances, etc. - not a key consideration.
+  - Desire to place unit on winning side and minimize bloodshed.
+  - Coups are thus coordination games - outcome determined by convergence of beliefs about who will win
+- Challengers from the top (50% of total attempts) usually best positioned to succeed due to their ability to use soft power to create expectation of success.
+- Challengers from the middle (33%) can succeed if they use their hard power to capture symbolic targets and enhance their soft power.
+- Challengers from the bottom (1 of 7 attempts) are least likely to succeed.
+- "a coup attempt is defined as an explicit action, involving some portion of the state military, police, or security forces, undertaken with intent to overthrow the government."
+- Coups from the bottom most likely in countries with small populations, small militaries, presidential systems, mixed (prez/parliament) systems, civilian dictatorships, military dictatorships
+- Coups from bottom:
+  - Mutinies with goal of overthrowing government
+  - Hard to conspire
+  - Often related to military politics
+  - Some hard power (captains might command 200 men), but no soft power
+  - Inability to use established procedure costs them force multiplier of practice (Biddle 2004)
+  - Higher levels of military are threatened, fight back forcefully
+  - Targets include radio, civil symbols of authority, and symbols of military authority - signal to fellow soldiers?
+  - One of the coups from the bottom in Ghana was a comprised from an unusually large training cohort
+  - Corruption, neglect of the military were key motives in most coup plots
+  - Jerry Rawlings rose to fame through a failed coup. Was a secondary player in a successful coup. Then led a coup against that government.
+
+- *Comments*
+  - His main focus is outcomes. Quant chapter on coup occurrence/level is most relevant.
+  - Is coup level really an ordinal variable?
+  - Is coup level mutually-exclusive?
+  - Is repression a source of soft power for coup plotters?
+
+## Albrecht and Eibl - "How to Keep Officers in the Barracks"
+
+- Key argument elite officers and combat officers stage coups for different reasons
+- Nasser's 1952 coup was an example of combat officers rebelling
+- Elites and combat officers have different incentives and opportunities
+  - Elite officers stage coups when their position is threatened, such as by liberalization, and when they can coordinate
+  - Combat officers have direct control of force and can sometimes overpower ruling elites. They are often motivated by the absence of social welfare, rights or liberty.
+- Elite officers - chiefs of staff, command councils, leaders of functional units (army, navy, etc.). Members of authoritarian ruling coalitions.
+  - Use material resources to maintain patronage networks
+  - They also care about the influence of the military relative to their government branches
+  - They care less about personal wealth - they can cash in political status at any time
+  - H1: High levels of military spending relative to other government agencies reduces risk of elite coups
+    - Not robust
+- Combat officers - mid and low level officers. Not members of authoritarian ruling coalition.
+  - Care about equipment and quality of life for subordinates
+  - H2: High levels of military spending per soldier reduce the risk of combat officer coups
+    - Not robust
+  - Combat officers are also not paid well in many states. They thus depend on social welfare programs.
+  - H3: Social spending reduces risk of combat officer coups
+    - Robustly supported
+    - Not related to elite coups
+- Combat officers in Syria had incomes below mean/median
+- Political liberalization creates risks for military elites - less opportunity for corruption, more civilian control
+- H4: Political liberalization increases the risk of elite officer coups
+  - Not robust
+  - But does have a robust negative relationship with combat officer coups
+- The coordination problem is more acute for elites than combat officers. Elites must exercise vertical control. Combat officers simply need to mobilize the forces they already command.
+- H5: Counterbalancing reduces risk of elite coups and has no effect on combat officer coups
+  - Significant in all but one specification
+  - Also reduces combat officer coups - robust
+
+
+
+## Gassebner et al. - "When to Expect a Coup?"
+
+- Extreme bounds analysis - in what % of regression permutations is a variable significant?
+- Relatively robust predictors: GDP growth, previous coup, time since last coup, government crisis, magnitude of civil war, property rights, purges, pop growth, political stability, terror scale, riots
+
+## Roessler - "Ethnic Politics and State Power in Africa"
+
+- Leaders substitute between coup risk and civil war risk.
+- Past lit struggles to explain variation within category of weak states, over time within states that experience civil wars
+- Past lit focuses too much on formal institutions - democracy/autocracy. The key institutions are the bargains between "competing networks of 'violence specialists'" in which they agree to forgo violence in exchange for a share of the rents deriving from control of the state.
+- These elite bargains affect the level of conflict in society more broadly because the elites have networks that extend into the population. They must maintain these networks through patronage, security, social ties, or coercion. These ties act as a substitute for formal state capacity, allowing the government to monitor society, mobilize support, and repress dissent.
+- Cooperative counterinsurgency - national and local actors collaborate to defeat insurgents.
+- Ethnicity tends to be the most potent basis for ties between elites and society. This is because a) colonialism, b) strength of ethnic ties.
+- Key to social stability is then alliances between ethnic elites.
+- EPR project a good step, but leaves a big unanswered question: why would a state exclude ethnic minorities, given the risk?
+- In the colonial period metropoles forced ethnic leaders to cooperate with the state. In the post-colonial era these leaders demand meaningful access to state power. This creates coup risk, as they could potentially mobilize co-ethnics within the regime to seize control.
+  - OAU/AU exacerbated this by recognizing the group that controlled the capital city
+- Commitment problem - rivals can't credibly promise that they aren't joining the ruling coalition to position themselves for a coup attempt
+- Leaders respond by offering limited amounts of power sharing and stacking the security forces with loyalists and co-ethnics. This reduces coup risk, but also the regime's ability to suppress rebellion from excluded groups.
+- As the strength of rival groups increase and so does the possibility of successful rebellion, the calculation becomes more difficult.
+- Power-sharing is self-enforcing only if multiple factions have the ability to impose significant cost (a civil war) on any group that violates the agreement.
+- Key evidence
+  - Sudan as a theory-building case. Uses temporal variation - strong Islamic network in Darfur in early 90s, weak network in early 2000s. In the 90s the National Islamic Front had a strong network that extended to non-Arabs, facilitating cooperative counterinsurgency. Turabi, the leader of the Islamic Movement, had a tacit power-sharing agreement with Bashir at this time. Bashir eventually felt threatened and coup-proofed against him by dissolving the national assembly. Turabi was seen as mobilizing primarily Darfurian Islamists. This led to political grievances in Darfur, severely weakened network ties between the state and the region, and an unwillingness to negotiate with Turabi. Thus, rebellion emerged in Darfur.
+  - Quantitative analysis using EPR. Ethnic groups included in regime less likely to rebel, but more likely to stage coups. Leaders often purge groups from their initial coalition for the purposes of coup-proofing.
+  - Case study of 2nd Congo War. Found through interviews that Kabila expelled Rwandan Patriotic Front out of fear of a coup.
+  - Quant dyadic analysis predicting power sharing. Sharing most likely when both groups are large and located near the capital.
+
+
+## Aidt and Leon - The Coup: Competition for Office in Authoritarian Regimes - Oxford Handbook of Comparative Politics
+
+- They propose a basic expected utility model of coups - is expected benefit X pr(success) > cost of failure X pr(failure)?
+- Over half of states have experienced a coup, but they are concentrated in Africa, Latin America, and the Middle East
+- Coups were less common in the 80s and 90s than in the 60s and 70s
+- Reverse causality between coup risk and coup proofing a major empirical challenge
+- Gassebner et al. perform extreme bounds analysis and find that economic growth, past coups, political violence instability are the robust predictors of coups.
+- Past theories:
+  - Tullock - there is no collective action problem in coups - non-participation in a successful coup will be costly. Thus military members must make a definitive decision based on info available early in coup attempts.
+  - Dictator's dilemma - as their repressive power grows, their access to info decreases. Payoffs are a sign of weakness and are only credible if the threat of revolution is real. Leaders face a limit to the extent to which they can secure their regime. The only solution is institutionalizing transfers to would-be rivals.
+- Coup-proofing
+  - Accommodation - pay and other benefits used to keep military happy
+  - Counterbalancing - honor guards/secret police, division of military into many often competing units, placement of loyalists in key positions, 
+
+## Brooks - "Integrating the Civ-Mil Subfield"
+
+- Coups
+  - Goemans & Marinov - international community pressures leaders of successful coups to hold elections
+  - Albrecht & Eibl - junior officers are more attuned to democratic backsliding
+- Defection
+  - Arab Spring produced variety of outcomes (see Brooks 2017):
+    - Refusal to repress: Tunisia, Egypt
+    - Carried out orders to repress: Bahrain, Syria (really?)
+    - Mixed: Libya, Yemen
+  - Syria's divided security forces choosing to repress is a puzzle (O'Donnel et al. 1986, T. Lee 2015, Morency-Laflamme 2018, McLauchlin 2010, Stacher 2012)
+  - Other work on military responses to protests: Pion-Berlin et al. 2012, Barany 2016, Albrecht and Ohl 2016, McLauchlin & La Parra-Perez 2018, Bellin 2012, Johnson 2017, Grewal 2019, Bou Nassif 2015a, Cortright 2005, Castillo 2014, Shields 2017, Ketchley 2017
+
+## Owens - "Civil-Military Relations" ISA Compendium
+
+- Feaver's civil-military problematique - military needs to be strong enough to secure the state, but can't turn on it
+- Huntington's theory: civ-mil shaped by 3 variables:
+  - Functional imperative - external threat
+  - Societal imperative:
+    - Constitution
+    - Ideology - prevailing worldview of the state
+
+## Others
+
+- Quinlivan - this will be useful for Syria case. Extensive analysis of coup-proofing under Hafez al-Assad.
+- McMahon and Slantchev - good citation for the idea that external threat could deter disloyalty
+
+
+# Conflict, Unrest and Coups
+
+## Bove and Rivera, "Elite Co-optation, Repression, and Coups in Autocracies"
+
+- Focus on repression within ruling elite
+- Normally, autocrats have ways of obtaining info about dissent within the regime. Legislatures are a key source.
+- Repression reduces willingness to express displeasure with the leader.
+
+## Casper and Tyson, "Popular Protest and Elite Coordination in a Coup d'tat"
+
+- Coups are often preceded by protests. Why? Most protests do not lead to coups, and it is unclear why the focal role of protests would solve coordination problems among elites.
+- Formal model shows that 
+    - protest size reduces strategic uncertainty
+    - Protest outcome reveals proportion of elites who would need to coordinate for a coup to succeed
+    - Free media increases alignment of beliefs about regime vulnerability
+- Data:
+    - Press/general freedom: CIRI, Freedom House
+    - Protests: Banks Cross-National Time Series
+    - Coup Attempts: Center for Systemic Peace
+- Empirical results:
+    - Protests reduce Pr of coup in non-free countries
+    - Protest produce modest increase in Pr coup in partly free countries
+    - Protests substantially increase Pr coup in free countries
+
+## Thompson and Thyne, "Squeaky Wheels and Troop Loyalty: How Domestic Protests Influence Coups d'eat, 1951–2005"
+
+- Adds nuance to Casper and Tyson, identifying which protests are most likely to result in Coups
+- Hypotheses:
+    - Protests near the capital more likely to solve elite coordination problems
+    - Nonviolent protests should have stronger effect on likelihood of coups than violent
+- Data:
+    - Protests: SPEED
+    - Coup attempts: their Data
+- Findings:
+    - Protests near capital have larger effect than peripheral ones, though both are positive and significant
+    - Peaceful protests have larger effect than violent ones, though both are positive and significant
+
+# Desertion
+
+## McLauchlin 2014 "Desertion, Terrain, and Control of the Home Front in Civil Wars"
+
+- Desertion driven by a mix of structural incentives and individual motives
+- The military's control of its members varies. It has much less control in rough terrain than elsewhere.
+- A key variable is the military's ability to punish soldiers' families. They have much less ability to do so in rough terrain.
+- Franco's Nationalist rebellion potentially is an example of regime rebellion - drew heavily on junior ranks of the military.
+- Sample of soldiers from Santander province in Spain
+- Multilevel model results for defection:
+  - Conscripts much more likely to defect
+  - Left-wing affiliates much less likely to defect
+  - Curvilinear relationship with date joined
+  - Mining/industrial workers more likely to defect
+  - Students much more likely to defect
+  - Hometown right wing vote share slightly increases defection
+  - Hometown elevation and slope increase defection
+    - Very high prob of defection at the highest elevations - weaker effect for moderate levels
+
+## McLauchlin 2015 "Desertion and Collective Action in Civil Wars"
+
+- 
+
+## Albrecht & Koehler 2018 "Going on the Run: What Drives Military Desertion in Civil War?"
+
+- 50,000-100,000 defections from Syrian army. But mostly atomized - no collective insubordination such as a coup or mutiny.
+- Syrian army is a paradox - mass desertions, but also retained most of its structure and fighting ability.
+- They find that fear associated with the risks of continued service are a key trigger of desertion. Economic and moral grievances are often offered as rationales after the fact, but not likely to motivate desertion.
+
+
+# Mutiny
+
+
+
+## Nepstad "Mutiny and nonviolence in the Arab Spring: Exploring military defections and loyalty in Egypt, Bahrain, and Syria"
+
+- What factors influence the likelihood of military defections during a nonviolent conflict?
+
+
+# Relevant for Theory
+
+## Hendrix and Salehyan "A House Divided: Threat Perception, Military Factionalism, and Repression in Africa"
+
+- Why do governments repress some dissident movements but not others?
+- In general states should be more likely to repress ethnic or religious mobilization, as this is more threatening
+- However, if the ethnic or religious group in question is represented in the regime military, the probability of repression should be much lower. There is a risk of desertion, defection, coups, etc.
+- Data:
+    - Ethnic protest: SCAD protest content
+    - Regime factionalism: SCAD intragovernmental conflict events
+- Findings:
+    - Significant interaction: at low levels of military factionalism, ethnic protests more likely to be repressed. At high levels of factionalism, ethnic protests are less likely to be repressed (relative to political, etc protests)
+
+## Castillo. Endurance and War.
+
+- Cohesion: capacity of a country's armed forces to fight with determination and flexibility, while avoiding collapse in the face of defeat.
+  - Staying power:
+    - Undermined by:
+      - Long wars
+      - Costly wars
+      - Falling probability of victory
+  - Battlefield performance:
+- Lack of cohesion often starts with a lack of obedience (crime, desertion, etc.) among rear/noncombat units (p. 20). More extreme disobedience follows such as mutinies or mass surrenders organized by field officers. Top-level officers could pressure the regime to end the war through refusals to obey orders, coups, etc. (p. 21).
+- Perspectives on cohesion:
+  - Rationalist - material incentives - punishment for noncompliance - key. Imprisonment for refusing service. Soviet blocking formations.
+  - Constructivist - national identity key
+- Castillo's "Cohesion Theory": 2 key dimensions:
+  - Regime control over society
+    - "...amount of loyalty a regime can demand and enforce from the populace."
+    - Mix of ideological appeals and coercion
+    - High degree of control requires an ideology that demands unconditional loyalty and the ability to enforce these norms
+    - Ideologies of loyalty rest on principle that national interests always outweigh individual interests
+  - Autonomy of armed forces in training for warfighting
+    - Training and socialization creates bonds between soldiers, sense of group identity, group loyalty
+    - Also prepares them to be effective on battlefield
+    - Key variation: whether fears of coup undermine training, whether indoctrination takes priority over training, whether domestic divisions infiltrate military
+- Leads to 4 types of militaries:
+  - High regime control, high organizational autonomy: Messianic Militaries.
+    - Highly cohesive for 2 reasons: buy-in to regime ideology, enforcement of ideology on non-believers. Determination and flexibility on battlefield.
+  - High regime control, low organizational autonomy: Authoritarian Militaries. Strong loyalty to regime, but limited effectiveness and flexibility on battlefield due to limits on training (*To me, seems like structure, stability/shuffling more important coup-proofing mechanisms than limiting training*).
+  - Low regime control, high organizational autonomy: Professional Militaries. Strong corporate identity that focuses on role as defender of nation. Strong internal bonds. But troops will begin to question cause in face of adversity.
+  - Low regime control, low autonomy: Apathetic Militaries.

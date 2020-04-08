@@ -1,0 +1,274 @@
+---
+title: "I Didn't Sign Up for This: Repression and the Fragmentation of Regime Forces"
+author: "David Bowden"
+date: "9/2/2018"
+output: 
+  beamer_presentation:
+    theme: "Rochester"
+    includes:
+      in_header: /Users/david/Dropbox/defection_manuscript/manuscript/slide_preamble.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+##
+
+![Free Syrian Army Members](slide_pics/fsa.jpg)
+
+## Questions
+
+- How do regime members respond to orders to repress? 
+- Under what conditions does it lead to regime fragmentation?
+  - Coup attempts
+  - Rebellions founded by regime members
+
+## Framing
+
+- Protests increase coup risk (Casper & Tyson 2014; Johnson & Thyne 2018)
+- Coup risk deters repression (Hendrix & Salehyan 2017)  
+  
+  
+- Internal source of restraint other than democracy
+- Explains large category of political violence (15% of rebel groups)
+
+
+## Theory
+
+- Opportunity: 
+  - Coups more likely when military already mobilized
+  - Exacerbates existing divisions in regime, legitimizes coup plotters
+- Motive:
+  - International pressure decreases private benefits
+  - Incompatibility with reasons for enlisting
+  - Ethnic ties to repression victims
+  
+## Hypotheses
+
+*H1 (General): Repression increases the probability of coup attempts/regime-based rebellion*
+
+*H2 (Motive): Positive interaction between repression and share of military w/ ethnic ties to victims*
+
+*H3 (Opportunity): Positive interaction between repression and level of infighting amongst military factions*
+  
+## Research Design
+  
+  - DV1: Coup attempts (Powell & Thyne 2011)
+  - DV2: Regime-based rebellion (my coding of UCDP rebel groups)
+  - IV1: Repression:
+    - Latent Human Protection Scores (Schnakenberg and Fariss 2014)
+    - NAVCO 2.0 (Chenoweth and Lewis 2013)
+  - IV2: % military from discriminated ethnic group
+    - Secruity Force Ethnicity data (Johnson & Thurber 2017) + EPR (Vogt et al. 2015)
+  - IV3: Military infighting from PHOENIX events data (Althaus et al. 2017)
+  
+## Research Design
+
+Controls: democracy, autocracy, military regime, log GDPpc, log population, civil war  
+  
+  
+Models: fixed-effects logistic regression w/ IVs lagged one year  
+  
+Robustness: instrumental variables probit w/ youth bulge as instrument for repression
+  
+## Results
+
+```{r}
+library(Statamarkdown)
+stataexe <- "/Applications/Stata/StataSE.app/Contents/MacOS/StataSE"
+knitr::opts_chunk$set(engine.path=stataexe)
+```
+
+```{stata table1, collectcode=TRUE, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+xtlogit F.thyne_attempt latentmean autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m1, title(Model 1)
+
+xtlogit F.nsa_milrebel latentmean autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m2, title(Model 2)
+
+xtlogit F.thyne_attempt navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m3, title(Model 3)
+
+xtlogit F.nsa_milrebel navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m4, title(Model 4)
+
+label variable latentmean "Latent Protection Score"
+label variable severe_repress "Low Protection Score"
+label variable navco_repression "NAVCO Repression"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+
+esttab m1 m2 m3 m4 using "slidetable1.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) collabels(none) eqlabels(none) mlabels("Coup" "Rebellion" "Coup" "Rebellion") drop(autoc democ gwf_military log_rgdppc log_pop civil_conflict) label title(\label{tab1} Fixed-Effects Logit Models of the Effect of Repression on Regime Fragmentation) replace
+```
+
+\small
+
+\input{slidetable1.tex}
+
+## Results
+
+```{stata table2, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+xtlogit F.thyne_attempt latentmean rank_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe
+
+estimates store m5, title(Model 5)
+
+xtlogit F.thyne_attempt c.latentmean#c.rank_pc_discriminated latentmean rank_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m6, title(Model 6)
+
+/* margins, dydx(latentmean) at(rank_pc_discriminated=(0(.1)1)) predict(xb)
+marginsplot, ylin(0)
+graph save Graph "/Users/david/Dropbox/defection_manuscript/data/interaction1.gph"
+margins, dydx(rank_pc_discriminated) at(latentmean=(-3(.5)2)) predict(xb)
+marginsplot, ylin(0)
+graph save Graph "/Users/david/Dropbox/defection_manuscript/data/interaction2.gph"
+graph combine "/Users/david/Dropbox/defection_manuscript/data/interaction1.gph" "/Users/david/Dropbox/defection_manuscript/data/interaction2.gph" */
+
+
+
+xtlogit F.nsa_milrebel latentmean rank_pc_discriminated autoc gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m7, title(Model 7)
+
+xtlogit F.nsa_milrebel c.latentmean#c.rank_pc_discriminated latentmean rank_pc_discriminated autoc gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m8, title(Model 8)
+
+label variable rank_pc_discriminated "\% Military Discriminated"
+label variable latentmean "Latent Protection Score"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+
+esttab m6 m5 m8 m7 using  "slidetable2.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean rank_pc_discriminated autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) wrap collabels(none) eqlabels(none) mlabels("Coup" "Coup" "Rebellion" "Rebellion") drop(autoc democ gwf_military log_rgdppc log_pop civil_conflict) label title(\label{tab2} The Effect of Military Ethnic Ties and Repression on Regime Fragmentation) replace
+
+margins, dydx(latentmean) at(rank_pc_discriminated=(0(.1)1)) predict(xb)
+marginsplot, ylin(0)
+```
+
+\small
+
+\input{slidetable2.tex}
+
+## Results
+
+![Marginal Effects of Repression x Military Discrimination Interaction](/Users/david/Dropbox/defection_manuscript/data/interaction1_2_combined.pdf){height=75%}
+
+## Results
+
+```{stata table3, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+xtlogit F.thyne_attempt latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m9, title(Model 9)
+
+xtlogit F.thyne_attempt c.latentmean#c.mil_mil_bin latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m10, title(Model 10)
+
+xtlogit F.nsa_milrebel latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m11, title(Model 11)
+
+xtlogit F.nsa_milrebel c.latentmean#c.mil_mil_bin latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict, fe 
+
+estimates store m12, title(Model 12)
+
+label variable mil_mil_bin "Military Infighting"
+label variable latentmean "Latent Protection Score"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+
+esttab m9 m10 m11 m12 using "slidetable3.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend order(latentmean mil_mil_bin autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) wrap collabels(none) eqlabels(none) mlabels("Coup" "Coup" "Rebellion" "Rebellion") drop(autoc democ gwf_military log_rgdppc log_pop civil_conflict) label title(\label{tab3} The Effect of Military Infighting and Repression on Regime Fragmentation) replace
+```
+
+\small
+
+\input{slidetable3.tex}
+
+## Results
+
+
+```{stata causal, results='hide', engine.path=stataexe}
+use "/Users/david/Dropbox/defection_manuscript/data/apsa_data.dta"
+
+xtset ccode year, yearly
+
+gen lead_thyne_attempt = F.thyne_attempt
+gen lead_nsa_milreb = F.nsa_milrebel
+
+label variable latentmean "Latent Protection Score"
+label variable navco_repression "NAVCO Repression"
+label variable autoc "Autocracy"
+label variable democ "Democracy"
+label variable gwf_military "Military Regime"
+label variable log_rgdppc "log GDPpc"
+label variable log_pop "log Population"
+label variable civil_conflict "Civil Conflict"
+label variable youth_bulge "Youth Bulge"
+
+ivprobit lead_thyne_attempt autoc democ gwf_military log_rgdppc log_pop civil_conflict (latentmean = youth_bulge), vce(cluster ccode)
+
+estimates store c1
+
+ivprobit lead_thyne_attempt autoc democ gwf_military log_rgdppc log_pop civil_conflict (navco_repression = youth_bulge), vce(cluster ccode)
+
+estimates store c2
+
+ivprobit lead_nsa_milreb autoc democ gwf_military log_rgdppc log_pop civil_conflict (latentmean = youth_bulge), vce(cluster ccode)
+
+estimates store c3
+
+esttab c1 c2 c3  using "slidetable4.tex", cells(b(star fmt(%9.2f)) se(par)) stats(N, fmt(%9.0f)) legend drop(athrho: lnsigma: latentmean: navco_repression: autoc democ gwf_military log_rgdppc log_pop civil_conflict) order(latentmean navco_repression autoc democ gwf_military log_rgdppc log_pop civil_conflict) varlabels(_cons Constant) eqlabels(none) collabels(none) mlabels("Coup" "Coup" "Regime Rebellion" "Regime Rebellion") label title(\label{tab4} IV Probit Models of the Effect of Repression on Regime Fragmentation) replace
+```
+
+\small
+
+\input{slidetable4.tex}
+
+## Summary
+
+- Repression robustly correlated with coup attempts, less robustly with regime-based rebellion
+- Some indications that relationship is causal
+- Little evidence for specific mechanisms
+
+## Conclusion
+
+- Cases like FSA common in post-WWII era
+- Repression may be key to link between protest and coups
+- Many regimes have internal disincentive to torture
+
+## Future Work
+
+- More tests of specific mechanisms:
+  - International: sanctions, military aid
+  - Opportunit: spatial location of repression
+- Alternative causal identification strategies
+- Strategic calculations - given the risk of backlash, when/why do states repress?
