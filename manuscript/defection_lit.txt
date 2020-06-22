@@ -1,4 +1,8 @@
+<!-- Goals of this section: relate military rebellion to existing concepts, discuss any findings on those concepts that might be relevant. -->
+
 # Conceptualizing Military Defection
+
+Coups are attempts to take control of the entire state. Mutinies are attempts to take control of the military. Rebellions are attempts to build alternative organization.
 
 Few scholars have examined the phenomenon of rebel groups emerging from the regime military. However, several similar processes have been explored in the literature. @Albrecht2018 distinguish between atomized and collective 
 
@@ -21,9 +25,11 @@ In summary, this literature shows that revolt can come from any level of the mil
 
 ## Mutiny
 
+@Dwyer2017 [p. 4] defines mutinies as "collective revolts by soldiers that are not focused on taking control of the state." 
+
 Nepstad
 
-Book
+
 
 ## Defection
 

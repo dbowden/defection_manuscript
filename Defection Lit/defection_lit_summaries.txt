@@ -203,7 +203,12 @@
 
 # Mutiny
 
+## Dwyer "Soldiers in Revolt"
 
+- [p. 4] defines mutinies as "collective revolts by soldiers that are not focused on taking control of the state." 
+- Mutinies are usually motivated by a combination of material demands and perceived injustice. Often serve as a way of communicating with senior leadership.
+- p5 (quoting Nestor Luanda) mutinies often seek to recreate, rather than destroy hierarchies
+- When are grievances against military leadership severe enough to trigger mutiny? One wave of mutinies coincided with a wave of democratization. 
 
 ## Nepstad "Mutiny and nonviolence in the Arab Spring: Exploring military defections and loyalty in Egypt, Bahrain, and Syria"
 

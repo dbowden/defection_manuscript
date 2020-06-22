@@ -1,0 +1,84 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, cache = TRUE)
+```
+
+The results are presented in Table \ref{tab:models1}.
+
+```{r tab1, results='asis'}
+library(texreg)
+library(finalfit)
+library(tidyverse)
+library(patchwork)
+library(bife)
+
+cyears <- read.csv("may2020data.csv")
+
+cyears$postcw <- ifelse(cyears$year > 1988, 1, 0)
+
+p1 <- glm(new_mil ~ theta_diff_lag + theta_lag + gdpgr_lag + durable + recent_reb +  postcw + ethfrac, data=cyears, family=binomial("logit"))
+
+#p2 <- glm(new_mil ~ theta_diff_lag + theta_lag + gdpgr_lag + durable + recent_reb, data=cyears, family=binomial("logit"))
+
+p2 <- bife(new_mil ~ theta_diff_lag + theta_lag + gdpgr_lag + durable + recent_reb + postcw  | gwno_loc, data=cyears, model="logit")
+
+p3 <- glm(new_mil ~ theta_shock3 + gdpgr_lag + durable + recent_reb + postcw + ethfrac, data=cyears, family=binomial("logit"))
+
+p4 <- glm(new_mil ~ navco_repress_new + gdpgr_lag + durable + recent_reb + postcw + ethfrac, data=cyears, family=binomial("logit"))
+summary(p4)
+
+texreg(list(p1,p2,p3), caption="Predictors of Military Defection", label = "tab:models1")
+```
+
+```{r, include=F}
+pred_data <- data.frame(theta_diff_lag=seq(min(cyears$theta_diff_lag,na.rm=T), max(cyears$theta_lag,na.rm=T), length.out = 100), theta_lag=mean(cyears$theta_lag, na.rm=T), gdpgr_lag=mean(cyears$gdpgr_lag, na.rm=T), durable=mean(cyears$durable, na.rm=T), recent_reb=0, postcw=0, ethfrac=mean(cyears$ethfrac,na.rm=T))
+
+pred1 <- p1 %>% 
+  boot_predict(pred_data, R = 10000, condense = F)
+```
+
+```{r, include=F}
+# pred_data2 <- with(cyears, data.frame(theta_shock3=0:1,
+#                                  gdpgr_lag=mean(gdpgr_lag, na.rm=T),
+#                                  durable=mean(durable, na.rm=T),
+#                                  recent_reb=0,
+#                                  any_non_mil=0))
+# 
+# pred2 <- p2 %>% 
+#   boot_predict(pred_data2, R = 1000, condense = F)
+```
+
+
+```{r}
+#pred_data2 <- data.frame(theta_diff_lag=seq(min(cyears$theta_diff_lag,na.rm=T), max(cyears$theta_lag,na.rm=T), length.out = 100), theta_lag=mean(cyears$theta_lag, na.rm=T), gdpgr_lag=mean(cyears$gdpgr_lag, na.rm=T), durable=mean(cyears$durable, na.rm=T), recent_reb=0)
+
+#pred2 <- p2 %>% 
+  #boot_predict(pred_data2, R = 10000, condense = F)
+```
+
+
+```{r pred1, fig.cap = "Predicted Probability of Military Defection", out.width='100%'}
+p1 <- ggplot(pred1, aes(x=theta_diff_lag, y=estimate, ymin = estimate_conf.low, ymax = estimate_conf.high)) +
+  geom_line() +
+  geom_ribbon(alpha=0.1) +
+  theme_bw()
+
+#p2 <- ggplot(pred2, aes(x=theta_diff_lag, y=estimate, ymin = estimate_conf.low, ymax = estimate_conf.high)) +
+  # geom_line() +
+  # geom_ribbon(alpha=0.1) +
+  # theme_bw()
+
+
+p1 #+ p2
+```
+
+The predicted probability is plotted in Figure \ref{fig:pred1}.
+
+Virtually every case of military defection was preceded by the degradation of human rights.
+
+## Endogeneity
+
+Theoretically, 

@@ -76,3 +76,8 @@
 - Mountainous terrain
 - ~~Area~~
 - ~~Regional dummies~~
+
+# Methods
+
+- Predicted probability plots
+- 

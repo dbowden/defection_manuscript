@@ -32,14 +32,16 @@ screenreg(list(m4,m5,m6,m6b), omit.coef = "gwno_loc")
 ```
 
 ```{r}
-m7 <- glm(new_mil ~ theta_shock3 + factor(civconflict), data=cyears, family=binomial("logit"))
+m7 <- glm(new_mil ~ theta_shock3 + factor(non_mil>0), data=cyears, family=binomial("logit"))
 
-m8 <- glm(new_mil ~ theta_shock5 + factor(civconflict), data=cyears, family=binomial("logit"))
+m8 <- glm(new_mil ~ theta_shock5 + factor(non_mil>0), data=cyears, family=binomial("logit"))
 
-m9 <- glm(new_mil ~ theta_lag + factor(civconflict), data=cyears, family=binomial("logit"))
+m9 <- glm(new_mil ~ theta_lag + factor(non_mil>0), data=cyears, family=binomial("logit"))
 
 screenreg(list(m7,m8,m9))
 ```
+
+There are no cases with a new military rebellion and no non-military rebels
 
 ```{r}
 m10 <- glm(forge_mil ~ theta_shock3, data=cyears, family=binomial("logit"))
@@ -54,11 +56,11 @@ screenreg(list(m10,m11,m12))
 ```{r}
 library(Zelig)
 
-z1 <- zelig(forge_mil ~ theta_shock3 + factor(civconflict), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite = F)
+z1 <- zelig(forge_mil ~ theta_shock3 + (non_mil>0), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite = F)
 
-z2 <- zelig(forge_mil ~ theta_shock5 + factor(civconflict), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite=F)
+z2 <- zelig(forge_mil ~ theta_shock5 + (non_mil>0), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite=F)
 
-z3 <- zelig(forge_mil ~ theta_mean + factor(civconflict), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite=F)
+z3 <- zelig(forge_mil ~ theta_mean + (non_mil>0), data=data.frame(cyears), model="relogit", tau=NULL, bias.correct=TRUE, cite=F)
 
 screenreg(list(z1,z2,z3))
 ```
@@ -66,9 +68,12 @@ screenreg(list(z1,z2,z3))
 ```{r}
 library(pglm)
 
-p1 <- pglm(new_mil ~ lag(theta_shock5), data=cyears, index=c("gwno_loc","year"), family=binomial("logit"), model="pooling")
+p1 <- pglm(new_mil ~ lag(theta_shock3), data=cyears, index=c("gwno_loc","year"), family=binomial("logit"), model="pooling")
+
+p2 <- pglm(new_mil ~ lag(theta_shock5), data=cyears, index=c("gwno_loc","year"), family=binomial("logit"), model="pooling")
 
 summary(p1)
+summary(p2)
 ```
 
 ```{r}
@@ -291,5 +296,25 @@ library(bife)
 fe2 <- bife(new_mil ~ theta_diff_lag +  gdpgr_lag + factor(any_navco) + durable + factor(recent_reb) + factor(any_non_mil) | gwno_loc, data=cyears, model="logit")
 
 summary(fe2)
+```
+
+# WFE
+
+```{r}
+lm1 <- lm(new_mil ~ theta_diff_lag +  gdpgr_lag + factor(any_navco) + durable + factor(recent_reb) + factor(any_non_mil) + factor(gwno_loc) -1, data=cyears)
+
+lm2 <- lm(new_mil ~ theta_diff_lag +  gdpgr_lag + (navco_campaigns>0) + durable + recent_reb + factor(gwno_loc) -1, data=cyears)
+
+lm3 <- lm(new_mil ~ theta_shock3 +  gdpgr_lag + (navco_campaigns>0) + durable + recent_reb + factor(gwno_loc) -1, data=cyears)
+
+screenreg(list(lm1,lm2,lm3), omit.coef = "gwno_loc")
+```
+
+```{r}
+p1 <- glm(thyne_attempt ~ theta_shock3 + gdpgr_lag + durable + recent_coup + effectivenumber + factor(gwno_loc) -1, data=cyears, family=binomial("probit"))
+
+p2 <- glm(thyne_attempt ~ theta_diff_lag + gdpgr_lag + durable + recent_coup + effectivenumber + factor(gwno_loc) -1, data=cyears, family=binomial("probit"))
+
+screenreg(list(p1,p2), omit.coef = "gwno_loc")
 ```
 

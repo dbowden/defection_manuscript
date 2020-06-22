@@ -16,7 +16,7 @@ Second, the promotion of loyalty is typically a core goal of military training a
 
 A third, loyalty strategy is the use of symbolic and ideological power. Nationalist ideology is a powerful force for loyalty in general [@Hobsbawm2012], and its pull is often especially strong within militaries. For example, some attribute the German army's resilience in 1945 to the emphasis on unconditional loyalty to the state found within Nazi ideology. Political indoctrination was also a crucial mechanism of control for the Soviet Union, which went as far as to embed political officers (Comissars) with significant authority in military units [@Castillo2014]. At the individual level, there is evidence that soldiers exposed to more propaganda fought harder [@Barber2019].
 
-Lastly, material incentives play a crucial role in controlling the military. Desertion and mutiny are typically met with harsh punishments. During World War II, there were numerous examples of disobedient soldiers on both the Allied and Axis sides being executed [@Strachan2006]. Other negative sanctions include imprisonment, non-lethal corporal punishment, demotion, and discharge. States also use positive inducements to retain the loyalty of their soldiers. For example, Britain was able to maintain the loyalty of Indian soldiers during World War II because while much of the country faced famine, soldiers and their families were supplied with adequate food [@Roy2009]. Many states offer soldiers a level of pay and benefits that would be difficult to replace. Soldiers may also receive informal benefits, such as opportunities to engage in plunder.
+Lastly, material incentives play a crucial role in controlling the military. Desertion and mutiny are typically met with harsh punishments. During World War II, there were numerous examples of disobedient soldiers on both the Allied and Axis sides being executed [@Strachan2006]. 66 mutineers were exected in Nigeria in 2014 [@Dwyer2017]. Other negative sanctions include imprisonment, non-lethal corporal punishment, demotion, and discharge. States also use positive inducements to retain the loyalty of their soldiers. For example, Britain was able to maintain the loyalty of Indian soldiers during World War II because while much of the country faced famine, soldiers and their families were supplied with adequate food [@Roy2009]. Many states offer soldiers a level of pay and benefits that would be difficult to replace. Soldiers may also receive informal benefits, such as opportunities to engage in plunder.
 
 # Loyalty and Novel Threats
 
@@ -82,3 +82,10 @@ I make no claim that repression shocks are the only source of military rebellion
   - Incentives
   - Coup-proofing
   - Geographic location
+
+# Hypotheses
+
+- Repressive shocks should increase the probability of military rebellion
+- Repressive shocks should be most likely to produce military rebellion in states that were previously respectful of human rights in absolute terms
+- Repression in the outlying regions of the country will be more likely to result in military rebellion than repression deployed near the capital
+- Military rebellions should be more respectful of human rights than other types of rebel groups
